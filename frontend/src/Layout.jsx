@@ -7,21 +7,20 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 const Layout = () => {
   return (
     <>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="main-navbar">
       <Container>
-        <Navbar.Brand href="#home">E-commerce</Navbar.Brand>
+        <Navbar.Brand href="#home">📽️ CineMania</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="home">Home</Nav.Link>
-            <Nav.Link as={Link} to="totalbook">Catagories</Nav.Link>
+            <Nav.Link as={Link} to="categories">Categories</Nav.Link>
             <Nav.Link as={Link} to="login">Login</Nav.Link>
             <Nav.Link as={Link} to="registration">Registration</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
-    </Navbar>
-    <Outlet />
+    </Navbar><Outlet />
 
     <hr />
 

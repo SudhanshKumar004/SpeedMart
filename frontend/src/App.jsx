@@ -6,7 +6,7 @@ import Login from './pages/Login'
 import Registration from './pages/Registration'
 import Bookings from './pages/Bookings'
 import Admin from './pages/Admin'
-import TotalBookings from './pages/TotalBookings'
+import Categories from './pages/Categories'
 const App = () => {
   return (
     <>
@@ -19,7 +19,7 @@ const App = () => {
         <Route path='registration' element={<Registration />} />
         <Route path='booking' element={<Bookings />} />
         <Route path='admin' element={<Admin />} />
-        <Route path='totalbook' element={<TotalBookings />} />
+        <Route path='categories' element={<Categories/>} />
         </Route>
       </Routes>
       </BrowserRouter>

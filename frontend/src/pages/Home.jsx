@@ -1,71 +1,32 @@
-import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import '../css/Home.css'
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { useNavigate } from 'react-router-dom';
 
-
-const Home = () => {
-
-
-  const nav = useNavigate();
-
-  const handlenav=()=>{
-    nav("/registration")
-  }
+const MovieCarousel = () => {
   return (
-    <>
-      <div id="carouselExample" class="carousel slide">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="" class="d-block w-100" alt="..." />
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-<hr />
-<div className="cards">
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="" />
-      <Card.Body>
-        <Card.Title>Products</Card.Title>
-        <Card.Text>
-          Mobile
-        </Card.Text>
-        <Button variant="primary" onClick={handlenav}>Buy Now</Button>
-      </Card.Body>
-    </Card>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="" />
-      <Card.Body>
-        <Card.Title>Products</Card.Title>
-        <Card.Text>
-          Mobile
-        </Card.Text>
-        <Button variant="primary" onClick={handlenav}>Buy Now</Button>
-      </Card.Body>
-    </Card>
-<Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="" />
-      <Card.Body>
-        <Card.Title>Products</Card.Title>
-        <Card.Text>
-          Mobile
-        </Card.Text>
-        <Button variant="primary" onClick={handlenav}>Buy Now</Button>
-      </Card.Body>
-    </Card>
+    <Carousel className="movie-carousel">
+      <Carousel.Item>
+        <img
+          className="d-block w-100 zoom-in"
+          src="https://m.media-amazon.com/images/I/71XlLHgkLFL.jpg"
+          alt="Movie 1"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 zoom-in"
+          src="https://wallpapercave.com/wp/wp10387943.jpg"
+          alt="Movie 2"
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100 zoom-in"
+          src="https://www.tallengestore.com/cdn/shop/products/Jurassic_Park_-_Tallenge_Hollywood_Movie_Poster_Collection_745d5009-8298-4bf9-9efa-fd77fd18131a.jpg?v=1577693343"
+          alt="Movie 3"
+        />
+      </Carousel.Item>
+    </Carousel>
+  );
+};
 
-    </div>
-    </>
-  )
-}
-export default Home
+export default MovieCarousel;

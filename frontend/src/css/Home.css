@@ -1,6 +1,21 @@
-.cards
-{
-    display:grid;
-    grid-template-columns: auto auto auto;
-    justify-content: space-evenly;
+img{
+    width: 100%;
+    height: 100vh;
+}
+
+.hero-title{
+    font-size: 150px;
+}
+
+/* Zoom-in Animation */
+@keyframes zoomIn {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+.zoom-in {
+  animation: zoomIn 3s ease-in-out;
 }
