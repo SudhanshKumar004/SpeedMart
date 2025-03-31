@@ -1,21 +1,47 @@
-img{
-    width: 100%;
-    height: 100vh;
+/* Video Container */
+.vcontainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero-title{
-    font-size: 150px;
+/* Background Video */
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
 }
 
-/* Zoom-in Animation */
-@keyframes zoomIn {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.1);
-  }
+/* Hero Title Styling */
+.heroTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px 40px;
+  border-radius: 10px;
 }
-.zoom-in {
-  animation: zoomIn 3s ease-in-out;
+
+.heroTitle h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.heroTitle p {
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: #dddddd;
+  font-weight: 400;
+  margin-top: 10px;
 }

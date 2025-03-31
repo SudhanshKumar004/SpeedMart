@@ -4,7 +4,58 @@
 }
 
 
+.top-navbar {
+  background-color: #050529;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border: 2px solid #4A2574;
+}
 
+.main-navbar {
+  background-color: #4A2574;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.main-navbar .navbar-brand {
+  font-size: 46px;
+  font-weight: bold;
+  color: #ffcc00;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.main-navbar .navbar-brand:hover {
+  color: #ffd633;
+}
+
+.main-navbar .navbar-nav .nav-link {
+  color: white;
+  font-size: 20px; 
+  padding: 12px 18px; 
+  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.main-navbar .navbar-nav .nav-link:hover {
+  color: #ffcc00;
+  transform: scale(1.1);
+}
+
+.main-navbar .navbar-toggler {
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.main-navbar .navbar-toggler:focus {
+  box-shadow: none;
+}
 .footer {
     background-color: #191736;
     color: white;
@@ -37,43 +88,6 @@
 
 .footer-links a:hover {
     color: #dff6ff;
-}
-
-.main-navbar {
-  background: url('https://wallpapercave.com/wp/wp1946074.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position:0px -180px;
-  height: 80px; 
-  border-bottom: 2px solid cornflowerblue; 
-  padding: 60px;
-  text-align: center;
-}
-
-.main-navbar .navbar-brand {
-  color: #ffcc00 !important; 
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.main-navbar .nav-link {
-  color:cadetblue !important; 
-  font-size: 1.8rem;
-  font-family:cursive; 
-  transition: color 0.3s ease-in-out;
-  letter-spacing: 2px;
-}
-
-.main-navbar .nav-link:hover {
-  color: #ff0000 !important; /* Red hover effect for main */
-  text-shadow: 0 0 10px #ff0000; /* Glow effect */
-}
-
-/* Navbar Toggle Button */
-.main-navbar .navbar-toggler {
-  border-color: #ffcc00;
 }
 
 

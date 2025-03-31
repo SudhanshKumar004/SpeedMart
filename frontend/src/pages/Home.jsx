@@ -1,32 +1,17 @@
-import Carousel from 'react-bootstrap/Carousel';
-import '../css/Home.css'
+import React from 'react';
+import '../css/Home.css' 
 
-const MovieCarousel = () => {
+const Home = () => {
   return (
-    <Carousel className="movie-carousel">
-      <Carousel.Item>
-        <img
-          className="d-block w-100 zoom-in"
-          src="https://m.media-amazon.com/images/I/71XlLHgkLFL.jpg"
-          alt="Movie 1"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100 zoom-in"
-          src="https://wallpapercave.com/wp/wp10387943.jpg"
-          alt="Movie 2"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100 zoom-in"
-          src="https://www.tallengestore.com/cdn/shop/products/Jurassic_Park_-_Tallenge_Hollywood_Movie_Poster_Collection_745d5009-8298-4bf9-9efa-fd77fd18131a.jpg?v=1577693343"
-          alt="Movie 3"
-        />
-      </Carousel.Item>
-    </Carousel>
+    <div className="vcontainer">
+      <video autoPlay loop muted playsInline className="backgroundVideo">
+        <source src="https://videos.pexels.com/video-files/853958/853958-hd_1920_1080_30fps.mp4" type="video/mp4" /></video>
+      <div className="heroTitle">
+        <h1>SHOE-VERSE</h1>
+        <p>Your Own University Of Shoes</p>
+      </div>
+    </div>
   );
 };
 
-export default MovieCarousel;
+export default Home;
