@@ -1,104 +1,136 @@
-.top-container{
-    display: flex;
-    align-items: center;
+body {
+    background-color: #000000;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
 }
 
-
 .top-navbar {
-  background-color: #050529;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border: 2px solid #4A2574;
+    background-color: #76A787;
+    color: #2b2d42;
+    font-weight: bolder;
+    padding: 15px 0;
+    border-bottom: 3px solid #76A787; 
+    font-size: 30px;
+    text-align: end;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .main-navbar {
-  background-color: #4A2574;
-  padding: 10px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 2;
+    background: linear-gradient(90deg, #31393C,#4a4e69); 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    border-bottom: 5px solid #76A787;
+    padding: 0;
 }
 
 .main-navbar .navbar-brand {
-  font-size: 46px;
-  font-weight: bold;
-  color: #ffcc00;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease-in-out;
+    font-size: 49px;
+    font-weight: 800;
+    color: #ffffff;
+    transition: color 0.3s ease-in-out;
 }
 
 .main-navbar .navbar-brand:hover {
-  color: #ffd633;
+    color: #76A787;
 }
 
 .main-navbar .navbar-nav .nav-link {
-  color: white;
-  font-size: 20px; 
-  padding: 12px 18px; 
-  transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    color: white;
+    font-size: 25px; 
+    padding: 12px 18px; 
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: bold;
 }
 
 .main-navbar .navbar-nav .nav-link:hover {
-  color: #ffcc00;
-  transform: scale(1.1);
+    color: #76A787;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px #76A787;
 }
 
 .main-navbar .navbar-toggler {
-  border: none;
-  background: transparent;
-  outline: none;
+    border: 2px solid white;
+    background: transparent;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .main-navbar .navbar-toggler:focus {
-  box-shadow: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
 .footer {
-    background-color: #191736;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    font-size: 1rem;
+  background-color: #2b2d42;
+  color: white;
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 15px;
+  margin-bottom: 30px;
 }
 
 .footer-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .footer-links a:hover {
-    color: #dff6ff;
+  color: #ef233c;
+}
+
+.footer-extra {
+  margin: 20px 0;
+}
+
+.footer-extra p {
+  margin-bottom: 10px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-quick-links {
+  margin-top: 30px;
+}
+
+.footer-quick-links p {
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer-quick-nav p {
+  color: white;
+  margin: 5px 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-quick-nav p:hover {
+  color: #ef233c;
 }
 
 
-
-body {
-    background-color: #f0f0f0; 
-    font-family: Arial, sans-serif;
-}
-
+/* Registration Form */
 .reg-head {
-    color: teal;
+    color: #2b2d42;
     font-size: 2rem;
     margin-bottom: 20px;
 }
@@ -109,30 +141,30 @@ body {
     background-color: #ffffff;
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .reg-form .form-label {
     font-weight: bold;
-    color: #333;
+    color: #222;
 }
 
 .reg-form .form-control {
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #bbb;
     padding: 10px;
     font-size: 1rem;
 }
 
 .reg-form .form-control:focus {
-    border-color: teal;
-    box-shadow: 0 0 5px rgba(0, 128, 128, 0.5);
+    border-color: #2b2d42;
+    box-shadow: 0 0 5px rgba(43, 45, 66, 0.5);
 }
 
 .reg-form button {
-    background-color: teal;
+    background-color: #2b2d42;
     border: none;
-    padding: 10px 15px;
+    padding: 12px 18px;
     font-size: 1rem;
     color: white;
     border-radius: 5px;
@@ -142,10 +174,10 @@ body {
 }
 
 .reg-form button:hover {
-    background-color: darkcyan;
+    background-color: #4a4e69;
 }
 
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .footer {
         font-size: 0.9rem;
@@ -153,16 +185,17 @@ body {
 
     .footer-links {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
 
-     .navbar-nav {
+    .navbar-nav {
         text-align: center;
     }
     
     .navbar-nav .nav-link {
         margin: 5px 0;
     }
+    
     .table {
         width: 100%;
         font-size: 0.9rem;
@@ -172,6 +205,3 @@ body {
         font-size: 1.5rem;
     }
 }
-
-
-

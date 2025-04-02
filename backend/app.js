@@ -4,7 +4,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 require("dotenv").config();
-const userRoute = require("./routes/userRoute")
+const adminRoute = require("./routes/adminRoute")
 
 const PORT = process.env.PORT || 8000;
 
@@ -20,7 +20,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-app.use("/user", userRoute)
+app.use("/admin" , adminRoute)
+
+
 app.listen(PORT, ()=>{
     console.log(`Server Running on Port ${PORT}`);
     
