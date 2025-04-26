@@ -7,6 +7,10 @@ import Registration from './pages/Registration'
 import Bookings from './pages/Bookings'
 import Admin from './pages/Admin'
 import Categories from './pages/Categories'
+import AdminDashboard from './admin/AdminDashboard'
+import AddProduct from './admin/AddProduct'
+import ManageProduct from './admin/ManageProduct'
+import Orders from './admin/Orders'
 const App = () => {
   return (
     <>
@@ -14,13 +18,23 @@ const App = () => {
       <Routes>
 
         <Route path='/' element={<Layout />} >
-        <Route path='home' element={<Home />} />
-        <Route path='login' element={<Login />} />
-        <Route path='registration' element={<Registration />} />
-        <Route path='booking' element={<Bookings />} />
-        <Route path='admin' element={<Admin />} />
-        <Route path='categories' element={<Categories/>} />
+          <Route path='home' element={<Home />} />
+          <Route index element={<Home />} />
+          <Route path='login' element={<Login />} />
+          <Route path='registration' element={<Registration />} />
+          <Route path='booking' element={<Bookings />} />
+          <Route path='admin' element={<Admin />} />
+          <Route path='categories' element={<Categories/>} />
         </Route>
+      </Routes>
+
+      <Routes>
+        <Route path='admindashboard' element={<AdminDashboard />} >
+          <Route path='addproduct' element={<AddProduct />} />
+          <Route path='manageproduct' element={<ManageProduct />} />
+          <Route path='orders' element={<Orders />} />
+        </Route>
+
       </Routes>
       </BrowserRouter>
     </>

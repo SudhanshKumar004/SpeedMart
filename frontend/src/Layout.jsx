@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -26,6 +26,8 @@ const Layout = () => {
   const [adminid, setAdminid]= useState("");
    const [password, setPassword]= useState("");
 
+   const nav = useNavigate();
+
   const handleSubmit=async(e)=>{
      e.preventDefault();
      
@@ -35,10 +37,10 @@ const Layout = () => {
         console.log(response);
         alert(response.data.msg);
         setShow(false);
-        // localStorage.setItem("admin", response.data.Admin.name);
-        // navigate("/admindashboard");
+        localStorage.setItem("admin", response.data.Admin.name);
+        nav("/admindashboard");
      } catch (error) {
-        messageApi.error(error.response.data.msg);
+        console.log(error.response.data.msg);
      }
     }
 

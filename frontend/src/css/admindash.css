@@ -1,0 +1,112 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color:#38a169;
+}
+
+.dashboard-container {
+  display: flex;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #2d3748;
+  color: white;
+  min-height: 100vh;
+  padding: 20px;
+  position: fixed;
+}
+
+.sidebar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav a {
+  color: white;
+  text-decoration: none;
+  margin-bottom: 20px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.sidebar-nav a:hover {
+  color: #38b2ac;
+}
+
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+}
+
+.navbar {
+  height: 70px;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar-user {
+  font-size: 16px;
+}
+
+.cards-container {
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: #f7fafc;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Card Colors */
+.teal {
+  background-color: #e6fffa;
+  color: #319795;
+}
+
+.blue {
+  background-color: #ebf8ff;
+  color: #3182ce;
+}
+
+.green {
+  background-color: #f0fff4;
+  color: #38a169;
+}
+
+.purple {
+  background-color: #faf5ff;
+  color: #805ad5;
+}
