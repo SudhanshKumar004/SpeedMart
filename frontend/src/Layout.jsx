@@ -11,7 +11,7 @@ import Button from 'react-bootstrap/Button';
 import API_URL from './config/BaseURL';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
-
+import './css/model.css'
 
 
 
@@ -49,6 +49,8 @@ const Layout = () => {
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Admin Login</Modal.Title>
+          <Modal.Title>Authorized Access Only⚠️</Modal.Title>
+          
         </Modal.Header>
         <Modal.Body>
 
@@ -70,14 +72,6 @@ const Layout = () => {
     </Form>
 
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
       </Modal>
     <div className="top-navbar">
         <h4 className="navbar-quote">Your Perfect Pair Awaits - Browse Our Collection Now!</h4>

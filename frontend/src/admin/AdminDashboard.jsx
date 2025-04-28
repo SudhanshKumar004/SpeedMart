@@ -1,8 +1,15 @@
 import React from "react";
 import "../css/admindash.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
 function AdminDashboard() {
+
+    const nav = useNavigate();
+    const logout = () =>{
+        localStorage.clear();
+        nav("/home");
+        alert("Logout Successfull");
+    }
   return (
     <div className="dashboard-container">
       <div className="sidebar">
@@ -17,13 +24,14 @@ function AdminDashboard() {
       </div>
 
       <div className="main-content">
-        {/* Navbar */}
+
         <div className="navbar">
           <h1 className="navbar-title">Admin Dashboard</h1>
-          <div className="navbar-user">Admin</div>
+          <div className="navbar-user">Welcome : {localStorage.getItem("admin")}👨🏻‍💻</div>
+          <button onClick={logout}>Logout🚪</button>
         </div>
 
-        {/* Dashboard Cards */}
+
        <Outlet />
       </div>
     </div>
