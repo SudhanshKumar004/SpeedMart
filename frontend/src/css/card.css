@@ -1,0 +1,79 @@
+.product-card {
+  width: 22rem;
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  margin: 30px;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: scale(1.015);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  transform: scale(1.2);
+  transition: transform 0.6s ease-in-out;
+}
+
+.product-card:hover img {
+  transform: scale(1);
+}
+
+.product-card .card-body {
+  padding: 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.product-card .card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 12px;
+}
+
+.product-card .card-text h4 {
+  font-size: 1rem;
+  color: #4e4e4e;
+  margin: 5px 0;
+}
+
+.product-card .card-text h2 {
+  font-size: 1.3rem;
+  color: #0f7b6c;
+  margin-top: 10px;
+}
+
+.product-card button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0f4c75;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 15px;
+  box-shadow: 0 4px 15px rgba(15, 76, 117, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.product-card button:hover {
+  background-color: #073b4c;
+  box-shadow: 0 6px 25px rgba(15, 76, 117, 0.4);
+  transform: translateY(-2px);
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-evenly;
+    width: 100%;
+}

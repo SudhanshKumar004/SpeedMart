@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import API_URL from '../config/BaseURL';
+import axios from 'axios';
 
 const AddProduct = () => {
 
@@ -19,6 +21,35 @@ const AddProduct = () => {
         setImage(e.target.files);
         console.log(image);
     }
+
+    const handleSubmit =async(e)=>{
+        e.preventDefault();
+        let api = `${API_URL}/admin/addproduct`;
+        const formData = new FormData();
+        for(let key in input)
+        {
+            formData.append(key, input[key]);
+        }
+
+        for(let i = 0;i<image.length;i++)
+        {
+            formData.append("images", image[i]);
+        }
+
+        try {
+         const response = await axios.post(api, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+         });
+         alert(response.data);  
+        }
+        catch (error) {
+            console.log(error);
+            
+        }
+    }
+
   return (
     <>
       <Form>
@@ -68,7 +99,7 @@ const AddProduct = () => {
         <Form.Control type="file" placeholder="Enter Product Image" multiple onChange={handleImage} />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
     </Form>
