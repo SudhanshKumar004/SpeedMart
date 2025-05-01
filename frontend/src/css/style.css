@@ -17,6 +17,10 @@ body {
     justify-content: space-between;
 }
 
+.nav-icons span{
+    padding-right:28px;
+}
+
 .main-navbar {
     background: linear-gradient(90deg, #31393C,#4a4e69); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);

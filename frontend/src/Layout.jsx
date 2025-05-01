@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { FaHome, FaListAlt, FaUser, FaSignInAlt } from 'react-icons/fa';
 import { RiAdminFill } from "react-icons/ri";
+import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -12,6 +13,7 @@ import API_URL from './config/BaseURL';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import './css/model.css'
+import { useSelector } from 'react-redux';
 
 
 
@@ -24,9 +26,11 @@ const Layout = () => {
   const handleShow = () => setShow(true);
 
   const [adminid, setAdminid]= useState("");
-   const [password, setPassword]= useState("");
+  const [password, setPassword]= useState("");
 
-   const nav = useNavigate();
+  const nav = useNavigate();
+  const Products = useSelector(state => state.myCart.cartItems);
+  const prolength = Products.length;
 
   const handleSubmit=async(e)=>{
      e.preventDefault();
@@ -75,7 +79,10 @@ const Layout = () => {
       </Modal>
     <div className="top-navbar">
         <h4 className="navbar-quote">Your Perfect Pair Awaits - Browse Our Collection Now!</h4>
-        <RiAdminFill className="admin-icon" size={30} onClick={handleShow} />
+        <div className='nav-icons'>
+       <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} /> {prolength}</span> 
+        <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
+        </div>
       </div>
       
       <Navbar expand="lg" className="main-navbar">

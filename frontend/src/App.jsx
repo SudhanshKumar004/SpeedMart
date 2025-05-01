@@ -8,6 +8,8 @@ import AdminDashboard from './admin/AdminDashboard'
 import AddProduct from './admin/AddProduct'
 import ManageProduct from './admin/ManageProduct'
 import Orders from './admin/Orders'
+import Cart from './pages/Cart'
+import Checkout from './pages/Checkout'
 const App = () => {
   return (
     <>
@@ -19,6 +21,8 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path='login' element={<Login />} />
           <Route path='registration' element={<Registration />} />
+          <Route path='cart' element={<Cart />} /> 
+          <Route path='checkout' element={<Checkout />} />
         </Route>
       </Routes>
 

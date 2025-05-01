@@ -7,10 +7,13 @@ import API_URL from '../config/BaseURL';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import '../css/card.css';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../CartSlice';
 
 const Home = () => {
 
   const [mydata, setmydata] = useState([]);
+  const dispatch = useDispatch();
 
   const loadData = async () =>{
     let api = `${API_URL}/admin/showproduct`;
@@ -40,11 +43,11 @@ const Home = () => {
         <Card.Title>{key.name}</Card.Title>
         <Card.Text>
            <h4>{key.description}</h4>
-           <h4>Brand : {key.brand}</h4>
-           <h4>{key.category}</h4>
+           <h4>Brand : {key.Brand}</h4>
+           <h4>{key.Category}</h4>
            <h2> Price : {key.price}</h2>
         </Card.Text>
-        <Button variant="primary">Add to Cart</Button>
+        <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
       </Card.Body>
     </Card>
         </>
