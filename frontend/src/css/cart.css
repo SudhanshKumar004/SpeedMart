@@ -35,13 +35,30 @@ body {
   color: #a8ffdd;
 }
 
-.total-amount {
+.checkout-footer{
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+  margin-top: 30px;
+  gap: 10px;
+
+}
+.checkout-footer .total-amount {
   font-size: 1.6rem;
   font-weight: 600;
-  color: #78eecf;
+  color: green;
 }
-
-.checkout-btn {
+.checkout-footer .checkout-hr{
+  width: 100%;              
+  max-width: 200px;         
+  border: none;
+  height: 2px;
+  background: rgba(0, 255, 204, 0.3);
+  margin: 10px 0;
+  align-self: flex-end;    
+  border-radius: 4px;
+}
+.checkout-footer .checkout-btn {
   padding: 12px 30px;
   font-size: 1rem;
   border-radius: 10px;
@@ -53,7 +70,7 @@ body {
   transition: background 0.3s ease;
 }
 
-.checkout-btn:hover {
+.checkout-footer .checkout-btn:hover {
   background: rgba(0, 255, 204, 0.2);
 }
 
@@ -87,10 +104,10 @@ body {
 
 .quantity-icon {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   margin: 0 8px;
   transition: transform 0.2s;
-  color: #a8ffdd;
+  color: #1e3a4c;
   padding: 5px;
   border-radius: 50%;
 }
@@ -108,3 +125,13 @@ body {
 .delete-icon:hover {
   transform: rotate(15deg) scale(1.2);
 }
+
+.empty-cart {
+    text-align: center;
+    padding: 40px;
+    font-size: 42px;
+    color: #888;
+    font-weight: bolder;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+

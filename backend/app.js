@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 require("dotenv").config();
 const adminRoute = require("./routes/adminRoute")
+const customerRoute = require("./routes/customerRoute")
 const path = require("path");
 
 const PORT = process.env.PORT || 8000;
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use("/admin" , adminRoute)
+app.use("/customer" , customerRoute)
 
 
 app.listen(PORT, ()=>{

@@ -1,5 +1,9 @@
 .reg-form
 {
-width: 50%;
+width:50%;
 margin: auto;
+}
+
+.reg-head{
+    color:yellow;
 }

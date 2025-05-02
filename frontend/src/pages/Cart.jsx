@@ -39,18 +39,19 @@ const Cart = () => {
                 <td>{key.qnty * key.price}</td>
                 <td><MdOutlineDeleteOutline className='delete-icon' fontSize={25} cursor={"pointer"} onClick={()=>{dispatch(removeItem({id:key.id}))}} /></td>
             </tr>
+            
             </>
         )
     })
     
   return (
     <>
+    {Products.length === 0 ? <h1 className='empty-cart'>Nothing here yet... your cart is feeling lonely! 🛒</h1> : 
+    
     <div className="cart-container">
         <div className="cart-header">
-     <h1>My cart</h1> 
-     <div className="total-amount">Total: ₹{totalAmnt}</div>
+     <h1>Your Cart {Products.length === 1 ? `(${Products.length} item)` : `(${Products.length} items)`}</h1> 
      </div>
-    <button className='checkout-btn' onClick={()=>{nav("/checkout")}}>CheckOut</button>
      <Table striped bordered hover className='cart-table'>
       <thead>
         <tr>
@@ -69,7 +70,14 @@ const Cart = () => {
         {ans}
       </tbody>
     </Table>
+    <div className="checkout-footer">
+     <div className="total-amount">Total: ₹{totalAmnt}</div>
+     <hr className='checkout-hr' />
+    <button className='checkout-btn' onClick={()=>{nav("/checkout")}}>CheckOut</button>
+      </div>
     </div>
+    }
+    
     </>
   )
 }
