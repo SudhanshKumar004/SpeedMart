@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import '../css/Registration.css'
 import API_URL from '../config/BaseURL'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 
 
 const Login = () => {
@@ -41,26 +41,30 @@ const Login = () => {
     }
   return (
     <>
+ <div className="registration-container">
+            <div className="form-image">
+                <img src="https://static.vecteezy.com/system/resources/previews/009/743/124/non_2x/shoes-sketch-illustration-vector.jpg" alt="Registration" className="registration-image" />
+            </div>
+            <div className="form-side">
+                <h1 className="reg-head" align="center">Login</h1>
+                <Form className="reg-form">
+                    
+                    <Form.Group className="sm-1" controlId="formBasicEmail">
+                        <Form.Control type="email" name='email' value={input.email || ''} onChange={handleInput} placeholder='Enter Email' />
+                    </Form.Group>
 
-    <h1 className="reg-head" align="center">Login</h1>
-      <Form className='reg-form'>
-      
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Enter Email:</Form.Label>
-        <Form.Control type="email" name='email' value={input.email} onChange={handleInput} />
-      </Form.Group>
+                    <Form.Group className="sm-1" controlId="formBasicPassword">
+                        <Form.Control type="password" name='password' value={input.password || ''} onChange={handleInput} placeholder='Enter Password' />
+                    </Form.Group>
 
-      
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Create Pasword:</Form.Label>
-        <Form.Control type="text" name='password' value={input.password} onChange={handleInput}/>
-      </Form.Group>
+                    <Button variant="primary" onClick={handleSubmit}>
+                        Submit
+                    </Button>
 
-
-      <Button variant="primary" onClick={handleSubmit}>
-        Login
-      </Button>
-    </Form>
+                    <h4>Don't have an account? <Link to="/registration">Register Here</Link></h4>
+                </Form>
+            </div>
+        </div>
     </>
   )
 }

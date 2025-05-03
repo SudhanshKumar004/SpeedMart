@@ -132,55 +132,6 @@ body {
 }
 
 
-/* Registration Form */
-.reg-head {
-    color: #2b2d42;
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.reg-form {
-    width: 50%;
-    margin: auto;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.reg-form .form-label {
-    font-weight: bold;
-    color: #222;
-}
-
-.reg-form .form-control {
-    border-radius: 5px;
-    border: 1px solid #bbb;
-    padding: 10px;
-    font-size: 1rem;
-}
-
-.reg-form .form-control:focus {
-    border-color: #2b2d42;
-    box-shadow: 0 0 5px rgba(43, 45, 66, 0.5);
-}
-
-.reg-form button {
-    background-color: #2b2d42;
-    border: none;
-    padding: 12px 18px;
-    font-size: 1rem;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    transition: background 0.3s;
-}
-
-.reg-form button:hover {
-    background-color: #4a4e69;
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .footer {
