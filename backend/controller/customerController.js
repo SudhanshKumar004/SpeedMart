@@ -34,9 +34,25 @@ const customerRegistration = async(req, res) => {
     }
 }
 
+customerLogin = async(req, res) => {
+    const { email, password } = req.body;
+    try {
+        const User = await customerModel.findOne({ email: email });
+        if (!User) {
+            return res.status(404).send({ msg: "Invalid Email!" });
+        }
+        if (User.password != password) {
+            return res.status(404).send({ msg: "Invalid Password!" });
+        }
+        res.status(200).send({ msg: "You are Succesfully Login", User: User });
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
 module.exports = {
-    customerRegistration
+    customerRegistration,
+    customerLogin
 }
