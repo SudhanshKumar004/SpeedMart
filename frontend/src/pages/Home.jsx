@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../css/Home.css';
 import logo from '../media/logo.png';
 import video from '../media/853958-hd_1920_1080_30fps.mp4';
@@ -9,11 +9,33 @@ import Card from 'react-bootstrap/Card';
 import '../css/card.css';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../CartSlice';
+import { MyContext } from '../LoginContext';
 
 const Home = () => {
 
   const [mydata, setmydata] = useState([]);
   const dispatch = useDispatch();
+  const {logedIn, setLogedIn, setUserName, setUserEmail} = useContext(MyContext)
+
+  
+  
+  const customerAuthenticate = async () => {
+    const token = localStorage.getItem("token");
+
+    console.log(token);
+    if(token){
+    let api = `${API_URL}/customer/authenticate`;
+    const response = await axios.get(api ,{headers : {Authorization: `Bearer ${token}`}});
+    console.log(response.data);
+    localStorage.setItem("cusname", response.data.name);
+    localStorage.setItem("cusemail", response.data.email);
+    localStorage.setItem("cusid", response.data._id);
+    localStorage.setItem("userLogedIn", true);
+    setLogedIn(true);
+    setUserName(localStorage.getItem("cusname"));
+    setUserEmail(localStorage.getItem("cusemail"));
+  }   
+  }
 
   const loadData = async () =>{
     let api = `${API_URL}/admin/showproduct`;
@@ -30,9 +52,15 @@ const Home = () => {
           
     }
   }
+
     useEffect(()=>{
       loadData();
+      customerAuthenticate();
     },[])
+
+    useEffect(()=>{
+      customerAuthenticate();
+    },[logedIn])
   
     const productShow = mydata.map((key)=>{
       return(

@@ -1,5 +1,6 @@
 const customerModel = require("../models/customerModel");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const customerRegistration = async(req, res) => {
     const { name, email, number, address, city, state, password, cpassword } = req.body;
@@ -37,22 +38,44 @@ const customerRegistration = async(req, res) => {
 customerLogin = async(req, res) => {
     const { email, password } = req.body;
     try {
-        const User = await customerModel.findOne({ email: email });
-        if (!User) {
+        const Customer = await customerModel.findOne({ email: email });
+        if (!Customer) {
             return res.status(404).send({ msg: "Invalid Email!" });
         }
-        if (User.password != password) {
+        const PassMatch = await bcrypt.compare(password, Customer.password);
+        if (!PassMatch) {
             return res.status(404).send({ msg: "Invalid Password!" });
         }
-        res.status(200).send({ msg: "You are Succesfully Login", User: User });
+
+        const token=jwt.sign({id:Customer._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+        return res.status(200).send({
+            msg: "You are Succesfully Login",
+            Customer:Customer,
+            token:token
+        });
     } catch (error) {
         console.log(error);
     }
 }
 
+const customerAuthenticate = async(req,res)=>{
+    const {authorization} = req.headers;
+    const token = authorization.split(" ")[1];
+     try {
+        const decodedToken = jwt.verify(token,  process.env.JWT_SECRET);
+        console.log(decodedToken.id);
+      const Customer = await customerModel.findById(decodedToken.id).select("-password");
+      res.status(200).send(Customer);
+     
+    } catch (error) {
+         console.log(error);
+     }
+
+}
 
 
 module.exports = {
     customerRegistration,
-    customerLogin
+    customerLogin,
+    customerAuthenticate
 }

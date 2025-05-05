@@ -18,9 +18,7 @@ const Login = () => {
     const handleInput = (e) =>{
         let name = e.target.name;
         let value = e.target.value;
-        setInput(values=>({...values,[name]:value}))
-        console.log(input);
-        
+        setInput(values=>({...values,[name]:value}))        
     }
 
 
@@ -32,16 +30,13 @@ const Login = () => {
             let response = await axios.post(api, input)
             alert(response.data.msg);
 
-            console.log(response.data);
-            localStorage.setItem("name", response.data.name);
-        localStorage.setItem("email", response.data.email);
-        localStorage.setItem("userid", response.data._id);
         localStorage.setItem("token", response.data.token);
         setLogedIn(true); 
+        nav("/home");
         } 
         
         catch (error) {
-            alert(error.response.data);
+            alert(error.response.data.msg);
         }
     }
   return (

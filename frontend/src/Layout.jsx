@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -14,6 +14,7 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import './css/model.css'
 import { useSelector } from 'react-redux';
+import { MyContext } from './LoginContext';
 
 
 
@@ -27,6 +28,8 @@ const Layout = () => {
 
   const [adminid, setAdminid]= useState("");
   const [password, setPassword]= useState("");
+
+  const {userName, userEmail, setLogedIn, logedIn} = useContext(MyContext)
 
   const nav = useNavigate();
   const Products = useSelector(state => state.myCart.cartItems);
@@ -47,6 +50,13 @@ const Layout = () => {
         console.log(error.response.data.msg);
      }
     }
+
+    
+      const logout = () =>{
+        localStorage.clear();
+        setLogedIn(false);
+        alert("Logout Successfull");
+      }
 
   return (
     <>
@@ -80,6 +90,9 @@ const Layout = () => {
     <div className="top-navbar">
         <h4 className="navbar-quote">Your Perfect Pair Awaits - Browse Our Collection Now!</h4>
         <div className='nav-icons'>
+          {logedIn ? <span>Welcome, {userName}</span> : ""}
+          
+          <span><button onClick={logout}>Logout</button></span>
        <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} /> {prolength}</span> 
         <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
         </div>
