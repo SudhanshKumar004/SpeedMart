@@ -73,9 +73,19 @@ const customerAuthenticate = async(req,res)=>{
 
 }
 
+const checkoutData = async(req, res) => {
+    const { cusid } = req.body;
+    try {
+        const Customer = await customerModel.findById(cusid);
+        res.status(200).send(Customer);
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 module.exports = {
     customerRegistration,
     customerLogin,
-    customerAuthenticate
+    customerAuthenticate,
+    checkoutData
 }

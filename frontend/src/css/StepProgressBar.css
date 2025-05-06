@@ -1,0 +1,55 @@
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 800px;
+  position: relative;
+  padding: 0 10px;
+}
+
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+}
+
+.circle {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: lightgray;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.circle.active {
+  background-color: teal;
+}
+
+.line {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  right: -50%;
+  height: 4px;
+  background-color: lightgray;
+  z-index: 1;
+}
+
+.line.active {
+  background-color: teal;
+}
+
+.label {
+  margin-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #ffff;
+}

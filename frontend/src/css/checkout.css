@@ -1,0 +1,129 @@
+.head{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Container for both sections */
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 30px 50px;
+  flex-wrap: wrap;
+}
+
+/* Left: Customer Info */
+.cus-info {
+  flex: 1;
+  min-width: 320px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.cus-info h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #008080; /* Teal heading */
+}
+
+.cus-info .form-group {
+  margin-bottom: 15px;
+}
+
+.cus-info label {
+  font-weight: 600;
+  color: #444;
+}
+
+.cus-info input.form-control {
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: 0.3s ease;
+}
+
+.cus-info input.form-control:focus {
+  border-color: #008080;
+  box-shadow: 0 0 5px rgba(0, 128, 128, 0.3);
+}
+
+/* Right: Cart Details */
+.cart-item {
+  flex: 1.2;
+  min-width: 320px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.cart-item table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-item thead {
+  background-color: #008080;
+  color: white;
+}
+
+.cart-item th,
+.cart-item td {
+  text-align: center;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+.cart-item tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.cart-item img {
+  border-radius: 8px;
+}
+
+/* Page Title + Back Button */
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30px 50px 10px 50px;
+}
+
+.head h1 {
+  font-size: 26px;
+  color: #333;
+}
+
+.head button {
+  background-color: #008080;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.head button:hover {
+  background-color: #006666;
+}
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column;
+  }
+
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
