@@ -15,10 +15,16 @@ const Checkout = () => {
   const {logedIn} = useContext(MyContext);
   const nav = useNavigate();
   const [customerData, setCustomerData] = useState({});
-
+  const [couponStatus, setCouponStatus] = useState(false);
+  let totalAmnt = 0;
+  let gst = 0;
+  let shippingCharge = 50;
   const Products = useSelector(state => state.myCart.cartItems)
 
   const productPrint = Products.map((key) => {
+    totalAmnt += key.price * key.qnty;
+    gst = totalAmnt * 0.12;
+
     return (
       <tr>
         <td><img src={`${API_URL}/${key.defaultImage}`} alt="Item Image" width={80} height={80} /></td>
@@ -51,11 +57,13 @@ const Checkout = () => {
 
   }
 
+
+
   useEffect(() => {
-    if(!logedIn){
-      alert("Please Login First");
-      nav("/login");
-    }
+    // if(!logedIn){
+    //   alert("Please Login First");
+    //   nav("/login");
+    // }
     loadData();
   }, [])
 
@@ -73,42 +81,43 @@ const Checkout = () => {
 
 <div className="checkout-container">
     <div className="cus-info">  
-                  <Form>
-                    <h2>Customer Info</h2>
-                    <Form.Group className="sm-1 " controlId="formBasicName">
-                      <Form.Label>Name</Form.Label>
+                  <Form className='checkout-form'>
+                    <h2 className='form-head'>Customer Info</h2>
+                    <Form.Group className="form-group " controlId="formBasicName">
+                      <Form.Label className='form-label'>Name</Form.Label>
                         <Form.Control type="text" name='name' value={customerData.name || ''} onChange={handleInput} />
                     </Form.Group>
 
-                    <Form.Group className="sm-1" controlId="formBasicEmail">
-                        <Form.Label>Email</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicEmail">
+                        <Form.Label className='form-label'>Email</Form.Label>
                         <Form.Control type="email" name='email' value={customerData.email || ''} onChange={handleInput}  />
                     </Form.Group>
 
-                    <Form.Group className="sm-1" controlId="formBasicNumber">
-                        <Form.Label>Mobile Number</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicNumber">
+                        <Form.Label className='form-label'>Contact</Form.Label>
                         <Form.Control type="text" name='number' value={customerData.number || ''} onChange={handleInput} />
                     </Form.Group>
 
-                    <h2>Shipping Address</h2>
-                    <Form.Group className="sm-1" controlId="formBasicAddress">
-                        <Form.Label>Address</Form.Label>
+                    <h2 className='form-head'>Shipping Address</h2>
+                    <Form.Group className="form-group" controlId="formBasicAddress">
+                        <Form.Label className='form-label'>Address</Form.Label>
                         <Form.Control type="text" name='address' value={customerData.address || ''} onChange={handleInput}  />
                     </Form.Group>
 
-                    <Form.Group className="sm-1" controlId="formBasicPassword">
-                        <Form.Label>City</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicPassword">
+                        <Form.Label className='form-label'>City</Form.Label>
                         <Form.Control type="text" name='city' value={customerData.city || ''} onChange={handleInput} />
                     </Form.Group>
 
-                    <Form.Group className="sm-1" controlId="formBasicState">
-                        <Form.Label>State</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicState">
+                        <Form.Label className='form-label'>State</Form.Label>
                         <Form.Control type="text" name='state' value={customerData.state || ''} onChange={handleInput}/>
                     </Form.Group>        
                 </Form>
       </div>
 
       <div className="cart-item">
+        <h2 className='item-head'>Your Cart</h2>
     <Table striped bordered hover>
       <thead>
         <tr>
@@ -125,6 +134,20 @@ const Checkout = () => {
         {productPrint}
       </tbody>
     </Table>
+
+    <div className="coupon">
+    <input type="text" placeholder='Discount Code' style={{border : couponStatus ? "2px solid red" : "2px solid black"}} />
+    <button onBlur={()=>{setCouponStatus(false)}} onClick={()=>{setCouponStatus(true)}}>Apply</button>
+    {couponStatus && (
+      <p style={{color : "red"}}>Coupan is not valid</p>
+    )}
+      <h2 className='coupan-title'><span className='title-span'>Item Subtotal :</span><span className='amnt-span'>₹{totalAmnt}</span></h2>
+      <h2 className='coupan-title'><span className='title-span'>GST :</span><span className='amnt-span'>₹{gst}</span></h2>
+      <h2 className="coupan-title"><span className='title-span'>Shipping Charge :</span><span className='amnt-span'>₹{shippingCharge}</span></h2>
+      <hr />
+      <h2 className='coupan-title'><span className='title2-span'>Total Amount :</span><span className='total-span'>₹{totalAmnt + gst + shippingCharge}</span></h2>
+    </div>
+      <button className='pay-btn'>Pay Now</button>
       </div>
       </div>
     </>
