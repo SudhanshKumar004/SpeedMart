@@ -30,7 +30,7 @@
 }
 
 .circle.active {
-  background-color: teal;
+  background-color: orangered
 }
 
 .line {
@@ -44,7 +44,7 @@
 }
 
 .line.active {
-  background-color: teal;
+  background-color: orangered;
 }
 
 .label {

@@ -10,6 +10,7 @@ import ManageProduct from './admin/ManageProduct'
 import Orders from './admin/Orders'
 import Cart from './pages/Cart'
 import Checkout from './pages/Checkout'
+import PaymentPage from './pages/PaymentPage'
 const App = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='registration' element={<Registration />} />
           <Route path='cart' element={<Cart />} /> 
           <Route path='checkout' element={<Checkout />} />
+          <Route path='paymentpage' element={<PaymentPage />} />
         </Route>
       </Routes>
 

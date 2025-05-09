@@ -75,8 +75,7 @@ const Checkout = () => {
     <div className="head">
       <div></div>
      <h1>Checkout Page</h1>
-     <button onClick={()=>{nav("/cart")}}><IoMdArrowRoundBack />
-</button>
+     <button onClick={()=>{nav("/cart")}}><IoMdArrowRoundBack /></button>
     </div>
 
 <div className="checkout-container">
@@ -147,7 +146,7 @@ const Checkout = () => {
       <hr />
       <h2 className='coupan-title'><span className='title2-span'>Total Amount :</span><span className='total-span'>₹{totalAmnt + gst + shippingCharge}</span></h2>
     </div>
-      <button className='pay-btn'>Pay Now</button>
+      <button className='pay-btn' onClick={()=>{nav("/paymentpage")}}>Pay Now</button>
       </div>
       </div>
     </>
