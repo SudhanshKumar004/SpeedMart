@@ -93,7 +93,7 @@ const Layout = () => {
           {logedIn ? <span>Welcome, {userName}</span> : ""}
           
           <span><button onClick={logout}>Logout</button></span>
-       <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} /> {prolength}</span> 
+       <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} />{prolength}</span> 
         <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
         </div>
       </div>

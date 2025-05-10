@@ -1,6 +1,6 @@
 const adminModel = require("../models/adminModel")
 const productModel = require("../models/productModel")
-
+const OrderModel = require("../models/orderModel")
 
 const adminLogin=async(req, res)=>{
     const { adminid, password} = req.body;
@@ -53,8 +53,22 @@ const showProduct=async(req, res)=>{
         res.status(400).send("Cannot load Product details");
     }
 }
+
+
+const getOrders=async(req, res)=>{
+    try {
+        const Order = await OrderModel.find();
+        res.status(200).send(Order);
+    } catch (error) {
+        res.status(400).send("Cannot load Order details");
+    }
+}
+
+
+
 module.exports ={
     adminLogin,
     addProduct,
-    showProduct
+    showProduct,
+    getOrders
 }

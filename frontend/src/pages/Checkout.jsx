@@ -60,10 +60,10 @@ const Checkout = () => {
 
 
   useEffect(() => {
-    // if(!logedIn){
-    //   alert("Please Login First");
-    //   nav("/login");
-    // }
+    if(!logedIn){
+      alert("Please Login First");
+      nav("/login");
+    }
     loadData();
   }, [])
 

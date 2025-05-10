@@ -7,5 +7,6 @@ const upload = require("../middlewares/multerMiddleware")
 route.post("/adminlogin" , adminController.adminLogin)
 route.post("/addproduct" , upload.array("images", 6) , adminController.addProduct)
 route.get("/showproduct", adminController.showProduct)
+route.get("/getorders", adminController.getOrders)
 
 module.exports = route;

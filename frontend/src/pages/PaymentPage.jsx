@@ -5,7 +5,8 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import API_URL from '../config/BaseURL';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartClear } from '../CartSlice';
 
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -17,6 +18,8 @@ const PaymentPage = () => {
   let gst = 0;
   let shippingCharge = 50;
   let absoluteTotal = 0;
+  let imageUrl = "";
+  let dispatch = useDispatch();
     
 
   useEffect(() => {
@@ -50,19 +53,49 @@ const PaymentPage = () => {
   Products.forEach((key) => {
       productName += key.name + ", ";
       totalAmnt += key.price * key.qnty;
+      imageUrl=`${API_URL}${key.defaultImage}`;
     }) 
     
     gst = totalAmnt * 0.12;   
     absoluteTotal = totalAmnt + gst + shippingCharge;
+
+
+
+     const initPay = (data) => {
+      const options = {
+        key : "rzp_test_R2gvLZrvRSdA6y",
+        amount: data.amount,
+        currency: data.currency,
+        name: productName,
+        description: "Test",
+        image:imageUrl,
+        order_id: data.id,
+        handler: async (response) => {
+          try {
+            const verifyURL = "http://localhost:8080/api/payment/verification";
+            const {data} = await axios.post(verifyURL,response);
+          } catch(error) {
+            console.log(error);
+          }
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+      const rzp1 = new window.Razorpay(options);
+      rzp1.open();
+    };
+   
+
   const handleRazorpay =async () => {
     
     try {
-        const orderURL = "http://localhost:8000/api/payment/orders";
-        const {data} = await axios.post(orderURL,{amount: absoluteTotal, customername:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, proname:productName});
+        const orderURL = "http://localhost:8080/api/payment/customerorders";
+        const {data} = await axios.post(orderURL,{amount: absoluteTotal, customername:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
         console.log(data);
-        // initPay(data.data);
+        initPay(data.data);
 
-        // dispatch(cartEmpty());
+        dispatch(cartClear());
 
 
       } catch (error) {

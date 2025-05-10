@@ -9,8 +9,11 @@ const customerRoute = require("./routes/customerRoute")
 const paymentRoute = require("./routes/payment")
 const path = require("path");
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors());
 
@@ -20,9 +23,6 @@ mongoose.connect(process.env.DBCONN).then(()=>{
     console.log("DB Connected!");    
 })
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.use("/admin" , adminRoute)
