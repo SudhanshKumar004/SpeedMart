@@ -43,6 +43,49 @@
   box-shadow: 10px 10px 10px rgba(0,0,0,0.05);
 }
 
+.customer-details {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 40px;
+  max-width: 700px;
+  margin: 50px auto;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #1f2937;
+}
+
+.details-head {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #254;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 18px;
+}
+
+.details-row {
+  display: flex;
+  /* justify-content: f; */
+  margin-bottom: 12px;
+  font-size: 25px;
+  padding-top:10px ;
+}
+
+.label {
+  width: 200px;
+  font-size: 25px;
+  font-weight: 600;
+  color:#0f766e; 
+}
+
+.value {
+  color: #002855;
+  display: flex;
+  font-weight: 500;
+justify-content: end;
+}
+
+
 .coupon .coupan-title{
   width: 100%;
   margin-top: 20px;
