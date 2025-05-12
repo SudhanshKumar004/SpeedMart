@@ -1,6 +1,7 @@
 const customerModel = require("../models/customerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const shippingModel = require("../models/shippingModel");
 
 const customerRegistration = async(req, res) => {
     const { name, email, number, address, city, state, password, cpassword } = req.body;
@@ -73,6 +74,26 @@ const customerAuthenticate = async(req,res)=>{
 
 }
 
+
+const shippingData = async(req, res) => {
+    const {cusid, name, email, number, address, city, state } = req.body;
+try {
+    let shippingData = await shippingModel.create({
+        cusid: cusid,
+        name: name,
+        email: email,
+        number: number,
+        address: address,
+        city: city,
+        state: state
+    })
+    res.status(200).send(shippingData);
+    
+} catch (error) {
+    res.status(400).send("Something went wrong");
+}
+}
+
 const checkoutData = async(req, res) => {
     const { cusid } = req.body;
     try {
@@ -83,9 +104,24 @@ const checkoutData = async(req, res) => {
     }
 }
 
+const orderData = async(req, res) => {
+    const { cusid } = req.body;
+    try {
+        const Customer = await shippingModel.findOne({cusid:cusid}).sort({createdAt:-1});
+        if(!Customer) {
+            return res.status(404).send({ msg: "Invalid Customer Id!" });
+        }   
+        res.status(200).send(Customer);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     customerRegistration,
     customerLogin,
     customerAuthenticate,
-    checkoutData
+    checkoutData,
+    shippingData,
+    orderData
 }

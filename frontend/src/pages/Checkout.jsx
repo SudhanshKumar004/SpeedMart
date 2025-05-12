@@ -15,6 +15,7 @@ const Checkout = () => {
   const nav = useNavigate();
   const [customerData, setCustomerData] = useState({});
   const [couponStatus, setCouponStatus] = useState(false);
+  const [buttonStatus, setButtonStatus] = useState(false);
   let totalAmnt = 0;
   let gst = 0;
   let shippingCharge = 50;
@@ -63,6 +64,29 @@ const Checkout = () => {
     setCustomerData((values) => ({ ...values, [name]: value }));
   };
 
+  const handleSubmit = async () => {
+    const api = `${API_URL}/customer/shippingData`;
+  
+    const shippingPayload = {
+      cusid: localStorage.getItem("cusid"),
+      name: customerData.name,
+      email: customerData.email,
+      number: customerData.number,
+      address: customerData.address,
+      city: customerData.city,
+      state: customerData.state,
+    };
+  
+    try {
+      const response = await axios.post(api, shippingPayload);
+      // console.log(response.data);
+      nav("/paymentpage");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
   useEffect(() => {
     if (!logedIn) {
       alert("Please Login First");
@@ -88,7 +112,11 @@ const Checkout = () => {
 
       <div className="checkout-container">
         <div className="cus-info">
-          {/* <Form className='checkout-form'>
+          <button onClick={()=>{setButtonStatus(true)}}>Add New Address</button>
+
+          {
+            buttonStatus ? (<>
+            <Form className='checkout-form'>
                     <h2 className='form-head'>Customer Info</h2>
                     <Form.Group className="form-group " controlId="formBasicName">
                       <Form.Label className='form-label'>Name</Form.Label>
@@ -120,9 +148,12 @@ const Checkout = () => {
                         <Form.Label className='form-label'>State</Form.Label>
                         <Form.Control type="text" name='state' value={customerData.state || ''} onChange={handleInput}/>
                     </Form.Group>        
-                </Form> */}
-
-            <h2 className="details-head">Customer Info</h2>
+                </Form>
+                </>)
+                 : 
+                 
+                 (<>
+                 <h2 className="details-head">Customer Info</h2>
             <div className="details-row">
               <span className="label">Name:</span>
               <span className="value">{customerData.name}</span>
@@ -135,7 +166,7 @@ const Checkout = () => {
               <span className="label">Contact:</span>
               <span className="value">{customerData.number}</span>
             </div>
-
+                  <hr />
             <h2 className="details-head">Shipping Address</h2>
             <div className="details-row">
               <span className="label">Address:</span>
@@ -149,6 +180,11 @@ const Checkout = () => {
               <span className="label">State:</span>
               <span className="value">{customerData.state}</span>
             </div>
+                 </>)
+          }
+           
+
+            
           </div>
 
         <div className="cart-item">
@@ -210,11 +246,7 @@ const Checkout = () => {
             </h2>
           </div>
           <button
-            className="pay-btn"
-            onClick={() => {
-              nav("/paymentpage");
-            }}
-          >
+            className="pay-btn" onClick={()=>{handleSubmit()}}>
             Pay Now
           </button>
         </div>

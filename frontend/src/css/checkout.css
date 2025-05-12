@@ -57,15 +57,16 @@
 .details-head {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   color: #254;
-  border-bottom: 1px solid #e5e7eb;
-  padding-bottom: 18px;
+  /* border-top: 1px solid #e5e7eb; */
+  /* padding-bottom:28px; */
 }
 
 .details-row {
   display: flex;
-  /* justify-content: f; */
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 12px;
   font-size: 25px;
   padding-top:10px ;
@@ -75,14 +76,15 @@
   width: 200px;
   font-size: 25px;
   font-weight: 600;
-  color:#0f766e; 
+  color: #154d57;
 }
 
 .value {
-  color: #002855;
+  color:#3a494d;
   display: flex;
   font-weight: 500;
 justify-content: end;
+align-items: center;
 }
 
 

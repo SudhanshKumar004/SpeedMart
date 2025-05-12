@@ -28,12 +28,12 @@ const PaymentPage = () => {
   }, []);
 
   const loadData = async () =>{
-    let api = `${API_URL}/customer/checkoutData`;
+    let api = `${API_URL}/customer/orderData`;
     try {
       let response = await axios.post(api, {cusid : localStorage.getItem("cusid")});
-    // console.log(response.data);
+    console.log("response", response.data);
     setCustomerData(response.data);
-
+      
     } catch (error) {
       console.log(error);  
     } 
@@ -91,7 +91,7 @@ const PaymentPage = () => {
     
     try {
         const orderURL = "http://localhost:8080/api/payment/customerorders";
-        const {data} = await axios.post(orderURL,{amount: absoluteTotal, customername:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
+        const {data} = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
         console.log(data);
         initPay(data.data);
 

@@ -4,12 +4,12 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 
 router.post("/customerorders", async (req, res) => {
-    const {amount, customername, address, contact, email, productname} = req.body;
+    const {amount, cusname, address, contact, email, productname} = req.body;
 
     const Order = await OrderModel.create({
         productname:productname,
         totalamount:amount,
-        cusname:customername,
+        cusname:cusname,
         address:address,
         contact:contact,
         email:email,
@@ -48,7 +48,7 @@ router.post("/verification",async(req,res) => {
             razorpay_order_id,
             razorpay_payment_id,
             razorpay_signature } = req.body;
-        const sign = razorpay_orderID + "|" + razorpay_paymentID;
+        const sign = razorpay_order_id + "|" + razorpay_payment_id;
         const resultSign = crypto
         .createHmac("sha256",process.env.KEY_SECRET)
         .update(sign.toString())
