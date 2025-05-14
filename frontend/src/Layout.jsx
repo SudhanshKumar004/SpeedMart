@@ -90,9 +90,8 @@ const Layout = () => {
     <div className="top-navbar">
         <h4 className="navbar-quote">Your Perfect Pair Awaits - Browse Our Collection Now!</h4>
         <div className='nav-icons'>
-          {logedIn ? <span>Welcome, {userName}</span> : ""}
+          {logedIn ? <span>Welcome, {userName}<button onClick={logout}>Logout</button></span> : ""}
           
-          <span><button onClick={logout}>Logout</button></span>
        <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} />{prolength}</span> 
         <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
         </div>

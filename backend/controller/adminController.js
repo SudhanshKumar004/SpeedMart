@@ -64,11 +64,43 @@ const getOrders=async(req, res)=>{
     }
 }
 
+const editProduct=async(req, res)=>{
+    const {id} = req.params;
+    try {
+        let product = await productModel.findById(id);
+    res.status(200).send(product);
+    } catch (error) {
+        res.status(400).send("Cannot load Product details");
+    }    
+}
 
-
+const updateProduct = async (req, res) => {
+    const { id } = req.params;  
+    const imgURLs = req.files.map(file => file.path);
+    const { name, description, Brand, Category, price } = req.body;  
+  
+    try {
+      
+      const updatedProduct = await productModel.findByIdAndUpdate(id, {...req.body, defaultImage: imgURLs[0],  images: imgURLs,},
+        { new: true }
+      );
+  
+      if (!updatedProduct) {
+        return res.status(404).send("Product not found");
+      }
+  
+      res.status(200).send("Product updated successfully");
+    } catch (error) {
+      console.error(error);
+      res.status(400).send("Something went wrong");
+    }
+  };
+  
 module.exports ={
     adminLogin,
     addProduct,
     showProduct,
-    getOrders
+    getOrders,
+    editProduct,
+    updateProduct
 }

@@ -8,5 +8,7 @@ route.post("/adminlogin" , adminController.adminLogin)
 route.post("/addproduct" , upload.array("images", 6) , adminController.addProduct)
 route.get("/showproduct", adminController.showProduct)
 route.get("/getorders", adminController.getOrders)
+route.get("/editproduct/:id", adminController.editProduct)  
+route.post("/updateproduct/:id" , upload.array("images", 6) , adminController.updateProduct)
 
 module.exports = route;
