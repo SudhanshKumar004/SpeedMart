@@ -15,9 +15,10 @@ import Button from 'react-bootstrap/Button';
     const { logedIn } = useContext(MyContext);
     const nav = useNavigate();
     const [customerData, setCustomerData] = useState({});
-    const [newAddressData, setNewAddressData] = useState({});
+    const [newAddress , setNewAddress] = useState({});
     const [couponStatus, setCouponStatus] = useState(false);
     const [buttonStatus, setButtonStatus] = useState(false);
+    const [isNewAddress, setIsNewAddress] = useState(false);
     let totalAmnt = 0;
     let gst = 0;
     let shippingCharge = 50;
@@ -63,21 +64,27 @@ import Button from 'react-bootstrap/Button';
     const handleInput = (e) => {
       let name = e.target.name;
       let value = e.target.value;
-    
-      // Check if the value is empty, and if yes, don't update the state with the previous value.
-      if (value === "") {
-        setNewAddressData((values) => ({ ...values, [name]: "" }));
-      } else {
-        setNewAddressData((values) => ({ ...values, [name]: value }));
-      }
+      setCustomerData((values) => ({ ...values, [name]: value }));
     };
-    
+
+    const handleInput1 = (e) => {
+      let name = e.target.name;
+      let value = e.target.value;
+      setNewAddress((values) => ({ ...values, [name]: value }));
+    };
+
     const handleSubmit = async () => {
       const api = `${API_URL}/customer/shippingData`;
+      const datatosend = isNewAddress ? newAddress : customerData;
     
       const shippingPayload = {
         cusid: localStorage.getItem("cusid"),
-        ...newAddressData,
+        name: datatosend.name,
+        email: datatosend.email,
+        number: datatosend.number,
+        address: datatosend.address,
+        city: datatosend.city,
+        state: datatosend.state,
       };
     
       try {
@@ -101,7 +108,7 @@ import Button from 'react-bootstrap/Button';
               try {
                   const response = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=d76f09d06414468b9479448aa75ac209`);
                   const address = response.data.results[0].formatted;
-                  setNewAddressData(values => ({ ...values, address: address }));
+                  setNewAddress(values => ({ ...values, address: address }));
               } catch (error) {
                   alert("Failed to get address from location.");
               }
@@ -135,80 +142,46 @@ import Button from 'react-bootstrap/Button';
 
         <div className="checkout-container">
           <div className="cus-info">
-            {buttonStatus ? <button onClick={()=>{setButtonStatus(false)}}>go Back</button> 
-            : <button onClick={()=>{setButtonStatus(true)}}>Add New Address</button>} 
+            {buttonStatus ? <button onClick={()=>{setButtonStatus(false);setIsNewAddress(false);}}>go Back</button> 
+            : <button onClick={()=>{setButtonStatus(true);setIsNewAddress(true);}}>Add New Address</button>} 
 
             {
               buttonStatus ? (<>
               <Form className='checkout-form'>
-  <h2 className='form-head'>Customer Info</h2>
-  
-  <Form.Group className="form-group " controlId="formBasicName">
-    <Form.Label className='form-label'>Name</Form.Label>
-    <Form.Control
-      type="text"
-      name='name'
-      value={newAddressData.name !== undefined ? newAddressData.name : customerData.name}
-      onChange={handleInput}
-    />
-  </Form.Group>
+                      <h2 className='form-head'>Customer Info</h2>
+                      <Form.Group className="form-group " controlId="formBasicName">
+                        <Form.Label className='form-label'>Name</Form.Label>
+                          <Form.Control type="text" name='name' value={newAddress.name || ''} onChange={handleInput1} />
+                      </Form.Group>
 
-  <Form.Group className="form-group" controlId="formBasicEmail">
-    <Form.Label className='form-label'>Email</Form.Label>
-    <Form.Control
-      type="email"
-      name='email'
-      value={newAddressData.email !== undefined ? newAddressData.email : customerData.email}
-      onChange={handleInput}
-    />
-  </Form.Group>
+                      <Form.Group className="form-group" controlId="formBasicEmail">
+                          <Form.Label className='form-label'>Email</Form.Label>
+                          <Form.Control type="email" name='email' value={newAddress.email || ''} onChange={handleInput1}  />
+                      </Form.Group>
 
-  <Form.Group className="form-group" controlId="formBasicNumber">
-    <Form.Label className='form-label'>Contact</Form.Label>
-    <Form.Control
-      type="text"
-      name='number'
-      value={newAddressData.number !== undefined ? newAddressData.number : customerData.number}
-      onChange={handleInput}
-    />
-  </Form.Group>
+                      <Form.Group className="form-group" controlId="formBasicNumber">
+                          <Form.Label className='form-label'>Contact</Form.Label>
+                          <Form.Control type="text" name='number' value={newAddress.number || ''} onChange={handleInput1} />
+                      </Form.Group>
 
-  <h2 className='form-head'>Shipping Address</h2>
-  
-  <Form.Group className="sm-1" controlId="formBasicAddress">
-    <Button variant="secondary" onClick={getCurrentLocation} className="sm-1 location-btn">
-      📍 Use My Current Location
-    </Button>
-    <Form.Control
-      type="text"
-      name='address'
-      value={newAddressData.address !== undefined ? newAddressData.address : customerData.address}
-      onChange={handleInput}
-      placeholder='Enter Address'
-    />
-  </Form.Group>
+                      <h2 className='form-head'>Shipping Address</h2>
+                      <Form.Group className="sm-1" controlId="formBasicAddress">
+                          <Button variant="secondary" onClick={getCurrentLocation} className="sm-1 location-btn">
+                              📍 Use My Current Location
+                          </Button>
+                          <Form.Control type="text" name='address' value={newAddress.address || ''} onChange={handleInput1} placeholder='Enter Address' />
+                      </Form.Group>
 
-  <Form.Group className="form-group" controlId="formBasicPassword">
-    <Form.Label className='form-label'>City</Form.Label>
-    <Form.Control
-      type="text"
-      name='city'
-      value={newAddressData.city !== undefined ? newAddressData.city : customerData.city}
-      onChange={handleInput}
-    />
-  </Form.Group>
+                      <Form.Group className="form-group" controlId="formBasicPassword">
+                          <Form.Label className='form-label'>City</Form.Label>
+                          <Form.Control type="text" name='city' value={newAddress.city || ''} onChange={handleInput1} />
+                      </Form.Group>
 
-  <Form.Group className="form-group" controlId="formBasicState">
-    <Form.Label className='form-label'>State</Form.Label>
-    <Form.Control
-      type="text"
-      name='state'
-      value={newAddressData.state !== undefined ? newAddressData.state : customerData.state}
-      onChange={handleInput}
-    />
-  </Form.Group>        
-</Form>
-
+                      <Form.Group className="form-group" controlId="formBasicState">
+                          <Form.Label className='form-label'>State</Form.Label>
+                          <Form.Control type="text" name='state' value={newAddress.state || ''} onChange={handleInput1}/>
+                      </Form.Group>        
+                  </Form>
                   </>)
                   : 
                   

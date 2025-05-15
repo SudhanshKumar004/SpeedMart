@@ -15,6 +15,7 @@ import Form from 'react-bootstrap/Form';
 import './css/model.css'
 import { useSelector } from 'react-redux';
 import { MyContext } from './LoginContext';
+import { FaRegUser } from "react-icons/fa6";
 
 
 
@@ -88,10 +89,10 @@ const Layout = () => {
         </Modal.Body>
       </Modal>
     <div className="top-navbar">
-        <h4 className="navbar-quote">Your Perfect Pair Awaits - Browse Our Collection Now!</h4>
+        <h4 className="navbar-quote">logo</h4>
         <div className='nav-icons'>
           {logedIn ? <span>Welcome, {userName}<button onClick={logout}>Logout</button></span> : ""}
-          
+          <span><FaRegUser /></span>
        <span><PiShoppingCartSimpleBold onClick={()=>{nav("/cart")}} />{prolength}</span> 
         <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
         </div>
