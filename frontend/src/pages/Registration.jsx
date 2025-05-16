@@ -51,12 +51,12 @@ const Registration = () => {
 
     return (
         <div className="registration-container">
-            <div className="form-image">
-                <img src="https://static.vecteezy.com/system/resources/previews/009/743/124/non_2x/shoes-sketch-illustration-vector.jpg" alt="Registration" className="registration-image" />
+            <div className="form1-image">
+                <img src="https://easydrawingguides.com/wp-content/uploads/2021/01/Chocolate-Bar-Step-10.png" alt="Registration" className="registration-image" />
             </div>
-            <div className="form-side">
-                <h1 className="reg-head" align="center">Register Now</h1>
-                <Form className="reg-form">
+            <div className="form1-side">
+                <h1 className="reg1-head" align="center">Register Now</h1>
+                <Form className="reg1-form">
                     <Form.Group className="sm-1 " controlId="formBasicName">
                         <Form.Control type="text" name='name' value={input.name || ''} onChange={handleInput} placeholder='Enter Name' />
                     </Form.Group>
@@ -126,7 +126,7 @@ const Registration = () => {
                         Submit
                     </Button>
 
-                    <h4>Already have an account? <Link to="/login">Login</Link></h4>
+                    <h4>By continuing, you agree to our <br /> <span style={{color:'red'}}>Terms of Service</span> & <span style={{color:'red'}}>Privacy Policy</span></h4>
                 </Form>
             </div>
         </div>

@@ -17,8 +17,26 @@ body {
     justify-content: space-between;
 }
 
+.nav-icons{
+    display: flex;
+    align-items: center;
+}
+
 .nav-icons span{
     padding-right:28px;
+}
+
+.login-area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.login-area span{
+    padding: 0px;
+    font-size: 20px;
+    cursor: ;
 }
 
 .main-navbar {
@@ -68,6 +86,7 @@ body {
 .main-navbar .navbar-toggler:focus {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
 
 .footer {
   background-color: #2b2d42;
