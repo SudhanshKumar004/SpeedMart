@@ -5,12 +5,11 @@ body {
 }
 
 .top-navbar {
-    background-color: #76A787;
+    background-color: #F0f0f0;
     color: #2b2d42;
     font-weight: bolder;
-    padding: 15px 0;
-    border-bottom: 3px solid #76A787; 
-    font-size: 30px;
+    padding: 10px 0;
+    font-size: 20px;
     text-align: end;
     padding-right: 15px;
     display: flex;
@@ -36,33 +35,30 @@ body {
 .login-area span{
     padding: 0px;
     font-size: 20px;
-    cursor: ;
+    cursor: pointer;
 }
 
 .main-navbar {
-    background: linear-gradient(90deg, #31393C,#4a4e69); 
+    /* background: linear-gradient(90deg, #2989ac,#191d3d);  */
+    background-color: #f0f0f1;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 10;
-    border-bottom: 5px solid #76A787;
     padding: 0;
 }
 
 .main-navbar .navbar-brand {
-    font-size: 49px;
+    font-size: 35px;
     font-weight: 800;
-    color: #ffffff;
+    color: #b8293d;
     transition: color 0.3s ease-in-out;
-}
-
-.main-navbar .navbar-brand:hover {
-    color: #76A787;
+    cursor: pointer;
 }
 
 .main-navbar .navbar-nav .nav-link {
-    color: white;
+    color:#333;
     font-size: 25px; 
     padding: 12px 18px; 
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
@@ -70,7 +66,7 @@ body {
 }
 
 .main-navbar .navbar-nav .nav-link:hover {
-    color: #76A787;
+    color: red;
     transform: scale(1.1);
     text-shadow: 0 0 10px #76A787;
 }

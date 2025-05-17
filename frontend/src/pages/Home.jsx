@@ -10,13 +10,14 @@ import '../css/card.css';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../CartSlice';
 import { MyContext } from '../LoginContext';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
   const [mydata, setmydata] = useState([]);
   const dispatch = useDispatch();
   const {logedIn, setLogedIn, setUserName, setUserEmail} = useContext(MyContext)
-
+  const nav = useNavigate()
   
   
   const customerAuthenticate = async () => {
@@ -83,14 +84,40 @@ const Home = () => {
     })
   return (
     <>
-    <div className="vcontainer">
+    {/* <div className="vcontainer">
       <video autoPlay loop muted playsInline className="backgroundVideo" src={video} />
       <div className="heroTitle">
         <img src={logo} alt="" height={100} width={180} />
         <h1>SHOE-VERSE</h1>
         <p>Where Every Step Matters.</p>
       </div>
-    </div>
+    </div> */}
+    <header className="hero-modern">
+      <div className="hero-content">
+        <h1><span>SpeedMart</span></h1>
+        <h2>Groceries at Your Door in <strong>15 Minutes</strong></h2>
+        <p>Fast, fresh and affordable – everything you need, delivered lightning fast!</p>
+        <button className="cta" onClick={()=>{nav("/")}}>Start Shopping</button>
+
+        <div className="product-row">
+          <div className="product-card">
+            <img src="/product1.jpg" alt="Fresh Fruits" />
+            <h3>Fresh Fruits</h3>
+            <p>₹99/kg</p>
+          </div>
+          <div className="product-card">
+            <img src="/product2.jpg" alt="Milk" />
+            <h3>Dairy Milk</h3>
+            <p>₹55</p>
+          </div>
+          <div className="product-card">
+            <img src="/product3.jpg" alt="Snacks" />
+            <h3>Quick Snacks</h3>
+            <p>₹149</p>
+          </div>
+        </div>
+      </div>
+    </header>
     <div className="cards">
       {productShow}
     </div>

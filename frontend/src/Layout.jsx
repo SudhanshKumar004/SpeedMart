@@ -4,6 +4,7 @@
   import Nav from 'react-bootstrap/Nav';
   import Navbar from 'react-bootstrap/Navbar';
   import { FaHome, FaListAlt, FaUser, FaSignInAlt } from 'react-icons/fa';
+  import { IoHeadsetOutline } from "react-icons/io5";
   import { RiAdminFill } from "react-icons/ri";
   import { PiShoppingCartSimpleBold } from "react-icons/pi";
   import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
@@ -17,6 +18,9 @@
   import { MyContext } from './LoginContext';
   import { FaRegUserCircle } from "react-icons/fa";
   import Login from './pages/Login';
+  import { LiaAppleAltSolid } from "react-icons/lia";
+  import { GiLipstick } from "react-icons/gi";
+  import { RiDrinksLine } from "react-icons/ri";
 
 
 
@@ -150,23 +154,27 @@
         <Navbar expand="lg" className="main-navbar">
           <Container>
             <Navbar.Brand>
-              <span className="brand-name">ShoeVerse</span>
+              <span className="brand-name" onClick={()=>{nav("/home")}}>SpeedMart</span>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
+              <Nav.Link as={Link} to="/categories">
+              <LiaAppleAltSolid size={20} className="nav-icon" /> Fruits & Vegetables
+                </Nav.Link>
+
                 <Nav.Link as={Link} to="/">
-                  <FaHome size={20} className="nav-icon" /> Home
+                <IoHeadsetOutline size={20} className="nav-icon" /> Electronics
                 </Nav.Link>
+                
                 <Nav.Link as={Link} to="/categories">
-                  <FaListAlt size={20} className="nav-icon" /> Categories
+                <GiLipstick  size={20} className="nav-icon" /> Beauty
                 </Nav.Link>
-                {/* <Nav.Link as={Link} to="/login">
-                  <FaUser size={20} className="nav-icon" /> Login
-                </Nav.Link> */}
-                <Nav.Link as={Link} to="/registration">
-                  <FaSignInAlt size={20} className="nav-icon" /> Registration
+                
+                <Nav.Link as={Link} to="/login">
+                <RiDrinksLine size={20} className="nav-icon" /> Drinks & Beverages
                 </Nav.Link>
+                
               </Nav>
             </Navbar.Collapse>
           </Container>

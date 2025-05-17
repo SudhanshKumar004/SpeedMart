@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-  --sidebar-bg: rgba(15, 23, 42, 0.9); /* glass effect */
+  --sidebar-bg: rgba(15, 23, 42, 0.9); 
   --sidebar-text: #f8fafc;
   --primary-accent: #3b82f6;
   --navbar-bg: rgba(30, 41, 59, 0.9);
