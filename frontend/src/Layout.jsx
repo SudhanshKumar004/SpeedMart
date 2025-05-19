@@ -139,11 +139,11 @@
       <div className="top-navbar">
           <h4 className="navbar-quote">logo</h4>
           <div className='nav-icons'>
-            {logedIn ? <span>Welcome, {userName}<button onClick={logout}>Logout</button></span> : ""}
+            {logedIn ? <span><button onClick={logout}>Logout</button></span> : ""}
 
             <span onClick={handleShow1} className='login-area'>
               <FaRegUserCircle/>
-              <span>Login</span>
+              <span>{logedIn ? userName : "Login"}</span>
             </span>
         <span onClick={()=>{nav("/cart")}} className='login-area' ><PiShoppingCartSimpleBold/>{prolength}</span> 
           <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
@@ -159,19 +159,19 @@
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/categories">
+              <Nav.Link as={Link} to="/fruitpage">
               <LiaAppleAltSolid size={20} className="nav-icon" /> Fruits & Vegetables
                 </Nav.Link>
 
-                <Nav.Link as={Link} to="/">
+                <Nav.Link as={Link} to="/electronics">
                 <IoHeadsetOutline size={20} className="nav-icon" /> Electronics
                 </Nav.Link>
                 
-                <Nav.Link as={Link} to="/categories">
+                <Nav.Link as={Link} to="/beauty">
                 <GiLipstick  size={20} className="nav-icon" /> Beauty
                 </Nav.Link>
                 
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link as={Link} to="/drinks">
                 <RiDrinksLine size={20} className="nav-icon" /> Drinks & Beverages
                 </Nav.Link>
                 

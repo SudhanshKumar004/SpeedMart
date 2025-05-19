@@ -64,7 +64,6 @@ const customerAuthenticate = async(req,res)=>{
     const token = authorization.split(" ")[1];
      try {
         const decodedToken = jwt.verify(token,  process.env.JWT_SECRET);
-        console.log(decodedToken.id);
       const Customer = await customerModel.findById(decodedToken.id).select("-password");
       res.status(200).send(Customer);
      
