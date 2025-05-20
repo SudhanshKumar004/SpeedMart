@@ -1,34 +1,34 @@
-const express = require("express")
 const mongoose = require("mongoose")
 
 const productSchema = new mongoose.Schema({ 
     name: {
         type: String,
-        require: true
+        required: true
     },
     description: {
         type: String,
-        require: true
+        required: true
     },
-    Brand: {
-        type: String,
-        require: true
-    },
-    Category: {
-        type: String,
-        require: true
-    },
+    // Brand: {
+    //     type: String,
+    //     required: true
+    // },
     price: {
         type: String,
-        require: true
+        required: true
     },
     defaultImage: {
         type: String,
-        require: true
+        required: true
     },
     images: {
         type:[String],
-        require: false
+        required: false
+    },
+    Category: {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"category",
+        required: true
     }
 })
 

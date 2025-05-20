@@ -141,6 +141,20 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 10;
+}
+
+
 @keyframes fadeInScale {
   from {
     opacity: 0;

@@ -97,7 +97,7 @@ const Home = () => {
         <h1><span>SpeedMart</span></h1>
         <h2>Groceries at Your Door in <strong>15 Minutes</strong></h2>
         <p>Fast, fresh and affordable – everything you need, delivered lightning fast!</p>
-        <button className="cta" onClick={()=>{nav("/")}}>Start Shopping</button>
+        <button className="cta" onClick={()=>{nav("/shop")}}>Start Shopping</button>
 
         <div className="product-row">
           <div className="product-card">

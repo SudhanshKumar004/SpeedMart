@@ -29,10 +29,10 @@ const App = () => {
           <Route path='cart' element={<Cart />} />
           <Route path='checkout' element={<Checkout />} />
           <Route path='paymentpage' element={<PaymentPage />} />
-          <Route path='electronics' element={<Electronics />}/>
-          <Route path='beauty' element={<Beauty />}/>
-          <Route path='fruitpage' element={<Fruits/>}/>
-          <Route path='drinks' element={<Drinks/>}/>
+          <Route path='electronics/:id' element={<Electronics />}/>
+          <Route path='beauty/:id' element={<Beauty />}/>
+          <Route path='fruitpage/:id' element={<Fruits/>}/>
+          <Route path='drinks/:id' element={<Drinks/>}/>
         </Route>
 
         <Route path='admindashboard' element={<AdminDashboard />}>

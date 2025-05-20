@@ -3,13 +3,22 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import API_URL from '../config/BaseURL';
 import axios from 'axios';
-
+import { useEffect } from 'react';
 const AddProduct = () => {
 
     const [input,setInput] = useState({})
     const [image,setImage] = useState("")
+    const [categories, setCategories] = useState([]);
 
-
+    const fetchCategories = async () => {
+      let api = `${API_URL}/admin/getcategories`;
+      try {
+        const response = await axios.get(api);
+        setCategories(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
     const handleInput = (e) =>{
         let name = e.target.name;
         let value = e.target.value;
@@ -50,6 +59,10 @@ const AddProduct = () => {
         }
     }
 
+    useEffect(()=>{
+        fetchCategories();
+    },[]) 
+
   return (
     <>
       <Form>
@@ -63,7 +76,7 @@ const AddProduct = () => {
         <Form.Control type="text" placeholder="Enter Description" name='description' onChange={handleInput} />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicBrand">
+      {/* <Form.Group className="mb-3" controlId="formBasicBrand">
         <Form.Label>Brand</Form.Label>
         <Form.Select aria-label="Default select example" name="Brand" onChange={handleInput}>
             <option>Select Brand</option>
@@ -76,16 +89,18 @@ const AddProduct = () => {
             <option value="Reebok">Reebok</option>
             <option value="Bata">Bata</option>
         </Form.Select>
-      </Form.Group>
+      </Form.Group> */}
       
       <Form.Group className="mb-3" controlId="formBasicCategory">
         <Form.Label>Category</Form.Label>
         <Form.Select aria-label="Default select example" name="Category" onChange={handleInput}>
             <option>Select Category</option>
-            <option value="Sports">Sports</option>
-            <option value="Sneakers">Sneakers</option>
-            <option value="Boots">Boots</option>
-            <option value="Casual">Casual</option>
+            {
+                categories.map((item)=>
+                {
+                    return <option value={item._id}>{item.name}</option>
+                })  
+            }
         </Form.Select>
       </Form.Group>
 

@@ -21,6 +21,7 @@
   import { LiaAppleAltSolid } from "react-icons/lia";
   import { GiLipstick } from "react-icons/gi";
   import { RiDrinksLine } from "react-icons/ri";
+import { useEffect } from 'react';
 
 
 
@@ -45,9 +46,30 @@
 
     const {logedIn, setLogedIn, userName, setUserName, userEmail, setUserEmail} = useContext(MyContext);
 
+    const [categories, setCategories] = useState([]);
+
     const nav = useNavigate();
     const Products = useSelector(state => state.myCart.cartItems);
     const prolength = Products.length;
+
+
+    const fetchCategories = async () => {
+      let api = `${API_URL}/admin/getcategories`;
+      try {
+        const response = await axios.get(api);
+        setCategories(response.data);
+      }  
+      catch (error) {
+        console.log(error);
+      }
+    }
+
+    const iconMap = {
+      fruitpage: <LiaAppleAltSolid size={20} className="nav-icon" />,
+      beauty: <GiLipstick size={20} className="nav-icon" />,
+      drinks: <RiDrinksLine size={20} className="nav-icon" />,
+      electronics: <IoHeadsetOutline size={20} className="nav-icon" />,
+    };
 
     const handleInput = (e) =>{
       let name = e.target.name;
@@ -95,6 +117,10 @@
           alert("Logout Successfull");
         }
 
+        useEffect(() => {
+          fetchCategories();
+        }, []);
+        
     return (
       <>
       {/* Admin Login Modal */}
@@ -137,7 +163,7 @@
 
         {/* Top Navbar */}
       <div className="top-navbar">
-          <h4 className="navbar-quote">logo</h4>
+          <h4 className="navbar-quote"><img src="https://www.freepnglogos.com/uploads/shopping-bag-png/shopping-bag-plaseto-bag-plaseto-bags-manufacturer-west-bengal-17.png" alt="" height={60} width={60} /></h4>
           <div className='nav-icons'>
             {logedIn ? <span><button onClick={logout}>Logout</button></span> : ""}
 
@@ -152,33 +178,23 @@
         
         {/* Main Navbar */}
         <Navbar expand="lg" className="main-navbar">
-          <Container>
-            <Navbar.Brand>
-              <span className="brand-name" onClick={()=>{nav("/home")}}>SpeedMart</span>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="ms-auto">
-              <Nav.Link as={Link} to="/fruitpage">
-              <LiaAppleAltSolid size={20} className="nav-icon" /> Fruits & Vegetables
-                </Nav.Link>
+      <Container>
+        <Navbar.Brand>
+          <span className="brand-name" onClick={() => nav("/home")}>SpeedMart</span>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            {categories.map(cat => (
+              <Nav.Link key={cat._id} as={Link} to={`/${cat.route}/${cat._id}`}>
+                {iconMap[cat.route] || null} {cat.name}
+              </Nav.Link>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
 
-                <Nav.Link as={Link} to="/electronics">
-                <IoHeadsetOutline size={20} className="nav-icon" /> Electronics
-                </Nav.Link>
-                
-                <Nav.Link as={Link} to="/beauty">
-                <GiLipstick  size={20} className="nav-icon" /> Beauty
-                </Nav.Link>
-                
-                <Nav.Link as={Link} to="/drinks">
-                <RiDrinksLine size={20} className="nav-icon" /> Drinks & Beverages
-                </Nav.Link>
-                
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
         
       
       

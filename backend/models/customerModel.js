@@ -3,42 +3,42 @@ const mongoose = require("mongoose")
 const customerSchema = new mongoose.Schema({
      name: {
         type: String,
-        require: true
+        required: true
     },
     
     email: {
         type: String,
-        require: true
+        required: true
     },
      
     number: {
         type: Number,
-        require: true
+        required: true
     },
 
     address: {
         type: String,
-        require: true
+        required: true
     },
 
     city: {
         type: String,
-        require: true
+        required: true
     },
      
     state: {
         type: String,
-        require: true
+        required: true
     },
 
     password: {
         type: String,
-        require: true
+        required: true
     },
 
     cpassword: {
         type: String,
-        require: true
+        required: true
     },
      
 })

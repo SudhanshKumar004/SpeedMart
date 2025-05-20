@@ -1,6 +1,9 @@
 const adminModel = require("../models/adminModel")
 const productModel = require("../models/productModel")
 const OrderModel = require("../models/orderModel")
+const categoryModel = require("../models/categoryModel")
+
+
 
 const adminLogin=async(req, res)=>{
     const { adminid, password} = req.body;
@@ -24,14 +27,14 @@ const adminLogin=async(req, res)=>{
 const addProduct=async(req, res)=>{
     const imgURLs = req.files.map(file => file.path);
 
-    const {name, description, Brand, Category, price} = req.body;
+    const {name, description, Category, price} = req.body;
 
     try {
 
          const Product = await productModel.create({
         name:name,
         description:description,
-        Brand:Brand,
+        // Brand:Brand,
         Category:Category,
         price:price,
         defaultImage:imgURLs[0],
@@ -96,11 +99,33 @@ const updateProduct = async (req, res) => {
     }
   };
   
+
+  const getCategories=async(req, res)=>{
+    try {
+        const Category = await categoryModel.find();
+        res.status(200).send(Category);
+    } catch (error) {
+        res.status(400).send("Cannot load Category details");
+    }
+  }
+
+  const categoryProduct=async(req, res)=>{
+    const {id} = req.body;
+    try {
+        const Product = await productModel.find({Category:id});
+        res.status(200).send(Product);
+    } catch (error) {
+        res.status(400).send("Cannot load Product details");
+    }
+  }
+
 module.exports ={
     adminLogin,
     addProduct,
     showProduct,
     getOrders,
     editProduct,
-    updateProduct
+    updateProduct,
+    getCategories,
+    categoryProduct
 }
