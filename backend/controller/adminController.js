@@ -50,7 +50,7 @@ const addProduct=async(req, res)=>{
 
 const showProduct=async(req, res)=>{
     try {
-        const Product = await productModel.find();
+        const Product = await productModel.find().limit(3);    
         res.status(200).send(Product);
     } catch (error) {
         res.status(400).send("Cannot load Product details");

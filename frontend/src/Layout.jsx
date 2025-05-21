@@ -165,11 +165,14 @@ import { useEffect } from 'react';
       <div className="top-navbar">
           <h4 className="navbar-quote"><img src="https://www.freepnglogos.com/uploads/shopping-bag-png/shopping-bag-plaseto-bag-plaseto-bags-manufacturer-west-bengal-17.png" alt="" height={60} width={60} /></h4>
           <div className='nav-icons'>
-            {logedIn ? <span><button onClick={logout}>Logout</button></span> : ""}
+            {logedIn ? <span><button onClick={logout} className='logout-btn'>Logout</button></span> : ""}
 
             <span onClick={handleShow1} className='login-area'>
-              <FaRegUserCircle/>
-              <span>{logedIn ? userName : "Login"}</span>
+              {logedIn ? <FaRegUserCircle style={{color:" palevioletred", marginBottom:"0px", marginTop:"5px"}}/> : <FaRegUserCircle/>}
+              
+              <span>{logedIn ? <span style={
+                {color:"teal", fontWeight:"bold", fontSize:"15px"} 
+              }>{userName}</span>  : "Login"}</span>
             </span>
         <span onClick={()=>{nav("/cart")}} className='login-area' ><PiShoppingCartSimpleBold/>{prolength}</span> 
           <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>

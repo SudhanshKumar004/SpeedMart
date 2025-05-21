@@ -5,7 +5,7 @@ body {
 }
 
 .top-navbar {
-    background:linear-gradient(180deg,#76A787, #f0f0f1);
+    background:linear-gradient(175deg, grey, #f0f0f1);
     color: #2b2d42;
     font-weight: bolder;
     padding: 10px 0;
@@ -87,6 +87,51 @@ body {
 
 .main-navbar .navbar-toggler:focus {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.logout-btn {
+  background: rgba(255, 77, 79, 0.2);
+  color: #fff;
+  border: 1px solid rgba(255, 77, 79, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 1px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 transparent;
+}
+
+.logout-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(117, 24, 26, 0.6), transparent);
+  transition: all 0.5s ease;
+}
+
+.logout-btn:hover::before {
+  left: 100%;
+}
+
+.logout-btn:hover {
+  border-color: rgba(255, 77, 79, 0.8);
+  box-shadow: 0 0 15px rgba(255, 77, 79, 0.6);
+  transform: translateY(-2px);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+  box-shadow: 0 0 8px rgba(255, 77, 79, 0.5);
 }
 
 
