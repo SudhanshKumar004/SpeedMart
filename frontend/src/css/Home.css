@@ -4,48 +4,18 @@
   height: 100vh;
   overflow: hidden;
 }
-/* 
-.heroTitle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: black;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px silver, 0 0 4px black;
-}
-
-.heroTitle h1 {
-  font-size: 4rem;
-  font-weight: 900;
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 2px;
-  color: #88293d;
-}
-
-.heroTitle p {
-  font-size: 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  color: black;
-  font-weight: 400;
-  margin-top: 10px;
-} */
-
 
 .hero-modern {
   height: 100vh;
   padding-top: 20px;
-  /* background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)); */
+  background: linear-gradient(90deg,#ffffff,#b0d6f5);
   background-color: whitesmoke;
   color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
+  /* padding: 2rem; */
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
@@ -87,42 +57,71 @@
   background-color: #00ddb3;
 }
 
-.product-row {
+
+
+/* .product-slider {
+  overflow: hidden;
+  width: 100%;
+} */
+
+.product-track {
   display: flex;
-  justify-content: center;
-  /* flex-wrap: wrap; */
-  gap: 1.5rem;
-  margin-top: 3rem;
+  width: max-content;
+  animation: scroll 60s linear infinite;
 }
+
 
 .product-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  padding: 1rem;
-  width: 180px;
-  border-radius: 15px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.product-card:hover {
-  transform: scale(1.05);
+  height: 160px;
+  border-radius: 10px;
 }
 
 .product-card img {
+  height: 100%;
   width: 100%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 0.5rem;
 }
 
-.product-card h3 {
-  font-size: 1.1rem;
-  margin-bottom: 0.2rem;
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(-50%);
+  } 
+  100% {
+    transform: translateX(-100%);
+  }
+
 }
 
-.product-card p {
+
+
+.buttons{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.secondary-page {
+  height: 100vh;
+  background: url('../media/heroimage.png') no-repeat center/cover;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* padding: 2rem; */
+  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
+}
+.main-title{
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 100px;
   font-weight: bold;
-  color: #00ffcc;
+  background: url('https://img.freepik.com/photos-premium/fond-ecran-texture-coloree-rouge-bleu-fond-abstrait_611557-567.jpg') no-repeat center/cover; 
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
 }

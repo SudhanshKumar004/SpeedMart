@@ -5,7 +5,7 @@ body {
 }
 
 .top-navbar {
-    background:linear-gradient(175deg, grey, #f0f0f1);
+    background:linear-gradient(175deg, palevioletred, #ffffff);
     color: #2b2d42;
     font-weight: bolder;
     padding: 10px 0;
@@ -58,7 +58,7 @@ body {
 .main-navbar .navbar-brand {
     font-size: 35px;
     font-weight: 800;
-    color: #b8293d;
+    color: palevioletred;
     transition: color 0.3s ease-in-out;
     cursor: pointer;
 }
