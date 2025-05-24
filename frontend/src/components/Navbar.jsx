@@ -5,7 +5,7 @@
     import Navbar from 'react-bootstrap/Navbar';
     import { IoHeadsetOutline } from "react-icons/io5";
     import { RiAdminFill } from "react-icons/ri";
-    import { PiShoppingCartSimpleBold } from "react-icons/pi";
+    import { LiaCartPlusSolid } from "react-icons/lia";
     import Modal from 'react-bootstrap/Modal';
     import Button from 'react-bootstrap/Button';
     import API_URL from '../config/BaseURL';
@@ -20,6 +20,10 @@
     import { GiLipstick } from "react-icons/gi";
     import { RiDrinksLine } from "react-icons/ri";
     import { useEffect } from 'react';
+    import { ShoppingCart } from 'lucide-react';
+    import { PiShoppingCartLight } from "react-icons/pi";
+    import { CiLogout } from "react-icons/ci";
+
 
 const NavBar = () => {
     const [input, setInput] = useState({
@@ -41,7 +45,8 @@ const NavBar = () => {
         const {logedIn, setLogedIn, userName, setUserName, userEmail, setUserEmail} = useContext(MyContext);
     
         const [categories, setCategories] = useState([]);
-    
+        const [showLogoutMenu, setShowLogoutMenu] = useState(false);
+
         const nav = useNavigate();
         const Products = useSelector(state => state.myCart.cartItems);
         const prolength = Products.length;
@@ -158,19 +163,40 @@ const NavBar = () => {
         {/* Top Navbar */}
       <div className="top-navbar">
           <h4 className="navbar-quote"><img src="https://www.freepnglogos.com/uploads/shopping-bag-png/shopping-bag-plaseto-bag-plaseto-bags-manufacturer-west-bengal-17.png" alt="" height={60} width={60} /></h4>
+          <span className='search-area'>
+          <input type="text" name="" id="" placeholder='Search items' />
+          <button>Search</button>
+          </span>
+          
           <div className='nav-icons'>
-            {logedIn ? <span><button onClick={logout} className='logout-btn'>Logout</button></span> : ""}
+            <span onClick={() => nav("/cart")} className='cart-area'><LiaCartPlusSolid /><span>{prolength}</span></span>
 
-            <span onClick={handleShow1} className='login-area'>
-              {logedIn ? <FaRegUserCircle style={{color:" palevioletred", marginBottom:"0px", marginTop:"5px"}}/> : <FaRegUserCircle/>}
-              
-              <span>{logedIn ? <span style={
-                {color:"teal", fontWeight:"bold", fontSize:"15px"} 
-              }>{userName}</span>  : "Login"}</span>
-            </span>
-        <span onClick={()=>{nav("/cart")}} className='login-area' ><PiShoppingCartSimpleBold/>{prolength}</span> 
-          <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
-          </div>
+            <span><RiAdminFill className="admin-icon" size={30} onClick={handleShow} /></span>
+
+            <span onClick={() => {
+              if (logedIn) {
+                setShowLogoutMenu(prev => !prev);
+              } else {
+                handleShow1();
+              }
+              }} className='login-area' ><FaRegUserCircle style={{ color: "palevioletred", marginTop: "5px" }} /><span>
+      {logedIn ? (
+        <span style={{ color: "teal", fontWeight: "bold", fontSize: "15px" }}>
+          {userName}
+        </span>
+      ) : (
+        "Login"
+      )}
+    </span>
+
+    {logedIn && showLogoutMenu && (
+      <div className="logout-menu">
+        <button onClick={() => {logout();setShowLogoutMenu(false);}} className='logout-btn'>Logout <CiLogout size={20} /></button>
+      </div>
+    )}
+  </span>
+</div>
+
         </div>
         
         {/* Main Navbar */}
@@ -191,6 +217,17 @@ const NavBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
+    {prolength > 0 && (
+  <div className="floating-cart" onClick={() => nav('/cart')}>
+    <div className="cart-icon">
+    <PiShoppingCartLight size={30} />
+      <span className="item-count">{prolength}</span>
+    </div>
+  </div>
+)}
+
+
     </>
   )
 }

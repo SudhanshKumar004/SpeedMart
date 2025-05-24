@@ -67,18 +67,21 @@
 .product-track {
   display: flex;
   width: max-content;
+  height: 300px;
   animation: scroll 60s linear infinite;
+  overflow: hidden;
 }
 
 
 .product-card {
-  height: 160px;
-  border-radius: 10px;
+  border-radius: 150px;
+  
 }
 
 .product-card img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 
 /* Animation */

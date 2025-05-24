@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Footer from './components/Footer';
 import NavBar from './components/Navbar';
-
+import Contact from './components/ContactUs';
 
 
 
@@ -13,8 +13,6 @@ import NavBar from './components/Navbar';
       <NavBar />
       
       <Outlet />
-
-      <hr />
 
       <Footer />
       </>

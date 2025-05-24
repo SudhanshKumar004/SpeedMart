@@ -12,6 +12,7 @@ import { addItem } from '../CartSlice';
 import { MyContext } from '../LoginContext';
 import { useNavigate } from 'react-router-dom';
 import secondImage from '../media/heroimage.png'
+import ContactUs from '../components/ContactUs';
  
 
 const Home = () => {
@@ -77,10 +78,7 @@ const Home = () => {
            <h4>{key.description}</h4>
            <h2> Price : {key.price}</h2>
         </Card.Text>
-        <div className="buttons">
         <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
-        <button>Product Details </button>
-        </div>
       </Card.Body>
     </Card>
         </>
@@ -99,7 +97,7 @@ const Home = () => {
       <img src="https://www.factsmostly.com/wp-content/uploads/2024/09/Fruits.webp" alt="Fresh Fruits" />
     </div>
     <div className="product-card">
-      <img src="https://cdn.shopify.com/s/files/1/0657/3100/2634/files/papier-peint-casque-audio-casque-stylise-avec-eclaboussures-de-peinture-vibrantes_1318c681-3a8c-4270-9c48-3ab42ba5ee65.png?v=1734363202" alt="Headphones" />
+      <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Rockerz_551_ANC_Pro.347_1.jpg?v=1737546044" alt="Headphones" />
     </div>
     <div className="product-card">
       <img src="https://plus.unsplash.com/premium_photo-1677526496597-aa0f49053ce2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWFrZXVwJTIwa2l0fGVufDB8fDB8fHww" alt="Makeup kit" />
@@ -122,10 +120,12 @@ const Home = () => {
     <div className='secondary-page'>
       
     </div>
+      <h1 style={{textAlign:"center"}}>Free Delivery on orders above ₹499</h1>
     <div className="cards">
       {productShow}
     </div>
     <hr />
+    <ContactUs />
     </>
   );
 };
