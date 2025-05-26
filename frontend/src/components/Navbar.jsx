@@ -1,5 +1,5 @@
     import React, { useContext, useState } from 'react'
-    import { Link,useNavigate } from 'react-router-dom'
+    import { Link,useLocation,useNavigate } from 'react-router-dom'
     import Container from 'react-bootstrap/Container';
     import Nav from 'react-bootstrap/Nav';
     import Navbar from 'react-bootstrap/Navbar';
@@ -50,6 +50,7 @@ const NavBar = () => {
         const nav = useNavigate();
         const Products = useSelector(state => state.myCart.cartItems);
         const prolength = Products.length;
+        const location = useLocation();
     
     
         const fetchCategories = async () => {
@@ -218,7 +219,7 @@ const NavBar = () => {
       </Container>
     </Navbar>
 
-    {prolength > 0 && (
+    {prolength > 0 && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/paymentpage' && (
   <div className="floating-cart" onClick={() => nav('/cart')}>
     <div className="cart-icon">
     <PiShoppingCartLight size={30} />

@@ -131,13 +131,7 @@ import Button from 'react-bootstrap/Button';
         <div className="head">
           <div></div>
           <h1>Checkout Page</h1>
-          <button
-            onClick={() => {
-              nav("/cart");
-            }}
-          >
-            <IoMdArrowRoundBack />
-          </button>
+          <button onClick={() => {nav("/cart");}}><IoMdArrowRoundBack /></button>
         </div>
 
         <div className="checkout-container">

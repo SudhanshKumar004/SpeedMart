@@ -9,6 +9,7 @@ import { quantityDec, quantityInc } from '../CartSlice';
 import { useNavigate } from 'react-router-dom';
 import '../css/cart.css'
 import StepProgressBar from '../components/StepProgressBar';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 
 const Cart = () => {
@@ -48,6 +49,12 @@ const Cart = () => {
   return (
     <>
     <StepProgressBar currentStep={0} />
+
+<div className="head">
+          <div></div>
+          <h1></h1>
+          <button onClick={() => {nav("/home");}}><IoMdArrowRoundBack /></button>
+        </div>
     {Products.length === 0 ? <h1 className='empty-cart'>Nothing here yet... your cart is feeling lonely! 🛒</h1> : 
     
     <div className="cart-container">

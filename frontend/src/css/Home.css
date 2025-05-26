@@ -59,29 +59,27 @@
 
 
 
-/* .product-slider {
+.product-slider {
   overflow: hidden;
   width: 100%;
-} */
+  mask-image: linear-gradient(to right, transparent, palevioletred 2%, skyblue 98%, transparent);
+
+}
 
 .product-track {
   display: flex;
   width: max-content;
   height: 300px;
   animation: scroll 60s linear infinite;
-  overflow: hidden;
 }
 
 
 .product-card {
   border-radius: 150px;
-  
 }
 
 .product-card img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+  height: 100px;
 }
 
 /* Animation */

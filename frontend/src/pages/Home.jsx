@@ -92,6 +92,7 @@ const Home = () => {
         <h2>Delivers at Your Door in <strong>15 Minutes</strong></h2>
         <p>Fast, fresh and affordable – everything you need, delivered lightning fast!</p>
 
+<div className="product-slider">
   <div className="product-track">
     <div className="product-card">
       <img src="https://www.factsmostly.com/wp-content/uploads/2024/09/Fruits.webp" alt="Fresh Fruits" />
@@ -111,6 +112,7 @@ const Home = () => {
     <div className="product-card">
       <img src="https://i0.wp.com/www.kabilaifarm.com/wp-content/uploads/2023/06/Understanding-the-Different-Types-of-Dairy-Products.jpg?fit=1024%2C647&ssl=1" alt="Dairy" />
     </div>
+  </div>
   </div>
 
       </div>
