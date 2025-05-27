@@ -70,7 +70,7 @@ const Home = () => {
     const productShow = mydata.map((key)=>{
       return(
         <>  
-        <Card className='product-card'>
+        <Card className='product-cards'>
       <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} height="300" />
       <Card.Body>
         <Card.Title>{key.name}</Card.Title>

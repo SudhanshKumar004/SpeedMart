@@ -114,11 +114,27 @@ body {
     }
   }
 
-.main-navbar .navbar-nav .nav-link:hover {
-    color: blue;
+  .main-navbar .navbar-nav .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -0%;
+    width: 0;
+    height: 4px;
+    background:linear-gradient(90deg, #f0f0f0, palevioletred);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .main-navbar .navbar-nav .nav-link:hover::before {
+    width: 100%;
+  }
+  
+  .main-navbar .navbar-nav .nav-link:hover {
+    color:cornflowerblue;
     transform: scale(1.1);
     text-shadow: 0 0 10px #76A787;
-}
+  }
+
 
 .main-navbar .navbar-toggler {
     border: 2px solid white;

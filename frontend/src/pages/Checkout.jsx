@@ -262,7 +262,11 @@ import Button from 'react-bootstrap/Button';
               </h2>
               <h2 className="coupan-title">
                 <span className="title-span">Shipping Charge :</span>
-                <span className="amnt-span">₹{shippingCharge}</span>
+                {totalAmnt > 499 ? (
+                  <span className="amnt-span">Free</span>
+                ) : (
+                  <span className="amnt-span">₹{shippingCharge}</span>
+                )}
               </h2>
               <hr />
               <h2 className="coupan-title">
