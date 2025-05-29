@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 const cartSlice = createSlice({
     name: "cart",
     initialState: {
@@ -9,7 +9,15 @@ const cartSlice = createSlice({
         addItem: (state, action) => {
             const cartdata = state.cartItems.filter(key=>key.id == action.payload.id)
             if(cartdata.length >= 1){
-                alert("Item already exist in cart");
+                    toast.error("❗ Item Already Exists in your Cart!", {
+                        position: "top-right",
+                        autoClose: 3000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: true,
+                        theme: "colored",
+                    });
             }
             else{
                 state.cartItems.push(action.payload);

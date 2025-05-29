@@ -16,9 +16,12 @@ import Electronics from './pages/Electronics';
 import Beauty from './pages/Beauty';
 import Fruits from './pages/Fruits';
 import Drinks from './pages/Drinks';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
+    <>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
@@ -43,6 +46,8 @@ const App = () => {
         </Route>
       </Routes>
     </BrowserRouter>
+    <ToastContainer />
+    </>
   );
 };
 

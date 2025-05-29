@@ -76,7 +76,7 @@ const Home = () => {
         <Card.Title>{key.name}</Card.Title>
         <Card.Text>
            <h4>{key.description}</h4>
-           <h2> Price : {key.price}</h2>
+           <h2> Price : ₹{key.price}/-</h2>
         </Card.Text>
         <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
       </Card.Body>
@@ -86,6 +86,7 @@ const Home = () => {
     })
   return (
     <>
+    <div className="home-container">
     <header className="hero-modern">
       <div className="hero-content">
         <h1><span className='main-title'>SpeedMart</span></h1>
@@ -122,11 +123,11 @@ const Home = () => {
     <div className='secondary-page'>
       
     </div>
-      <h1 style={{textAlign:"center"}}>Free Delivery on orders above ₹499</h1>
+      <h1 className='delivery-head'>📦Free Delivery on orders above ₹499💸</h1>
     <div className="cards">
       {productShow}
     </div>
-    <hr />
+    </div>
     <ContactUs />
     </>
   );

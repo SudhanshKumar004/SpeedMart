@@ -1,14 +1,20 @@
 import React from "react";
 import "../css/admindash.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 function AdminDashboard() {
 
     const nav = useNavigate();
     const logout = () =>{
         localStorage.clear();
         nav("/home");
-        alert("Logout Successfull");
+        toast.info("👋 Logged out successfully", {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "colored",
+          closeOnClick: true,
+          pauseOnHover: false
+        });
     }
   return (
     <div className="dashboard-container">

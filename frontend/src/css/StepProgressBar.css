@@ -1,3 +1,4 @@
+
 .progress-container {
   display: flex;
   justify-content: space-between;
@@ -6,6 +7,7 @@
   max-width: 800px;
   position: relative;
   padding: 0 10px;
+  margin-top: 80px;
 }
 
 .step-wrapper {
@@ -20,7 +22,7 @@
   height: 30px;
   width: 30px;
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: skyblue;
   color: white;
   font-weight: bold;
   display: flex;
@@ -30,7 +32,7 @@
 }
 
 .circle.active {
-  background-color: orangered
+  background-color: palevioletred; 
 }
 
 .line {
@@ -39,12 +41,12 @@
   left: 50%;
   right: -50%;
   height: 4px;
-  background-color: lightgray;
+  background-color: skyblue ;
   z-index: 1;
 }
 
 .line.active {
-  background-color: orangered;
+  background-color:palevioletred;
 }
 
 .label {

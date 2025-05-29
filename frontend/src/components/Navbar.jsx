@@ -23,7 +23,7 @@
     import { ShoppingCart } from 'lucide-react';
     import { PiShoppingCartLight } from "react-icons/pi";
     import { CiLogout } from "react-icons/ci";
-
+    import { toast } from 'react-toastify';
 
 const NavBar = () => {
     const [input, setInput] = useState({
@@ -84,12 +84,24 @@ const NavBar = () => {
               let api=`${API_URL}/admin/adminlogin`;
               const response= await axios.post(api, {adminid:adminid, password:password});
               console.log(response);
-              alert(response.data.msg);
+              toast.info(response.data.msg, {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "colored",
+                closeOnClick: true,
+                pauseOnHover: false
+              });
               setShow(false);
               localStorage.setItem("admin", response.data.Admin.name);
               nav("/admindashboard");
           } catch (error) {
-              console.log(error.response.data.msg);
+            toast.error(error.response.data.msg, {
+              position: "top-center", 
+              autoClose: 2000,
+              theme: "colored",
+              closeOnClick: true,
+              pauseOnHover: false
+            });
           }
           }
     
@@ -98,7 +110,13 @@ const NavBar = () => {
             let api = `${API_URL}/customer/login`
             try {
                 let response = await axios.post(api, input)
-                alert(response.data.msg);
+                toast.success("✅ Login Successful!", {
+                  position: "top-center",
+                  autoClose: 2000,
+                  theme: "colored",
+                  closeOnClick: true,
+                  pauseOnHover: false
+                });
     
             localStorage.setItem("token", response.data.token);
             setLogedIn(true); 
@@ -107,14 +125,26 @@ const NavBar = () => {
             } 
             
             catch (error) {
-                alert(error.response.data.msg);
+                toast.error(error.response.data.msg, {
+                  position: "top-center",
+                  autoClose: 2000,
+                  theme: "colored",
+                  closeOnClick: true,
+                  pauseOnHover: false
+  });
             }
         }
           
             const logout = () =>{
               localStorage.clear();
               setLogedIn(false);
-              alert("Logout Successfull");
+              toast.info("👋 Logged out successfully", {
+                position: "top-right",
+                autoClose: 2000,
+                theme: "colored",
+                closeOnClick: true,
+                pauseOnHover: false
+              });
             }
     
             useEffect(() => {

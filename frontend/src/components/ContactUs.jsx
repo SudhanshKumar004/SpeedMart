@@ -14,9 +14,7 @@ const ContactUs = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // You can integrate with Nodemailer, EmailJS, or backend here
     alert("Message sent successfully!");
-    setFormData({ name: '', email: '', message: '' });
   };
 
   return (
