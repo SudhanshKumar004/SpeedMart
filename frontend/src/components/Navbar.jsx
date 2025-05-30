@@ -84,7 +84,7 @@ const NavBar = () => {
               let api=`${API_URL}/admin/adminlogin`;
               const response= await axios.post(api, {adminid:adminid, password:password});
               console.log(response);
-              toast.info(response.data.msg, {
+              toast.success(response.data.msg, {
                 position: "top-center",
                 autoClose: 2000,
                 theme: "colored",

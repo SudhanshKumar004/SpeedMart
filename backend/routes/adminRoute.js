@@ -11,6 +11,8 @@ route.get("/getorders", adminController.getOrders)
 route.get("/editproduct/:id", adminController.editProduct)  
 route.post("/updateproduct/:id" , upload.array("images", 6) , adminController.updateProduct)
 route.get("/getcategories", adminController.getCategories)
-route.post("/categoryproduct", adminController.categoryProduct)  
+route.post("/categoryproduct", adminController.categoryProduct) 
+route.get("/showallproduct", adminController.showallProduct) 
+route.post("/deleteproduct", adminController.deleteProduct)
 
 module.exports = route;

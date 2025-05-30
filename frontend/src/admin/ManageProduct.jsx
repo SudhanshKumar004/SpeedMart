@@ -13,7 +13,7 @@ const ManageProduct = () => {
   const nav = useNavigate(); 
 
   const loadData = async () =>{
-    let api = `${API_URL}/admin/showproduct`;
+    let api = `${API_URL}/admin/showallproduct`;
     try {
       const response = await axios.get(api);
       setProduct(response.data);
@@ -34,19 +34,15 @@ const ManageProduct = () => {
    const productShow = product.map((key)=>{
         return(
           <>  
-          <Card className='manage-card'>
-        <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} />
-        <Card.Body>
-          <Card.Title>{key.name}</Card.Title>
-          <Card.Text>
-             <h4>{key.description}</h4>
-             <h4>Brand : {key.Brand}</h4>
-             <h4>{key.Category}</h4>
-             <h2> Price : {key.price}</h2>
-          </Card.Text>
-          <Button variant="primary" onClick={()=>{editproduct(key._id)}}>Edit Product  </Button>
-        </Card.Body>
-      </Card>
+          <tr>
+        <td><img src={`${API_URL}/${key.defaultImage}`} alt={key.name} className="product-img" /></td>
+        <td>{key.name}</td>
+        <td>{key.description}</td>
+        <td>₹ {key.price}</td>
+        <td>
+          <button className="edit-btn" onClick={() => editproduct(key._id)}>Edit Product</button>
+        </td>
+      </tr>
           </>
         )
       })
@@ -56,7 +52,22 @@ const ManageProduct = () => {
     <>
       <h1>Manage</h1>
       <div className="manage-card-container">
-      {productShow}
+
+      <table className="product-table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    {productShow}
+  </tbody>
+</table>
+
       </div>
     </>
   )

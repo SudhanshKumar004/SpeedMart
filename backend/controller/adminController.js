@@ -57,6 +57,15 @@ const showProduct=async(req, res)=>{
     }
 }
 
+const showallProduct=async(req, res)=>{
+    try {
+        const Product = await productModel.find();    
+        res.status(200).send(Product);
+    } catch (error) {
+        res.status(400).send("Cannot load Product details");
+    }
+}
+
 
 const getOrders=async(req, res)=>{
     try {
@@ -119,6 +128,16 @@ const updateProduct = async (req, res) => {
     }
   }
 
+  const deleteProduct=async(req, res)=>{
+        const {id} = req.body;
+    try {
+        const Product = await productModel.findByIdAndDelete(id);
+        res.status(200).send("Product deleted Successfully");
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }   
+        
+  }
 module.exports ={
     adminLogin,
     addProduct,
@@ -127,5 +146,7 @@ module.exports ={
     editProduct,
     updateProduct,
     getCategories,
-    categoryProduct
+    categoryProduct,
+    showallProduct,
+    deleteProduct   
 }

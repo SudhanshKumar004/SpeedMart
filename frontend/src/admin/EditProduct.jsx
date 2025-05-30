@@ -1,15 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import API_URL from '../config/BaseURL';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import API_URL from "../config/BaseURL";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 const EditProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState("");
+  const [categories, setCategories] = useState([]);
+  const nav = useNavigate();
 
+  //for fetching categories
+  const fetchCategories = async () => {
+    let api = `${API_URL}/admin/getcategories`;
+    try {
+      const response = await axios.get(api);
+      setCategories(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //making controlled component
   const handleInput = (e) => {
     const { name, value } = e.target;
     setProduct((prev) => ({ ...prev, [name]: value }));
@@ -19,6 +34,7 @@ const EditProduct = () => {
     setImage(e.target.files);
   };
 
+  //for product details update
   const handleSubmit = async (e) => {
     e.preventDefault();
     const api = `${API_URL}/admin/updateproduct/${id}`;
@@ -29,18 +45,66 @@ const EditProduct = () => {
     }
 
     for (let i = 0; i < image.length; i++) {
-      formData.append('images', image[i]);
+      formData.append("images", image[i]);
     }
 
     try {
       const response = await axios.post(api, formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
-      alert(response.data);
+      toast.success(response.data, {
+        position: "top-center",
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: false,
+      });
+
+      nav("/admindashboard/manageproduct");
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  //for product delete
+  const deleteProduct = async () => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You will not be able to recover this product!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, keep it",
+      reverseButtons: false,
+    });
+
+    if (result.isConfirmed) {
+      try {
+        const api = `${API_URL}/admin/deleteproduct`;
+        const response = await axios.post(api, { id: id });
+
+        await Swal.fire({
+          title: "Deleted!",
+          text: "The product has been deleted.",
+          icon: "success",
+          timer: 2000,
+          showConfirmButton: false,
+        });
+
+        nav("/admindashboard/manageproduct");
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      Swal.fire({
+        title: "Cancelled",
+        text: "Your product is safe 🙂",
+        icon: "error",
+        timer: 2000,
+        showConfirmButton: false,
+      });
     }
   };
 
@@ -55,6 +119,7 @@ const EditProduct = () => {
 
   useEffect(() => {
     loadData();
+    fetchCategories();
   }, []);
 
   return (
@@ -64,7 +129,7 @@ const EditProduct = () => {
           <Form.Label>Product Name</Form.Label>
           <Form.Control
             type="text"
-            value={product.name || ''}
+            value={product.name || ""}
             name="name"
             onChange={handleInput}
           />
@@ -74,43 +139,23 @@ const EditProduct = () => {
           <Form.Label>Description</Form.Label>
           <Form.Control
             type="text"
-            value={product.description || ''}
+            value={product.description || ""}
             name="description"
             onChange={handleInput}
           />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicBrand">
-          <Form.Label>Brand</Form.Label>
-          <Form.Select
-            value={product.Brand || ''}
-            name="Brand"
-            onChange={handleInput}
-          >
-            <option>Select Brand</option>
-            <option value="Nike">Nike</option>
-            <option value="Puma">Puma</option>
-            <option value="Adidas">Adidas</option>
-            <option value="Asics">Asics</option>
-            <option value="New Balance">New Balance</option>
-            <option value="Sparx">Sparx</option>
-            <option value="Reebok">Reebok</option>
-            <option value="Bata">Bata</option>
-          </Form.Select>
-        </Form.Group>
-
         <Form.Group className="mb-3" controlId="formBasicCategory">
           <Form.Label>Category</Form.Label>
           <Form.Select
-            value={product.Category || ''}
+            value={product.Category || ""}
             name="Category"
             onChange={handleInput}
           >
             <option>Select Category</option>
-            <option value="Sports">Sports</option>
-            <option value="Sneakers">Sneakers</option>
-            <option value="Boots">Boots</option>
-            <option value="Casual">Casual</option>
+            {categories.map((item) => {
+              return <option value={item._id}>{item.name}</option>;
+            })}
           </Form.Select>
         </Form.Group>
 
@@ -118,7 +163,7 @@ const EditProduct = () => {
           <Form.Label>Product Price</Form.Label>
           <Form.Control
             type="number"
-            value={product.price || ''}
+            value={product.price || ""}
             name="price"
             onChange={handleInput}
           />
@@ -135,9 +180,11 @@ const EditProduct = () => {
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Submit
+          Update Product Details
         </Button>
       </Form>
+      <br />
+      <Button onClick={deleteProduct}>Delete Product</Button>t
     </>
   );
 };

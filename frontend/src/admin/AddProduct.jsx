@@ -4,11 +4,15 @@ import Form from 'react-bootstrap/Form';
 import API_URL from '../config/BaseURL';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
+
 const AddProduct = () => {
 
     const [input,setInput] = useState({})
     const [image,setImage] = useState("")
     const [categories, setCategories] = useState([]);
+    const nav = useNavigate();
 
     const fetchCategories = async () => {
       let api = `${API_URL}/admin/getcategories`;
@@ -51,7 +55,14 @@ const AddProduct = () => {
                 'Content-Type': 'multipart/form-data'
             }
          });
-         alert(response.data);  
+         Swal.fire({
+          icon: "success",
+          title: response.data,
+          showConfirmButton: false,
+          timer: 1500
+        });  
+
+        nav("/admindashboard/manageproduct");
         }
         catch (error) {
             console.log(error);
@@ -93,7 +104,7 @@ const AddProduct = () => {
       
       <Form.Group className="mb-3" controlId="formBasicCategory">
         <Form.Label>Category</Form.Label>
-        <Form.Select aria-label="Default select example" name="Category" onChange={handleInput}>
+        <Form.Select name="Category" onChange={handleInput}>
             <option>Select Category</option>
             {
                 categories.map((item)=>

@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import '../css/contact.css';
+import API_URL from '../config/BaseURL';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+
+
+
 const ContactUs = () => {
+
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,9 +20,27 @@ const ContactUs = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Message sent successfully!");
+    let api = `${API_URL}/customer/contactus`;
+    try {
+      let response = await axios.post(api, formData);
+      toast.success(response.data.msg , {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "colored",
+                closeOnClick: true,
+                pauseOnHover: false
+              });
+    } catch (error) {
+      toast.error(error.response.data.msg, {
+                position: "top-center",
+                autoClose: 2000,
+                theme: "colored",
+                closeOnClick: true,
+                pauseOnHover: false
+              });
+    }
   };
 
   return (

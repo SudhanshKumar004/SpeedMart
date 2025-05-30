@@ -342,6 +342,29 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+  .top-navbar {
+    background:linear-gradient(175deg, rgb(238, 146, 177), #ffffff);
+    color: #2b2d42;
+    font-weight: bolder;
+    padding: 10px 0;
+    font-size: 20px;
+    text-align: end;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    width: 87%;
+    z-index: 999;
+    height: 50px;
+}
+
+  
+    .nav-icons span{
+        padding-right:0px;
+    }
+
     .footer {
         font-size: 0.9rem;
     }

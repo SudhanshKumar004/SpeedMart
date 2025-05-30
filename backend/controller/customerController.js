@@ -2,6 +2,8 @@ const customerModel = require("../models/customerModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const shippingModel = require("../models/shippingModel");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 const customerRegistration = async(req, res) => {
     const { name, email, number, address, city, state, password, cpassword } = req.body;
@@ -116,11 +118,44 @@ const orderData = async(req, res) => {
     }
 }
 
+
+
+const contactUs = async(req, res) => {
+        const { name, email, message } = req.body;
+
+        try {
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                  user: process.env.EMAIL_USER,
+                  pass: process.env.EMAIL_PASS,
+                }
+              });
+              
+              const mailOptions = {
+                from: email,
+                to: "sudhanshkr04@gmail.com",
+                subject: `New message from ${name}`,
+                text:`You received a new message:\n\nName: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+              };
+              await transporter.sendMail(mailOptions);
+
+              res.status(200).json({ msg: 'Email sent successfully' })
+              
+        } catch (error) {
+                console.error('Error sending email:', error);
+                res.status(500).json({ msg: 'Failed to send email' });
+        }
+}
+
+
+
 module.exports = {
     customerRegistration,
     customerLogin,
     customerAuthenticate,
     checkoutData,
     shippingData,
-    orderData
+    orderData,
+    contactUs
 }
