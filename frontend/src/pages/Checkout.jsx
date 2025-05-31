@@ -120,7 +120,7 @@ import Button from 'react-bootstrap/Button';
     useEffect(() => {
       if (!logedIn) {
         alert("Please Login First");
-        nav("/login");
+        nav("/home");
       }
       loadData();
     }, []);

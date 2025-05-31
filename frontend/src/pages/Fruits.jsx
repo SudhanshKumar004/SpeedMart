@@ -8,6 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { addItem } from '../CartSlice'
 import { useDispatch } from 'react-redux'
+import '../css/fruits.css'
 
 const Fruits = () => {
   const {id} = useParams(); 
@@ -54,9 +55,10 @@ const Fruits = () => {
 
   return (
     <>
-      <h1>Fruits & bevarages</h1>
-      <h2>{id}</h2>
+      <h1 className='category-title'>Fruits & bevarages</h1>
+    <div className="fruit-container">
       {productShow}
+      </div>
     </>
   )
 }

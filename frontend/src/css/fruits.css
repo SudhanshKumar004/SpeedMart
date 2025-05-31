@@ -1,0 +1,14 @@
+.category-title{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+.fruit-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    justify-content: center;
+}
