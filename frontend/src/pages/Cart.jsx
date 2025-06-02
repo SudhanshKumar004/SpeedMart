@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import API_URL from '../config/BaseURL';
 import Table from 'react-bootstrap/Table';
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import { removeItem } from '../CartSlice';
+import { cartClear, removeItem } from '../CartSlice';
 import { CiCirclePlus,  CiCircleMinus } from "react-icons/ci";
 import { quantityDec, quantityInc } from '../CartSlice';
 import { useNavigate } from 'react-router-dom';
 import '../css/cart.css'
 import StepProgressBar from '../components/StepProgressBar';
 import { IoMdArrowRoundBack } from "react-icons/io";
+
 
 
 const Cart = () => {
@@ -30,13 +31,14 @@ const Cart = () => {
 
                 <td data-label="Product Name">{key.name}</td>
                 <td>{key.description}</td>
-                <td>{key.Brand}</td>
                 <td>{key.Category}</td>    
                 <td>{key.price}</td>
                 <td>
-                    <CiCircleMinus className='quantity-icon' fontSize={30} onClick={()=>{dispatch(quantityDec({id:key.id}));}} />
+                   <div className="quantity-container">
+                    <CiCircleMinus className='quantity-icon' onClick={()=>{dispatch(quantityDec({id:key.id}));}} />
                     {key.qnty}
-                    <CiCirclePlus className='quantity-icon' fontSize={30} onClick={()=>{dispatch(quantityInc({id:key.id}));}} />
+                    <CiCirclePlus className='quantity-icon'  onClick={()=>{dispatch(quantityInc({id:key.id}));}} />
+                    </div>
                 </td>
                 <td>{key.qnty * key.price}</td>
                 <td><MdOutlineDeleteOutline className='delete-icon' fontSize={25} cursor={"pointer"} onClick={()=>{dispatch(removeItem({id:key.id}))}} /></td>
@@ -61,13 +63,13 @@ const Cart = () => {
         <div className="cart-header">
      <h1>Your Cart {Products.length === 1 ? `(${Products.length} item)` : `(${Products.length} items)`}</h1> 
      </div>
+     <span><button className='clear-btn' onClick={()=>{dispatch(cartClear({id:"all"}))}}>Clear Cart</button></span>
      <Table striped bordered hover className='cart-table'>
       <thead>
         <tr>
           <th>#</th>
           <th>Product Name</th>
           <th>Description</th>
-          <th>Brand</th>
           <th>Category</th>
           <th>Price</th>
           <th>Quantity</th>

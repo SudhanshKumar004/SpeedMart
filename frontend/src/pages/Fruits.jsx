@@ -8,7 +8,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { addItem } from '../CartSlice'
 import { useDispatch } from 'react-redux'
-import '../css/fruits.css'
+import '../css/categoryCard.css'
 
 const Fruits = () => {
   const {id} = useParams(); 
@@ -35,19 +35,35 @@ const Fruits = () => {
 
 
   const productShow = product.map((key)=>{
+    let discount = key.price - (key.price * 10 / 100);
     return(
       <>  
-      <Card className='product-card'>
-    <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} height="300" />
-    <Card.Body>
-      <Card.Title>{key.name}</Card.Title>
-      <Card.Text>
-         <h4>{key.description}</h4>
-         <h2> Price : {key.price}</h2>
-      </Card.Text>
-      <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
-    </Card.Body>
-  </Card>
+      <Card className="category-card">
+  <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} />
+  <Card.Body>
+    <Card.Title className="card-title">{key.name}</Card.Title>
+    <Card.Text className="card-text">
+      <h4>{key.description}</h4>
+      <h2> Price : ₹{discount}/- <h3><s><i>₹{key.price}</i></s></h3></h2> 
+    </Card.Text>
+    <Button onClick={() => {
+      dispatch(addItem({
+        id: key._id,
+        name: key.name,
+        description: key.description,
+        Brand: key.Brand,
+        Category: key.Category,
+        price: key.price,
+        defaultImage: key.defaultImage,
+        images: key.images,
+        qnty: 1
+      }))
+    }}>
+      Add to Cart
+    </Button>
+  </Card.Body>
+</Card>
+
       </>
     )
   })
@@ -55,7 +71,7 @@ const Fruits = () => {
 
   return (
     <>
-      <h1 className='category-title'>Fruits & bevarages</h1>
+      <h1 className='category-title'>Fruits & bevarages🍉</h1>
     <div className="fruit-container">
       {productShow}
       </div>

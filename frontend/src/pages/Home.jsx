@@ -77,7 +77,7 @@ const Home = () => {
         <Card.Title>{key.name}</Card.Title>
         <Card.Text>
            <h4>{key.description}</h4>
-           <h2> Price : ₹{discount}/- <h4><s><i>{key.price}</i></s></h4></h2> 
+           <h2> Price : ₹{discount}/- <h4><s><i>₹{key.price}</i></s></h4></h2> 
         </Card.Text>
         <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
       </Card.Body>

@@ -8,6 +8,9 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { addItem } from '../CartSlice'
 import { useDispatch } from 'react-redux'
+import '../css/categoryCard.css'
+
+
 const Electronics = () => {
   const {id} = useParams()
   const [product, setProduct] = useState([]);
@@ -30,28 +33,47 @@ const Electronics = () => {
       loadProduct();
     },[])
   
-   const productShow = product.map((key)=>{
+    const productShow = product.map((key)=>{
+      let discount = key.price - (key.price * 10 / 100);
       return(
         <>  
-        <Card className='product-card'>
-      <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} height="300" />
-      <Card.Body>
-        <Card.Title>{key.name}</Card.Title>
-        <Card.Text>
-           <h4>{key.description}</h4>
-           <h2> Price : {key.price}</h2>
-        </Card.Text>
-        <Button variant="primary" onClick={()=>{dispatch(addItem({id:key._id, name:key.name, description:key.description , Brand:key.Brand, Category:key.Category, price:key.price, defaultImage:key.defaultImage, images:key.images, qnty:1}))}}>Add to Cart</Button>
-      </Card.Body>
-    </Card>
+        <Card className="category-card">
+    <Card.Img variant="top" src={`${API_URL}/${key.defaultImage}`} />
+    <Card.Body>
+      <Card.Title className="card-title">{key.name}</Card.Title>
+      <Card.Text className="card-text">
+        <h4>{key.description}</h4>
+        <h2> Price : ₹{discount}/- <h3><s><i>₹{key.price}</i></s></h3></h2> 
+      </Card.Text>
+      <Button onClick={() => {
+        dispatch(addItem({
+          id: key._id,
+          name: key.name,
+          description: key.description,
+          Brand: key.Brand,
+          Category: key.Category,
+          price: key.price,
+          defaultImage: key.defaultImage,
+          images: key.images,
+          qnty: 1
+        }))
+      }}>
+        Add to Cart
+      </Button>
+    </Card.Body>
+  </Card>
+  
         </>
       )
     })
+
+
   return (
     <>
-      <h1>Electronics</h1>
-      <h2>{id}</h2>
+      <h1 className='category-title'>Electronics📱</h1>
+    <div className="fruit-container">
       {productShow}
+      </div>
     </>
   )
 }
