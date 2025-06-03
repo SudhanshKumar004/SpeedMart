@@ -10,6 +10,7 @@ import StepProgressBar from "../components/StepProgressBar";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
+import FormLabel from "react-bootstrap/esm/FormLabel";
 
   const Checkout = () => {
     const { logedIn } = useContext(MyContext);
@@ -136,9 +137,10 @@ import Button from 'react-bootstrap/Button';
 
         <div className="checkout-container">
           <div className="cus-info">
-            {buttonStatus ? <button onClick={()=>{setButtonStatus(false);setIsNewAddress(false);}}>go Back</button> 
-            : <button onClick={()=>{setButtonStatus(true);setIsNewAddress(true);}}>Add New Address</button>} 
-
+            <div className="button-space">
+            {buttonStatus ? <button className='add-new-address' onClick={()=>{setButtonStatus(false);setIsNewAddress(false);}}>Go Back</button> 
+            : <button className='add-new-address' onClick={()=>{setButtonStatus(true);setIsNewAddress(true);}}>Add New Address</button>} 
+            </div>
             {
               buttonStatus ? (<>
               <Form className='checkout-form'>
@@ -159,11 +161,12 @@ import Button from 'react-bootstrap/Button';
                       </Form.Group>
 
                       <h2 className='form-head'>Shipping Address</h2>
-                      <Form.Group className="sm-1" controlId="formBasicAddress">
+                      <Form.Group className="form-group" controlId="formBasicAddress">
+                          <FormLabel className="form-label">Address</FormLabel>
                           <Button variant="secondary" onClick={getCurrentLocation} className="sm-1 location-btn">
                               📍 Use My Current Location
                           </Button>
-                          <Form.Control type="text" name='address' value={newAddress.address || ''} onChange={handleInput1} placeholder='Enter Address' />
+                          <Form.Control type="text" name='address' value={newAddress.address || ''} onChange={handleInput1} />
                       </Form.Group>
 
                       <Form.Group className="form-group" controlId="formBasicPassword">
@@ -176,6 +179,8 @@ import Button from 'react-bootstrap/Button';
                           <Form.Control type="text" name='state' value={newAddress.state || ''} onChange={handleInput1}/>
                       </Form.Group>        
                   </Form>
+
+                  <h4 className="details-bottom">*Your order will be delivered to this address</h4>
                   </>)
                   : 
                   
@@ -209,7 +214,7 @@ import Button from 'react-bootstrap/Button';
               </div>
                   </>)
             }
-            
+            <hr />
 
               
             </div>

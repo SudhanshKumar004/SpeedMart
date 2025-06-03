@@ -46,6 +46,7 @@ const NavBar = () => {
     
         const [categories, setCategories] = useState([]);
         const [showLogoutMenu, setShowLogoutMenu] = useState(false);
+        const [searchdata, setSearchdata] = useState("");
 
         const nav = useNavigate();
         const Products = useSelector(state => state.myCart.cartItems);
@@ -147,6 +148,25 @@ const NavBar = () => {
               });
             }
     
+
+            const handleSearchInput = (e) =>{
+              let {name , value} = e.target;
+              setSearchdata(values=>({...values, [name]:value}))
+              console.log(searchdata);
+              
+            }
+            const handleSearch = async () =>{
+              let api = `${API_URL}/admin/searchproduct`
+
+              try {
+                let response = await axios.post(api, searchdata)
+                console.log(response);
+                
+              } catch (error) {
+                console.log(error);
+                
+              }
+            }
             useEffect(() => {
               fetchCategories();
             }, []);
@@ -195,8 +215,8 @@ const NavBar = () => {
       <div className="top-navbar">
           <h4 className="navbar-quote"><img src="https://www.freepnglogos.com/uploads/shopping-bag-png/shopping-bag-plaseto-bag-plaseto-bags-manufacturer-west-bengal-17.png" alt="" height={60} width={60} /></h4>
           <span className='search-area'>
-          <input type="text" name="" id="" placeholder='Search items' />
-          <button>Search</button>
+          <input type="text" name="search" id="" placeholder='Search items' value={searchdata.search} onChange={handleSearchInput} />
+          <button onClick={handleSearch}>Search</button>
           </span>
           
           <div className='nav-icons'>

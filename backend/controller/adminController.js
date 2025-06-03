@@ -136,7 +136,15 @@ const updateProduct = async (req, res) => {
     } catch (error) {
         res.status(400).send("Something went wrong");
     }   
+  }
+
+  const searchProduct = async(req,res) =>{
+    let {search} = req.body;
+    try {
+        let result = await productModel.find
+    } catch (error) {
         
+    }
   }
 module.exports ={
     adminLogin,
@@ -148,5 +156,6 @@ module.exports ={
     getCategories,
     categoryProduct,
     showallProduct,
-    deleteProduct   
+    deleteProduct,
+    searchProduct   
 }

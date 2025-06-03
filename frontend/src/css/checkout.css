@@ -35,6 +35,47 @@
   background-color: #fff;
 }
 
+.button-space{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+.add-new-address{
+  background-color:palevioletred;
+  position: relative;
+  right: 0;
+  color: white;
+  border: 1px solid palevioletred;
+  padding: 6px 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  
+}
+
+.add-new-address:hover{
+  background-color:white;
+  border: 1px solid black;
+  color: #000;
+
+}
+
+.details-bottom{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: red;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+
+
 .cus-info, .cart-item {
   flex: 1;
   min-width: 300px;
@@ -123,29 +164,24 @@ align-items: center;
     color: #333;
 }
 
-.checkout-form .form-group{
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.checkout-form .form-label{
-    width:120px;
-    font-size: 20px;
-    margin-bottom: 0;
-    font-weight: 500;
-    color: #333;
-}
-
-.checkout-form .form-control {
-    padding: 10px;
-    font-size: 20px;
-    border-radius: 0px;
-    border: 1px solid rgba(128, 128, 128, 0.532);
-}
 .form-group {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
 }
+
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.location-btn {
+  align-self: flex-start;
+}
+
 
 .cart-item table {
   margin-top: 20px;

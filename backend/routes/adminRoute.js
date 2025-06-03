@@ -14,5 +14,6 @@ route.get("/getcategories", adminController.getCategories)
 route.post("/categoryproduct", adminController.categoryProduct) 
 route.get("/showallproduct", adminController.showallProduct) 
 route.post("/deleteproduct", adminController.deleteProduct)
+route.post("/searchproduct", adminController.searchProduct)
 
 module.exports = route;
