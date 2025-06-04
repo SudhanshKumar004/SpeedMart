@@ -55,7 +55,7 @@ const Drinks = () => {
         description: key.description,
         Brand: key.Brand,
         Category: key.Category,
-        price: key.price,
+        price: discount,
         defaultImage: key.defaultImage,
         images: key.images,
         qnty: 1

@@ -27,7 +27,7 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
 
     const productPrint = Products.map((key) => {
       totalAmnt += key.price * key.qnty;
-      gst = totalAmnt * 0.12;
+      gst = Math.round(totalAmnt * 0.12);
 
       return (
         <tr>
@@ -277,7 +277,7 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
               <h2 className="coupan-title">
                 <span className="title2-span">Total Amount :</span>
                 <span className="total-span">
-                  ₹{totalAmnt + gst + shippingCharge}
+                  ₹{Math.round(totalAmnt + gst + shippingCharge)}
                 </span>
               </h2>
             </div>

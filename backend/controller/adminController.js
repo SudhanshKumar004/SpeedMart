@@ -141,9 +141,15 @@ const updateProduct = async (req, res) => {
   const searchProduct = async(req,res) =>{
     let {search} = req.body;
     try {
-        let result = await productModel.find
+        let result = await productModel.find({name:{$regex:search,$options:"i"}})
+        if(result.length>0){
+            res.status(200).send(result);
+        }    
+        else{
+            res.status(400).send("No Product Found");
+        }
     } catch (error) {
-        
+        console.log(error); 
     }
   }
 module.exports ={

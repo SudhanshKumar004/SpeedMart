@@ -47,6 +47,9 @@ const PaymentPage = () => {
     if(paymentMethod === "razorpay"){
       handleRazorpay();
     }
+    else if(paymentMethod === "cod"){
+      handleCod();
+    } 
   };
 
   let productName = "";
@@ -101,6 +104,20 @@ const PaymentPage = () => {
       } catch (error) {
         console.log(error);
       }
+  };
+
+  const handleCod =  async () => {
+    try {
+      let orderURL = `${API_URL}/customer/customerCODorders`;
+      const data = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
+      console.log(data);
+      alert("Order Placed Successfully");
+      dispatch(cartClear());
+
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {

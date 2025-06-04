@@ -42,11 +42,10 @@ const NavBar = () => {
         const [adminid, setAdminid]= useState("");
         const [password, setPassword]= useState("");
     
-        const {logedIn, setLogedIn, userName, setUserName, userEmail, setUserEmail} = useContext(MyContext);
+        const {logedIn, setLogedIn, userName, setUserName, userEmail, setUserEmail, searchdata, setSearchdata, searchproduct, setSearchproduct} = useContext(MyContext);
     
         const [categories, setCategories] = useState([]);
         const [showLogoutMenu, setShowLogoutMenu] = useState(false);
-        const [searchdata, setSearchdata] = useState("");
 
         const nav = useNavigate();
         const Products = useSelector(state => state.myCart.cartItems);
@@ -161,9 +160,12 @@ const NavBar = () => {
               try {
                 let response = await axios.post(api, searchdata)
                 console.log(response);
+                setSearchproduct(response.data);
+                nav("/searchresult");
                 
               } catch (error) {
                 console.log(error);
+                nav("/searchresult");
                 
               }
             }

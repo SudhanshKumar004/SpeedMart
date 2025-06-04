@@ -25,6 +25,7 @@ const Orders = () => {
           <td>{key.address}</td>
           <td>{key.contact}</td>
           <td>{key.email}</td>
+          <td>{key.ordermethod}</td>
           <td>{key.orderAt}</td>
         </tr>
       </>
@@ -47,6 +48,7 @@ const Orders = () => {
           <th>Shipping Address</th>
           <th>Contact</th>
           <th>Email</th>
+          <th>Method</th>
           <th>Order Date</th>
         </tr>
       </thead>

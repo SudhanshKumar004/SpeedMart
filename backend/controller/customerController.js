@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const shippingModel = require("../models/shippingModel");
 const nodemailer = require("nodemailer");
+const OrderModel = require("../models/orderModel");
 require("dotenv").config();
 
 const customerRegistration = async(req, res) => {
@@ -148,6 +149,23 @@ const contactUs = async(req, res) => {
         }
 }
 
+const customerCODorders = async(req, res) => {
+    const {amount, cusname, address, contact, email, productname} = req.body;
+    try {
+        const Order = await OrderModel.create({
+            productname:productname,
+            totalamount:amount,
+            cusname:cusname,
+            address:address,
+            contact:contact,
+            email:email,
+            ordermethod:"Cash on Delivery"
+        })
+        res.status(200).send(Order);
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }
+}
 
 
 module.exports = {
@@ -157,5 +175,6 @@ module.exports = {
     checkoutData,
     shippingData,
     orderData,
-    contactUs
+    contactUs,
+    customerCODorders
 }

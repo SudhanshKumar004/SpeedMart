@@ -184,7 +184,7 @@ const EditProduct = () => {
         </Button>
       </Form>
       <br />
-      <Button onClick={deleteProduct}>Delete Product</Button>t
+      <Button onClick={deleteProduct}>Delete Product</Button>
     </>
   );
 };

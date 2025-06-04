@@ -13,6 +13,7 @@ router.post("/customerorders", async (req, res) => {
         address:address,
         contact:contact,
         email:email,
+        ordermethod:"Razorpay"
     })
 
      try {
