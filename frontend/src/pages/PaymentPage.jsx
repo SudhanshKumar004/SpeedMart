@@ -7,6 +7,8 @@ import API_URL from '../config/BaseURL';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { cartClear } from '../CartSlice';
+import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const PaymentPage = () => {
   const [paymentMethod, setPaymentMethod] = useState('');
@@ -38,14 +40,34 @@ const PaymentPage = () => {
       console.log(error);  
     } 
   }
+
+
   const handleProceed = () => {
     if (!paymentMethod) {
-      alert('Please select a payment method.');
+      Swal.fire("Please select a payment method.");
+
     } else {
-      alert(`Selected payment method: ${paymentMethod}`);
+
+      let imgUrl = "";
+      if(paymentMethod === "razorpay"){
+        imageUrl = "https://vectorseek.com/wp-content/uploads/2023/09/Razorpay-with-all-cards-UPI-Logo-Vector.svg-.png";
+      }
+      else if(paymentMethod === "cod"){
+        imageUrl = "https://icon-library.com/images/cash-on-delivery-icon/cash-on-delivery-icon-8.jpg";
+      }
+      Swal.fire({
+        title:  `${paymentMethod}`,
+        text: "Selected payment method",
+        imageUrl: imageUrl,
+        imageWidth: 150,
+        imageHeight: 100,
+        imageAlt: `{paymentMethod} image`
+      });
     }
     if(paymentMethod === "razorpay"){
-      handleRazorpay();
+      setTimeout(() => {
+        handleRazorpay();
+      }, 2000);
     }
     else if(paymentMethod === "cod"){
       handleCod();
@@ -59,10 +81,42 @@ const PaymentPage = () => {
       imageUrl=`${API_URL}${key.defaultImage}`;
     }) 
     
-    gst = totalAmnt * 0.12;   
-    absoluteTotal = totalAmnt + gst + shippingCharge;
+    gst = Math.round(totalAmnt * 0.12);   
+    absoluteTotal = Math.round(totalAmnt + gst + shippingCharge);
 
-
+    const handleRazorpay =async () => {
+    
+      try {
+          const orderURL = "http://localhost:8080/api/payment/customerorders";
+          const {data} = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName, cusid: localStorage.getItem("cusid")});
+          console.log(data);
+          initPay(data.data);
+  
+        } catch (error) {
+          console.log(error);
+          
+        }
+    };
+  
+    const handleCod =  async () => {
+      try {
+        let orderURL = `${API_URL}/customer/customerCODorders`;
+        const data = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName, cusid: localStorage.getItem("cusid")}); 
+        console.log(data);
+        nav("/orderdetail");
+  
+      } catch (error) {
+        console.log(error);
+        toast.error(error.response.data, {
+          position: "top-center",
+          autoClose: 2000,
+          theme: "colored",
+          closeOnClick: true,
+          pauseOnHover: false
+        });
+      }
+    };
+  
 
      const initPay = (data) => {
       const options = {
@@ -77,6 +131,8 @@ const PaymentPage = () => {
           try {
             const verifyURL = "http://localhost:8080/api/payment/verification";
             const {data} = await axios.post(verifyURL,response);
+             nav("/orderdetail");
+
           } catch(error) {
             console.log(error);
           }
@@ -90,35 +146,6 @@ const PaymentPage = () => {
     };
    
 
-  const handleRazorpay =async () => {
-    
-    try {
-        const orderURL = "http://localhost:8080/api/payment/customerorders";
-        const {data} = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
-        console.log(data);
-        initPay(data.data);
-
-        dispatch(cartClear());
-
-
-      } catch (error) {
-        console.log(error);
-      }
-  };
-
-  const handleCod =  async () => {
-    try {
-      let orderURL = `${API_URL}/customer/customerCODorders`;
-      const data = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName});
-      console.log(data);
-      alert("Order Placed Successfully");
-      dispatch(cartClear());
-
-
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
     loadData();

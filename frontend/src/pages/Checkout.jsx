@@ -40,8 +40,6 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
             />
           </td>
           <td>{key.name}</td>
-          <td>{key.Brand}</td>
-          <td>{key.Category}</td>
           <td>{key.price}</td>
           <td>{key.qnty}</td>
           <td>{key.qnty * key.price}</td>
@@ -90,7 +88,6 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
     
       try {
         const response = await axios.post(api, shippingPayload);
-        // console.log(response.data);
         nav("/paymentpage");
       } catch (error) {
         console.log(error);
@@ -226,8 +223,6 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
                 <tr>
                   <th>#</th>
                   <th>Product Name</th>
-                  <th>Brand</th>
-                  <th>Category</th>
                   <th>Price</th>
                   <th>Quantity</th>
                   <th>Total</th>

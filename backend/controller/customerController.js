@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const shippingModel = require("../models/shippingModel");
 const nodemailer = require("nodemailer");
 const OrderModel = require("../models/orderModel");
+const orderGenerator = require("../utils/orderNumber");
 require("dotenv").config();
 
 const customerRegistration = async(req, res) => {
@@ -31,10 +32,11 @@ const customerRegistration = async(req, res) => {
             city: city,
             state: state,
             password: hashedPassword,
-            cpassword: chashedPassword
         })
-        res.status(200).send("Customer registered Successfully");
-    } catch (error) {
+        res.status(200).send({ msg: "Customer registered Successfully", customer: Customer});
+              } catch (error) {
+                console.log(error);
+                
         res.status(400).send("Something went wrong");
     }
 }
@@ -150,16 +152,18 @@ const contactUs = async(req, res) => {
 }
 
 const customerCODorders = async(req, res) => {
-    const {amount, cusname, address, contact, email, productname} = req.body;
+    const {amount, cusname, address, contact, email, productname, cusid} = req.body;
     try {
         const Order = await OrderModel.create({
+            ordernumber:orderGenerator(),
             productname:productname,
             totalamount:amount,
             cusname:cusname,
             address:address,
             contact:contact,
             email:email,
-            ordermethod:"Cash on Delivery"
+            ordermethod:"Cash on Delivery",
+            Customer: cusid
         })
         res.status(200).send(Order);
     } catch (error) {
@@ -167,6 +171,15 @@ const customerCODorders = async(req, res) => {
     }
 }
 
+const orderDetail = async(req, res) => {
+    const {cusid} = req.body;
+    try {
+        const Order = await OrderModel.findOne({Customer:cusid}).sort({createdAt:-1});
+        res.status(200).send(Order);
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }
+}
 
 module.exports = {
     customerRegistration,
@@ -176,5 +189,6 @@ module.exports = {
     shippingData,
     orderData,
     contactUs,
-    customerCODorders
+    customerCODorders,
+    orderDetail
 }

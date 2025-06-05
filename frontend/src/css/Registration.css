@@ -90,3 +90,8 @@
     font-weight: 600;
     color: #2b2d42;
 }
+
+.error {
+    border: 1.5px solid red !important;
+}
+

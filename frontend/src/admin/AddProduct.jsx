@@ -87,21 +87,7 @@ const AddProduct = () => {
         <Form.Control type="text" placeholder="Enter Description" name='description' onChange={handleInput} />
       </Form.Group>
 
-      {/* <Form.Group className="mb-3" controlId="formBasicBrand">
-        <Form.Label>Brand</Form.Label>
-        <Form.Select aria-label="Default select example" name="Brand" onChange={handleInput}>
-            <option>Select Brand</option>
-            <option value="Nike">Nike</option>
-            <option value="Puma">Puma</option>
-            <option value="Adidas">Adidas</option>
-            <option value="Asics">Asics</option>
-            <option value="New Balance">New Balance</option>
-            <option value="Sparx">Sparx</option>
-            <option value="Reebok">Reebok</option>
-            <option value="Bata">Bata</option>
-        </Form.Select>
-      </Form.Group> */}
-      
+
       <Form.Group className="mb-3" controlId="formBasicCategory">
         <Form.Label>Category</Form.Label>
         <Form.Select name="Category" onChange={handleInput}>

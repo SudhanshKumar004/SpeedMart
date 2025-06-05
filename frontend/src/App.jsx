@@ -19,6 +19,7 @@ import Drinks from './pages/Drinks';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResult from './pages/SearchResult';
+import OrderDetail from './pages/OrderDetail';
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path='fruitpage/:id' element={<Fruits/>}/>
           <Route path='drinks/:id' element={<Drinks/>}/>
           <Route path='searchresult' element={<SearchResult />} />
+          <Route path='orderdetail' element={<OrderDetail />} />
         </Route>
 
         <Route path='admindashboard' element={<AdminDashboard />}>

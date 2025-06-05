@@ -19,6 +19,7 @@ const Orders = () => {
     return (
       <>
         <tr>
+          <td>#{key.ordernumber}</td>
           <td>{key.productname}</td>
           <td>{key.cusname}</td>
           <td>{key.totalamount}</td>
@@ -42,6 +43,7 @@ const Orders = () => {
       <Table striped bordered hover>
       <thead>
         <tr>
+          <th>Order ID</th>
           <th>Product Name</th>
           <th>Customer Name</th>
           <th>Total Amount</th>

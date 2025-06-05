@@ -2,18 +2,20 @@ const router = require("express").Router();
 const OrderModel = require("../models/orderModel");
 const Razorpay = require("razorpay");
 const crypto = require("crypto");
-
+const orderGenerator = require("../utils/orderNumber");
 router.post("/customerorders", async (req, res) => {
-    const {amount, cusname, address, contact, email, productname} = req.body;
+    const {amount, cusname, address, contact, email, productname, cusid} = req.body;
 
     const Order = await OrderModel.create({
+        ordernumber:orderGenerator(),
         productname:productname,
         totalamount:amount,
         cusname:cusname,
         address:address,
         contact:contact,
         email:email,
-        ordermethod:"Razorpay"
+        ordermethod:"Razorpay",
+        Customer: cusid
     })
 
      try {

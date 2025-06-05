@@ -31,7 +31,6 @@ const Cart = () => {
 
                 <td data-label="Product Name">{key.name}</td>
                 <td>{key.description}</td>
-                <td>{key.Category}</td>    
                 <td>{key.price}</td>
                 <td>
                    <div className="quantity-container">
@@ -70,7 +69,6 @@ const Cart = () => {
           <th>#</th>
           <th>Product Name</th>
           <th>Description</th>
-          <th>Category</th>
           <th>Price</th>
           <th>Quantity</th>
           <th>Total</th>

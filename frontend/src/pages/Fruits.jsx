@@ -51,7 +51,6 @@ const Fruits = () => {
         id: key._id,
         name: key.name,
         description: key.description,
-        Brand: key.Brand,
         Category: key.Category,
         price: discount,
         defaultImage: key.defaultImage,

@@ -262,8 +262,8 @@ const NavBar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             {categories.map(cat => (
-              <Nav.Link key={cat._id} as={Link} to={`/${cat.route}/${cat._id}`}>
-                {iconMap[cat.route]} {cat.name}
+              <Nav.Link as={Link} to={`/${cat.route}/${cat._id}`}>
+                {iconMap[cat.route]} {cat.name}   {/*each icon will place with route location*/}
               </Nav.Link>
             ))}
           </Nav>
@@ -271,7 +271,7 @@ const NavBar = () => {
       </Container>
     </Navbar>
 
-    {prolength > 0 && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/paymentpage' && (
+    {prolength > 0 && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/paymentpage' && location.pathname !== '/orderdetail' && (
   <div className="floating-cart" onClick={() => nav('/cart')}>
     <div className="cart-icon">
     <PiShoppingCartLight size={30} />
