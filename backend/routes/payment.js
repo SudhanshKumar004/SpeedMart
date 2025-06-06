@@ -14,6 +14,7 @@ router.post("/customerorders", async (req, res) => {
         address:address,
         contact:contact,
         email:email,
+        paymentstatus:"Paid",
         ordermethod:"Razorpay",
         Customer: cusid
     })

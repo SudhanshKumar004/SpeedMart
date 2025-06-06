@@ -1,18 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import "../css/orderdetail.css";
 import API_URL from "../config/BaseURL";
 import axios from "axios";
 const OrderDetail = () => {
-    const [orderdetail, setOrderdetail] = React.useState({});
+    const [orderdetail, setOrderdetail] = useState({});
+    const [customerdetail, setCustomerdetail] = useState({});
 
     const loadData = async () => {
         let api = `${API_URL}/customer/orderdetail`;
+        let api1 = `${API_URL}/customer/customerdetails`; 
         try {
             let response =  await axios.post(api, {cusid : localStorage.getItem("cusid")});
+            let response1 =  await axios.post(api1, {cusid : localStorage.getItem("cusid")});
             console.log(response.data);
+            console.log(response1.data);
             setOrderdetail(response.data);
+            setCustomerdetail(response1.data);
         } catch (error) {
             console.log(error);
         }
@@ -79,20 +84,18 @@ const OrderDetail = () => {
         <div className="info-sections">
           <div className="shipping-info">
             <h3>Shipping Information</h3>
-            <p><strong>Name:</strong> John Doe</p>
-            <p><strong>Email:</strong> john.doe@example.com</p>
-            <p><strong>Phone:</strong> +91 9876543210</p>
-            <p><strong>Address:</strong> 123, Main Street, Mumbai</p>
-            <p><strong>City:</strong> Mumbai</p>
-            <p><strong>State:</strong> Maharashtra</p>
+            <p><strong>Name:</strong>{customerdetail.name}</p>
+            <p><strong>Email:</strong> {customerdetail.email}</p>
+            <p><strong>Phone:</strong> {customerdetail.number}</p>
+            <p><strong>Address:</strong> {customerdetail.address}</p>
+            <p><strong>City:</strong> {customerdetail.city}</p>
+            <p><strong>State:</strong> {customerdetail.state}</p>
           </div>
 
           <div className="payment-info">
             <h3>Payment Details</h3>
-            <p><strong>Method:</strong> Credit Card</p>
-            <p><strong>Transaction ID:</strong> TXN789456123</p>
-            <p><strong>Status:</strong> <span className="status paid">Paid</span></p>
-            <p><strong>Date:</strong> 2025-06-04</p>
+            <p><strong>Method:</strong> {orderdetail.ordermethod}</p>
+            <p><strong>Status:</strong> <span className="status paid">{orderdetail.paymentstatus}</span></p>
             <Button variant="primary" className="btn-contact-support">Contact Support</Button>
           </div>
         </div>

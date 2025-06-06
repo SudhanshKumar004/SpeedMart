@@ -5,8 +5,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from 'react-router-dom';
 import API_URL from '../config/BaseURL';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { cartClear } from '../CartSlice';
+import { useSelector } from 'react-redux';
 import Swal from 'sweetalert2';
 import { toast } from 'react-toastify';
 
@@ -21,7 +20,6 @@ const PaymentPage = () => {
   let shippingCharge = 50;
   let absoluteTotal = 0;
   let imageUrl = "";
-  let dispatch = useDispatch();
     
 
   useEffect(() => {
@@ -48,7 +46,7 @@ const PaymentPage = () => {
 
     } else {
 
-      let imgUrl = "";
+      let imageUrl = "";
       if(paymentMethod === "razorpay"){
         imageUrl = "https://vectorseek.com/wp-content/uploads/2023/09/Razorpay-with-all-cards-UPI-Logo-Vector.svg-.png";
       }

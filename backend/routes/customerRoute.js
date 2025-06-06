@@ -11,4 +11,5 @@ route.post("/orderData", customerController.orderData)
 route.post("/contactus", customerController.contactUs)
 route.post("/customercodorders", customerController.customerCODorders)
 route.post("/orderdetail", customerController.orderDetail)
+route.post("/customerdetails", customerController.customerDetails)
 module.exports = route

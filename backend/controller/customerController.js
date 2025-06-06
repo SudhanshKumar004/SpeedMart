@@ -162,6 +162,7 @@ const customerCODorders = async(req, res) => {
             address:address,
             contact:contact,
             email:email,
+            paymentstatus:"Payment Pending",
             ordermethod:"Cash on Delivery",
             Customer: cusid
         })
@@ -174,8 +175,18 @@ const customerCODorders = async(req, res) => {
 const orderDetail = async(req, res) => {
     const {cusid} = req.body;
     try {
-        const Order = await OrderModel.findOne({Customer:cusid}).sort({createdAt:-1});
+        const Order = await OrderModel.findOne({Customer:cusid}).sort({orderAt:-1});
         res.status(200).send(Order);
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }
+}
+
+const customerDetails = async(req, res) => {
+    const {cusid} = req.body;
+    try {
+        const Customer = await customerModel.findById(cusid);
+        res.status(200).send(Customer);
     } catch (error) {
         res.status(400).send("Something went wrong");
     }
@@ -190,5 +201,6 @@ module.exports = {
     orderData,
     contactUs,
     customerCODorders,
-    orderDetail
+    orderDetail,
+    customerDetails
 }

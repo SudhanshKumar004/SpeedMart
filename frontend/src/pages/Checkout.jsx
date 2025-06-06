@@ -88,6 +88,7 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
     
       try {
         const response = await axios.post(api, shippingPayload);
+        console.log(response.data);
         nav("/paymentpage");
       } catch (error) {
         console.log(error);
@@ -109,9 +110,8 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
                   setNewAddress(values => ({ ...values, address: address }));
               } catch (error) {
                   alert("Failed to get address from location.");
+                  console.log(error);
               }
-          }, (err) => {
-              alert("Permission denied or failed to get location.");
           });
       };
 
