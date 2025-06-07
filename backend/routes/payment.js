@@ -4,12 +4,17 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const orderGenerator = require("../utils/orderNumber");
 router.post("/customerorders", async (req, res) => {
-    const {amount, cusname, address, contact, email, productname, cusid} = req.body;
+    const {amount, qnty, productprice, gst, shippingCharge, totalAmnt, cusname, address, contact, email, productname, cusid} = req.body;
 
     const Order = await OrderModel.create({
         ordernumber:orderGenerator(),
         productname:productname,
-        totalamount:amount,
+        amount:amount,
+        qnty:qnty,
+        gst:gst,
+        shippingcharge:shippingCharge,
+        totalamount:totalAmnt,
+        productprice:productprice,
         cusname:cusname,
         address:address,
         contact:contact,

@@ -16,8 +16,10 @@ const PaymentPage = () => {
   const nav = useNavigate();
   const Products = useSelector(state => state.myCart.cartItems)
   let totalAmnt = 0;
+  let totalQnty = 0;
+  let productprice = 0;
   let gst = 0;
-  let shippingCharge = 50;
+  let shippingCharge = 0;
   let absoluteTotal = 0;
   let imageUrl = "";
     
@@ -77,16 +79,30 @@ const PaymentPage = () => {
       productName += key.name + ", ";
       totalAmnt += key.price * key.qnty;
       imageUrl=`${API_URL}${key.defaultImage}`;
+      totalQnty += key.qnty;
+      productprice += key.price;
     }) 
     
     gst = Math.round(totalAmnt * 0.12);   
+    shippingCharge = totalAmnt > 499 ? 0 : 50;
     absoluteTotal = Math.round(totalAmnt + gst + shippingCharge);
 
     const handleRazorpay =async () => {
     
       try {
           const orderURL = "http://localhost:8080/api/payment/customerorders";
-          const {data} = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName, cusid: localStorage.getItem("cusid")});
+          const {data} = await axios.post(orderURL,{amount: absoluteTotal,
+                                                    qnty:totalQnty,
+                                                    gst:gst,
+                                                    shippingCharge:shippingCharge,
+                                                    totalAmnt:totalAmnt,                                                    
+                                                    productprice:productprice, 
+                                                    cusname:customerData.name, 
+                                                    address:customerData.address,
+                                                    contact:customerData.number, 
+                                                    email:customerData.email, 
+                                                    productname:productName, 
+                                                    cusid: localStorage.getItem("cusid")});
           console.log(data);
           initPay(data.data);
   
@@ -99,7 +115,18 @@ const PaymentPage = () => {
     const handleCod =  async () => {
       try {
         let orderURL = `${API_URL}/customer/customerCODorders`;
-        const data = await axios.post(orderURL,{amount: absoluteTotal, cusname:customerData.name, address:customerData.address, contact:customerData.number, email:customerData.email, productname:productName, cusid: localStorage.getItem("cusid")}); 
+        const data = await axios.post(orderURL,{amount: absoluteTotal, 
+                                                qnty:totalQnty, 
+                                                gst:gst,
+                                                shippingCharge:shippingCharge,
+                                                totalAmnt:totalAmnt,
+                                                productprice:productprice, 
+                                                cusname:customerData.name, 
+                                                address:customerData.address, 
+                                                contact:customerData.number, 
+                                                email:customerData.email, 
+                                                productname:productName, 
+                                                cusid: localStorage.getItem("cusid")}); 
         console.log(data);
         nav("/orderdetail");
   

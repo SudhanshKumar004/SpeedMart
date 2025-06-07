@@ -152,12 +152,17 @@ const contactUs = async(req, res) => {
 }
 
 const customerCODorders = async(req, res) => {
-    const {amount, cusname, address, contact, email, productname, cusid} = req.body;
+    const {amount, qnty, productprice, gst, shippingCharge, totalAmnt , cusname, address, contact, email, productname, cusid} = req.body;
     try {
         const Order = await OrderModel.create({
             ordernumber:orderGenerator(),
             productname:productname,
-            totalamount:amount,
+            amount:amount,
+            qnty:qnty,
+            gst:gst,
+            shippingcharge:shippingCharge,
+            totalamount:totalAmnt,
+            productprice:productprice,
             cusname:cusname,
             address:address,
             contact:contact,
@@ -169,6 +174,7 @@ const customerCODorders = async(req, res) => {
         res.status(200).send(Order);
     } catch (error) {
         res.status(400).send("Something went wrong");
+        console.log(error);
     }
 }
 

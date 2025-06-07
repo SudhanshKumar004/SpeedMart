@@ -41,40 +41,34 @@ const OrderDetail = () => {
           <Table striped bordered hover responsive>
             <thead>
               <tr>
-                <th>Product</th>
+                <th>Products</th>
                 <th>Qty</th>
                 <th>Price</th>
-                <th>Total</th>
               </tr>
             </thead>
             <tbody>
+
               <tr>
-                <td>Wireless Headphones</td>
-                <td>1</td>
-                <td>₹2000</td>
-                <td>₹2000</td>
+                <td>{orderdetail.productname}</td>
+                <td>{orderdetail.qnty}</td>
+                <td>₹{orderdetail.productprice}</td>
+              </tr>
+            
+              <tr>
+                <td colSpan={2} style={{ textAlign: "right", fontWeight: "bold" }}>Subtotal</td>
+                <td>₹{orderdetail.totalamount}</td>
               </tr>
               <tr>
-                <td>Phone Case</td>
-                <td>2</td>
-                <td>₹300</td>
-                <td>₹600</td>
+                <td colSpan={2} style={{ textAlign: "right" }}>GST (12%)</td>
+                <td>{orderdetail.gst}</td>
               </tr>
               <tr>
-                <td colSpan={3} style={{ textAlign: "right", fontWeight: "bold" }}>Subtotal</td>
-                <td>₹2600</td>
+                <td colSpan={2} style={{ textAlign: "right" }}>Shipping Charge</td>
+                <td>{orderdetail.shippingcharge}</td>
               </tr>
               <tr>
-                <td colSpan={3} style={{ textAlign: "right" }}>GST (12%)</td>
-                <td>₹312</td>
-              </tr>
-              <tr>
-                <td colSpan={3} style={{ textAlign: "right" }}>Shipping Charge</td>
-                <td>₹50</td>
-              </tr>
-              <tr>
-                <td colSpan={3} style={{ textAlign: "right", fontWeight: "bold" }}>Total</td>
-                <td>₹2962</td>
+                <td colSpan={2} style={{ textAlign: "right", fontWeight: "bold" }}>Total</td>
+                <td>{orderdetail.amount}</td>
               </tr>
             </tbody>
           </Table>

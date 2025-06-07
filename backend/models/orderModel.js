@@ -11,7 +11,32 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
 
-   totalamount: {
+  qnty: {
+    type: Number,
+    required: true,
+  },
+
+  productprice: {
+    type: Number,
+    required: true,
+  },
+
+   amount: {
+    type: Number,
+    required: true,
+  },
+
+  gst: {
+    type: Number,
+    required: true,
+  },  
+
+  shippingcharge: {
+    type: Number,
+    required: true,
+  },
+
+  totalamount: {
     type: Number,
     required: true,
   },
@@ -40,7 +65,7 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
+
   ordermethod: {
     type: String,
     required: true,

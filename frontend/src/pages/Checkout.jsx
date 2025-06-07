@@ -11,6 +11,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import Button from 'react-bootstrap/Button';
 import FormLabel from "react-bootstrap/esm/FormLabel";
+import { toast } from "react-toastify";
 
   const Checkout = () => {
     const { logedIn } = useContext(MyContext);
@@ -60,13 +61,9 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
       }
     };
 
-    const handleInput = (e) => {
-      let name = e.target.name;
-      let value = e.target.value;
-      setCustomerData((values) => ({ ...values, [name]: value }));
-    };
 
-    const handleInput1 = (e) => {
+
+    const handleInput = (e) => {
       let name = e.target.name;
       let value = e.target.value;
       setNewAddress((values) => ({ ...values, [name]: value }));
@@ -117,7 +114,7 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
 
     useEffect(() => {
       if (!logedIn) {
-        alert("Please Login First");
+        toast.error("Please login first", { position: "top-center" });
         nav("/home");
       }
       loadData();
@@ -144,17 +141,17 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
                       <h2 className='form-head'>Customer Info</h2>
                       <Form.Group className="form-group " controlId="formBasicName">
                         <Form.Label className='form-label'>Name</Form.Label>
-                          <Form.Control type="text" name='name' value={newAddress.name || ''} onChange={handleInput1} />
+                          <Form.Control type="text" name='name' value={newAddress.name || ''} onChange={handleInput} />
                       </Form.Group>
 
                       <Form.Group className="form-group" controlId="formBasicEmail">
                           <Form.Label className='form-label'>Email</Form.Label>
-                          <Form.Control type="email" name='email' value={newAddress.email || ''} onChange={handleInput1}  />
+                          <Form.Control type="email" name='email' value={newAddress.email || ''} onChange={handleInput}  />
                       </Form.Group>
 
                       <Form.Group className="form-group" controlId="formBasicNumber">
                           <Form.Label className='form-label'>Contact</Form.Label>
-                          <Form.Control type="text" name='number' value={newAddress.number || ''} onChange={handleInput1} />
+                          <Form.Control type="text" name='number' value={newAddress.number || ''} onChange={handleInput} />
                       </Form.Group>
 
                       <h2 className='form-head'>Shipping Address</h2>
@@ -163,17 +160,17 @@ import FormLabel from "react-bootstrap/esm/FormLabel";
                           <Button variant="secondary" onClick={getCurrentLocation} className="sm-1 location-btn">
                               📍 Use My Current Location
                           </Button>
-                          <Form.Control type="text" name='address' value={newAddress.address || ''} onChange={handleInput1} />
+                          <Form.Control type="text" name='address' value={newAddress.address || ''} onChange={handleInput} />
                       </Form.Group>
 
                       <Form.Group className="form-group" controlId="formBasicPassword">
                           <Form.Label className='form-label'>City</Form.Label>
-                          <Form.Control type="text" name='city' value={newAddress.city || ''} onChange={handleInput1} />
+                          <Form.Control type="text" name='city' value={newAddress.city || ''} onChange={handleInput} />
                       </Form.Group>
 
                       <Form.Group className="form-group" controlId="formBasicState">
                           <Form.Label className='form-label'>State</Form.Label>
-                          <Form.Control type="text" name='state' value={newAddress.state || ''} onChange={handleInput1}/>
+                          <Form.Control type="text" name='state' value={newAddress.state || ''} onChange={handleInput}/>
                       </Form.Group>        
                   </Form>
 

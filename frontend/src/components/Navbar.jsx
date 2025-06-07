@@ -42,7 +42,7 @@ const NavBar = () => {
         const [adminid, setAdminid]= useState("");
         const [password, setPassword]= useState("");
     
-        const {logedIn, setLogedIn, userName, setUserName, userEmail, setUserEmail, searchdata, setSearchdata, searchproduct, setSearchproduct} = useContext(MyContext);
+        const {logedIn, setLogedIn, userName, searchdata, setSearchdata, setSearchproduct} = useContext(MyContext);
     
         const [categories, setCategories] = useState([]);
         const [showLogoutMenu, setShowLogoutMenu] = useState(false);

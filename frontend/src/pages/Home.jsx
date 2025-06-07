@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import '../css/Home.css';
-import logo from '../media/logo.png';
-import video from '../media/853958-hd_1920_1080_30fps.mp4';
 import axios from 'axios';
 import API_URL from '../config/BaseURL';
 import Button from 'react-bootstrap/Button';
@@ -10,8 +8,6 @@ import '../css/card.css';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../CartSlice';
 import { MyContext } from '../LoginContext';
-import { useNavigate } from 'react-router-dom';
-import secondImage from '../media/heroimage.png'
 import ContactUs from '../components/ContactUs';
  
 
@@ -21,7 +17,6 @@ const Home = () => {
   const [mydata, setmydata] = useState([]);
   const dispatch = useDispatch();
   const {logedIn, setLogedIn, setUserName, setUserEmail} = useContext(MyContext)
-  const nav = useNavigate()
   
   
   const customerAuthenticate = async () => {
