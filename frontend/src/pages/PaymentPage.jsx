@@ -25,8 +25,8 @@ const PaymentPage = () => {
     
 
   useEffect(() => {
-    const delivery = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-    setDeliveryDate(delivery.toDateString());
+    const delivery = new Date(Date.now() + 15 * 60 * 1000);
+    setDeliveryDate(delivery.toLocaleString());
   }, []);
 
   const loadData = async () =>{
@@ -67,7 +67,7 @@ const PaymentPage = () => {
     if(paymentMethod === "razorpay"){
       setTimeout(() => {
         handleRazorpay();
-      }, 2000);
+      }, 1000);
     }
     else if(paymentMethod === "cod"){
       handleCod();
@@ -129,6 +129,7 @@ const PaymentPage = () => {
                                                 cusid: localStorage.getItem("cusid")}); 
         console.log(data);
         nav("/orderdetail");
+        window.scrollTo(0, 0);
   
       } catch (error) {
         console.log(error);
@@ -157,6 +158,7 @@ const PaymentPage = () => {
             const verifyURL = "http://localhost:8080/api/payment/verification";
             const {data} = await axios.post(verifyURL,response);
              nav("/orderdetail");
+             window.scrollTo(0, 0);
 
           } catch(error) {
             console.log(error);

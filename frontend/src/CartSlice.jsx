@@ -45,7 +45,15 @@ const cartSlice = createSlice({
                 {
                     if(state.cartItems[i].qnty <= 1)
                     {
-                        alert("Item quantity can't be less than 1");
+                        toast.error("❗Quantity can't be less than 1!", {
+                            position: "top-center",
+                            autoClose: 3000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: false,
+                            draggable: true,
+                            theme: "colored",
+                        });
                     }
 
                     else{

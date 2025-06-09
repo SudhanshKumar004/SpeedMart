@@ -87,6 +87,7 @@ import { toast } from "react-toastify";
         const response = await axios.post(api, shippingPayload);
         console.log(response.data);
         nav("/paymentpage");
+        window.scrollTo(0, 0);
       } catch (error) {
         console.log(error);
       }

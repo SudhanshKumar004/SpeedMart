@@ -1,0 +1,99 @@
+.track-wrapper {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+  }
+  
+  .track-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: teal;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .order-card .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  
+  .eta-pill {
+    background: #e8f9f1;
+    border-left: 5px solid #28b463;
+    padding: 10px;
+    margin-top: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: #28b463;
+  }
+  
+  .tag {
+    background: #ecf0f1;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #333;
+  }
+  
+  .timeline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    gap: 10px;
+    overflow-x: auto;
+  }
+  
+  .timeline-step {
+    flex: 1;
+    text-align: center;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+  }
+  
+  .timeline-step.active {
+    opacity: 1;
+  }
+  
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .step-label {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .map-section {
+    text-align: center;
+  }
+  
+  .map-img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  }
+  

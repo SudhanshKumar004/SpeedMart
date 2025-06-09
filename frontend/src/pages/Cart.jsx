@@ -10,8 +10,9 @@ import { useNavigate } from 'react-router-dom';
 import '../css/cart.css'
 import StepProgressBar from '../components/StepProgressBar';
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { toast } from 'react-toastify';
 
-
+toast
 
 const Cart = () => {
 
@@ -82,7 +83,7 @@ const Cart = () => {
     <div className="checkout-footer">
      <div className="total-amount">Total: ₹{totalAmnt}</div>
      <hr className='checkout-hr' />
-    <button className='checkout-btn' onClick={()=>{nav("/checkout")}}>CheckOut</button>
+    <button className='checkout-btn' onClick={()=>{nav("/checkout"); window.scrollTo(0, 0);}}>CheckOut</button>
       </div>
     </div>
     }

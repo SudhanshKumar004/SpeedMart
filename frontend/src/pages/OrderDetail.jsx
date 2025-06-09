@@ -4,9 +4,11 @@ import Button from "react-bootstrap/Button";
 import "../css/orderdetail.css";
 import API_URL from "../config/BaseURL";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const OrderDetail = () => {
     const [orderdetail, setOrderdetail] = useState({});
     const [customerdetail, setCustomerdetail] = useState({});
+    const nav = useNavigate();
 
     const loadData = async () => {
         let api = `${API_URL}/customer/orderdetail`;
@@ -36,7 +38,7 @@ const OrderDetail = () => {
         <div className="order-info-section">
           <h2>Order #{orderdetail.ordernumber}</h2>
           <p><strong>Order Date:</strong> {new Date(orderdetail.orderAt).toLocaleDateString()}</p>
-          <p><strong>Status:</strong> <span className="status shipped">Shipped</span></p>
+          <p><strong>Status:</strong> <span className="status shipped">Order Placed</span></p>
 
           <Table striped bordered hover responsive>
             <thead>
@@ -90,9 +92,11 @@ const OrderDetail = () => {
             <h3>Payment Details</h3>
             <p><strong>Method:</strong> {orderdetail.ordermethod}</p>
             <p><strong>Status:</strong> <span className="status paid">{orderdetail.paymentstatus}</span></p>
-            <Button variant="primary" className="btn-contact-support">Contact Support</Button>
           </div>
         </div>
+      </div>
+      <div className="button-area">
+            <Button variant="secondary" className="continue-shopping" onClick={()=>{nav("/home"); window.scrollTo(0, 0);}}><span>Continue Shopping</span></Button>
       </div>
       </div>
     </>

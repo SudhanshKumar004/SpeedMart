@@ -4,11 +4,11 @@
   margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
+  
 }
 
 .page-title {
     text-align: center;
-    margin: 30px 0;
     color: #0d6efd;
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -29,9 +29,51 @@
     background: #fff;
     padding: 20px 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .button-area {
+    display: flex;
+    justify-content: center;
+  }
+  .continue-shopping {
+    position: relative;
+    margin-top: 20px;
+    background: linear-gradient(90deg, palevioletred, #198754, #17a2b8);
+    background-size: 200% 100%;
+    font-size: 20px !important;
+    width: 50%;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    text-transform: uppercase;
+    border-radius: 20px !important;
+    border: none !important;
+    color: white;
+    cursor: pointer;
+    animation: slowSlide 5s ease-in-out infinite;
+    overflow: hidden;
   }
   
+  .continue-shopping:hover {
+    transform: scale(1.1);
+    animation-duration: 2s;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  @keyframes slowSlide {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  
+
   .info-sections {
     flex: 1;
     display: flex;
@@ -44,7 +86,7 @@
     background: #fff;
     padding: 20px 25px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+    box-shadow: 0 12px 10px rgb(0, 0, 0, 0.1);
   }
   
   .status {
@@ -70,7 +112,7 @@
     font-weight: 600;
     text-transform: uppercase;
   }
-  
+
   @media (max-width: 900px) {
     .order-detail-container {
       flex-direction: column;

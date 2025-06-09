@@ -244,7 +244,8 @@ const NavBar = () => {
 
     {logedIn && showLogoutMenu && (
       <div className="logout-menu">
-        <button onClick={() => {logout();setShowLogoutMenu(false);}} className='logout-btn'>Logout <CiLogout size={20} /></button>
+        <span onClick={() => {nav("/trackorder");setShowLogoutMenu(false)}}>Track Order</span>
+        <button onClick={() => {logout();}} className='logout-btn'>Logout <CiLogout size={20} /></button>
       </div>
     )}
   </span>
@@ -272,7 +273,7 @@ const NavBar = () => {
     </Navbar>
 
     {prolength > 0 && location.pathname !== '/cart' && location.pathname !== '/checkout' && location.pathname !== '/paymentpage' && location.pathname !== '/orderdetail' && (
-  <div className="floating-cart" onClick={() => nav('/cart')}>
+  <div className="floating-cart" onClick={() => {nav('/cart'); window.scrollTo(0, 0);}}>
     <div className="cart-icon">
     <PiShoppingCartLight size={30} />
       <span className="item-count">{prolength}</span>

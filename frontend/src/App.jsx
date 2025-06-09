@@ -20,6 +20,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import SearchResult from './pages/SearchResult';
 import OrderDetail from './pages/OrderDetail';
+import TrackOrder from './pages/TrackOrder';
 
 const App = () => {
   return (
@@ -40,6 +41,7 @@ const App = () => {
           <Route path='drinks/:id' element={<Drinks/>}/>
           <Route path='searchresult' element={<SearchResult />} />
           <Route path='orderdetail' element={<OrderDetail />} />
+          <Route path='trackorder' element={<TrackOrder />} />
         </Route>
 
         <Route path='admindashboard' element={<AdminDashboard />}>
