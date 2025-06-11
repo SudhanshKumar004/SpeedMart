@@ -5,10 +5,14 @@ import "../css/orderdetail.css";
 import API_URL from "../config/BaseURL";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { cartClear } from "../CartSlice";
+import { useDispatch } from "react-redux";
+
 const OrderDetail = () => {
     const [orderdetail, setOrderdetail] = useState({});
     const [customerdetail, setCustomerdetail] = useState({});
     const nav = useNavigate();
+    const dispatch = useDispatch();
 
     const loadData = async () => {
         let api = `${API_URL}/customer/orderdetail`;
@@ -20,6 +24,7 @@ const OrderDetail = () => {
             console.log(response1.data);
             setOrderdetail(response.data);
             setCustomerdetail(response1.data);
+            dispatch(cartClear());
         } catch (error) {
             console.log(error);
         }
@@ -36,7 +41,10 @@ const OrderDetail = () => {
 
         {/* Left side: Order info + product table */}
         <div className="order-info-section">
+          <div className="order-header">
           <h2>Order #{orderdetail.ordernumber}</h2>
+          <Button variant="primary" className="track-button" onClick={() => nav("/trackorder")}>Track Order</Button>
+          </div>
           <p><strong>Order Date:</strong> {new Date(orderdetail.orderAt).toLocaleDateString()}</p>
           <p><strong>Status:</strong> <span className="status shipped">Order Placed</span></p>
 

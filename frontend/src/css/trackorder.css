@@ -8,16 +8,32 @@
   
   .track-heading {
     text-align: center;
-    font-size: 2rem;
+    font-size: 35px;
     margin-bottom: 30px;
     color: teal;
+  }
+
+  .track-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .home-icon{
+    position: absolute;
+    right: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 2px 15px;
+    border-radius: 6px;
+    font-size: 22px;
   }
   
   .glass {
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border-radius: 16px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
     padding: 20px;

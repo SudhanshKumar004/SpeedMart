@@ -26,6 +26,56 @@ body {
     height: 50px;
 }
 
+.logout-menu {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 220px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 99;
+}
+
+.logout-menu.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.menu-list {
+  list-style:circle;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-list li {
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.menu-list li:hover {
+  background-color: #f1f1f1;
+}
+
+.logout-btn {
+  color: #e63946;
+  font-weight: 600;
+}
+
+
 .nav-icons{
     display: flex;
     align-items: center;
@@ -102,6 +152,7 @@ body {
     position: relative;
     overflow: hidden;
 }
+
 
 @keyframes showUp {
     0% {

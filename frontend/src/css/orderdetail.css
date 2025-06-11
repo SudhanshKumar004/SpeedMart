@@ -23,7 +23,30 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
   }
+
+  .order-header{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .order-header .track-button{
+    background-color: palevioletred;
+    color: white;
+    border: 1px solid palevioletred;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
   
+  .order-header .track-button:hover{
+    background-color: #ffff;
+    border: 1px solid #000;
+    color: #000;
+  }
+
   .order-info-section {
     flex: 2;
     background: #fff;

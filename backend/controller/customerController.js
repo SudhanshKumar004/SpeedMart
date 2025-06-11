@@ -198,6 +198,16 @@ const customerDetails = async(req, res) => {
     }
 }
 
+const orderHistory = async(req, res) => {
+    const {cusid} = req.params;
+    try {
+        const Order = await OrderModel.find({Customer:cusid}).sort({orderAt:-1});
+        res.status(200).send(Order);
+    } catch (error) {
+        res.status(400).send("Something went wrong");
+    }
+}
+
 module.exports = {
     customerRegistration,
     customerLogin,
@@ -208,5 +218,6 @@ module.exports = {
     contactUs,
     customerCODorders,
     orderDetail,
-    customerDetails
+    customerDetails,
+    orderHistory
 }

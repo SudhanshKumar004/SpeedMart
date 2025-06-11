@@ -1,8 +1,10 @@
 import React from 'react'
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 
 const Footer = () => {
+  const nav = useNavigate();
   return (
     <>
      <footer className="footer">
@@ -29,7 +31,7 @@ const Footer = () => {
         <p>Shop</p>
         <p>Sale</p>
         <p>New Arrivals</p>
-        <p>FAQ</p>
+        <p onClick={() => {nav("/faq"); window.scrollTo(0, 0)}}>FAQ</p>
       </nav>
     </div>
   </footer>

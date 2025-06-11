@@ -162,6 +162,7 @@ const NavBar = () => {
                 console.log(response);
                 setSearchproduct(response.data);
                 nav("/searchresult");
+                window.scrollTo(0, 0);
                 
               } catch (error) {
                 console.log(error);
@@ -243,10 +244,14 @@ const NavBar = () => {
     </span>
 
     {logedIn && showLogoutMenu && (
-      <div className="logout-menu">
-        <span onClick={() => {nav("/trackorder");setShowLogoutMenu(false)}}>Track Order</span>
-        <button onClick={() => {logout();}} className='logout-btn'>Logout <CiLogout size={20} /></button>
-      </div>
+      <div className={`logout-menu ${showLogoutMenu ? 'active' : ''}`}>
+      <ul className="menu-list">
+        <li onClick={() => { nav("/trackorder"); window.scrollTo(0, 0)}}>Track Order</li>
+        <li onClick={() => { nav("/orderhistory"); window.scrollTo(0, 0)}}>Order History</li>
+        <li onClick={() => { logout();}} className="logout-btn">Logout <CiLogout size={18} /></li>
+      </ul>
+    </div>
+    
     )}
   </span>
 </div>

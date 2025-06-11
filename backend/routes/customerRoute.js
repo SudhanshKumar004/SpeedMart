@@ -12,4 +12,5 @@ route.post("/contactus", customerController.contactUs)
 route.post("/customercodorders", customerController.customerCODorders)
 route.post("/orderdetail", customerController.orderDetail)
 route.post("/customerdetails", customerController.customerDetails)
+route.get("/orderhistory/:cusid", customerController.orderHistory)
 module.exports = route

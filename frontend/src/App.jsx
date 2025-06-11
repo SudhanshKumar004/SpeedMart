@@ -21,6 +21,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import SearchResult from './pages/SearchResult';
 import OrderDetail from './pages/OrderDetail';
 import TrackOrder from './pages/TrackOrder';
+import FAQ from './pages/Faq';
+import OrderHistory from './pages/OrderHistory';
 
 const App = () => {
   return (
@@ -42,6 +44,8 @@ const App = () => {
           <Route path='searchresult' element={<SearchResult />} />
           <Route path='orderdetail' element={<OrderDetail />} />
           <Route path='trackorder' element={<TrackOrder />} />
+          <Route path='orderhistory' element={<OrderHistory />} />
+          <Route path='faq' element={<FAQ />} />
         </Route>
 
         <Route path='admindashboard' element={<AdminDashboard />}>
