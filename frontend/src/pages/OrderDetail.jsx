@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 const OrderDetail = () => {
     const [orderdetail, setOrderdetail] = useState({});
     const [customerdetail, setCustomerdetail] = useState({});
+    const [show, setShow] = useState(false);
     const nav = useNavigate();
     const dispatch = useDispatch();
 
@@ -32,9 +33,26 @@ const OrderDetail = () => {
 
     useEffect(() => {
         loadData();
+        const timer = setInterval(() => {
+          setShow(true);
+        }, 1000);
+        return () => clearInterval(timer);
     }, []);
+
+    if(!show) return null;
   return (
     <>
+    {show && (
+  <div className="order-success">
+    <div className="fireworks">
+      <div className="explosion pastel1"></div>
+      <div className="explosion pastel2"></div>
+      <div className="explosion pastel3"></div>
+    </div>
+    <h1>Order Placed Successfully</h1>
+  </div>
+)}
+
     <div className="order-container">
       <h1 className="page-title">Order Details</h1>
       <div className="order-detail-container">

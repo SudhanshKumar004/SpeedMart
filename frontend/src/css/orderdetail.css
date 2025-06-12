@@ -1,3 +1,139 @@
+.order-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fdfdfd; /* Light background */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: #333;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fadeOut 0.5s ease-in-out 2.5s forwards;
+}
+
+.order-success h1 {
+  font-size: 2.5rem;
+  margin-top: 20px;
+  animation: popUp 0.6s ease-in-out;
+  color: #2c3e50;
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Fireworks */
+.fireworks {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.explosion {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border-radius: 50%;
+  animation: firework 1s ease-out forwards;
+}
+
+.explosion::before,
+.explosion::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.explosion::before {
+  animation: particleBurst 1.2s ease-out forwards;
+}
+.explosion::after {
+  animation: particleBurst 1.2s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes firework {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(40);
+    opacity: 0;
+  }
+}
+
+@keyframes particleBurst {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+/* Pastel Variants */
+.pastel1 {
+  --x: 60px;
+  --y: -80px;
+  background-color: #ffc1cc; /* pastel pink */
+  top: 40%;
+  left: 35%;
+  animation-delay: 0.2s;
+}
+
+.pastel2 {
+  --x: -70px;
+  --y: 60px;
+  background-color: #b5ead7; /* pastel green */
+  top: 50%;
+  left: 65%;
+  animation-delay: 0.3s;
+}
+
+.pastel3 {
+  --x: 90px;
+  --y: -70px;
+  background-color: #c9c9ff; /* pastel lavender */
+  top: 60%;
+  left: 50%;
+  animation-delay: 0.4s;
+}
+
+
+
+
+
+
 .order-container{
   padding: 40px 20px;
   max-width: 1200px;

@@ -55,19 +55,20 @@ const PaymentPage = () => {
       else if(paymentMethod === "cod"){
         imageUrl = "https://icon-library.com/images/cash-on-delivery-icon/cash-on-delivery-icon-8.jpg";
       }
-      Swal.fire({
-        title:  `${paymentMethod}`,
-        text: "Selected payment method",
-        imageUrl: imageUrl,
-        imageWidth: 150,
-        imageHeight: 100,
-        imageAlt: `{paymentMethod} image`
-      });
+      // Swal.fire({
+      //   title:  `${paymentMethod}`,
+      //   text: "Selected payment method",
+      //   imageUrl: imageUrl,
+      //   imageWidth: 150,
+      //   imageHeight: 100,
+      //   imageAlt: `{paymentMethod} image`,
+      //   showConfirmButton: false,
+      //   timer: 1000
+
+      // });
     }
     if(paymentMethod === "razorpay"){
-      setTimeout(() => {
         handleRazorpay();
-      }, 1000);
     }
     else if(paymentMethod === "cod"){
       handleCod();
