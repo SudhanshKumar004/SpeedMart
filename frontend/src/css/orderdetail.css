@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fdfdfd; /* Light background */
+  background: #fdfdfd; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -41,7 +41,6 @@
   }
 }
 
-/* Fireworks */
 .fireworks {
   position: absolute;
   width: 100%;
@@ -101,7 +100,6 @@
   }
 }
 
-/* Pastel Variants */
 .pastel1 {
   --x: 60px;
   --y: -80px;

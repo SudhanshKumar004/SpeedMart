@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import '../css/addproduct.css'
 
 const AddProduct = () => {
 
@@ -76,6 +77,7 @@ const AddProduct = () => {
 
   return (
     <>
+    <div className="addproduct-form">
       <Form>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Product Name</Form.Label>
@@ -112,9 +114,10 @@ const AddProduct = () => {
       </Form.Group>
 
       <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
+        Add Product
       </Button>
     </Form>
+    </div>
     </>
   )
 }

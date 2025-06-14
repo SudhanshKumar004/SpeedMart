@@ -33,10 +33,10 @@ const OrderDetail = () => {
 
     useEffect(() => {
         loadData();
-        const timer = setInterval(() => {
+        const timer = setTimeout(() => {
           setShow(true);
-        }, 1000);
-        return () => clearInterval(timer);
+        }, 0);
+        return () => clearTimeout(timer);
     }, []);
 
     if(!show) return null;

@@ -38,7 +38,7 @@ const ManageProduct = () => {
         <td><img src={`${API_URL}/${key.defaultImage}`} alt={key.name} className="product-img" /></td>
         <td>{key.name}</td>
         <td>{key.description}</td>
-        <td>₹ {key.price}</td>
+        <td>₹{key.price}</td>
         <td>
           <button className="edit-btn" onClick={() => editproduct(key._id)}>Edit Product</button>
         </td>
