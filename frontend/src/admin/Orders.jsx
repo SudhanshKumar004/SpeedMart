@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import API_URL from '../config/BaseURL';
 import axios from 'axios';
 import Table from 'react-bootstrap/Table';
+import '../css/orders.css'
 
 const Orders = () => {
   const [order, setOrder] = useState([])  
@@ -12,7 +13,6 @@ const Orders = () => {
     let response = await axios.get(api);
     console.log(response.data);
     setOrder(response.data);
-    
   }
 
   let orderPrint = order.map((key) => {
@@ -38,26 +38,29 @@ const Orders = () => {
   }, []);
   return (
     <>
-      <h1>ORders</h1>
+      <h1 className="orders-title">Orders</h1>
 
-      <Table striped bordered hover>
-      <thead>
-        <tr>
-          <th>Order ID</th>
-          <th>Product Name</th>
-          <th>Customer Name</th>
-          <th>Total Amount</th>
-          <th>Shipping Address</th>
-          <th>Contact</th>
-          <th>Email</th>
-          <th>Method</th>
-          <th>Order Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        {orderPrint} 
-      </tbody>
-    </Table>
+<div className="orders-table-container">
+  <Table striped bordered hover className="orders-table">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>Product Name</th>
+        <th>Customer Name</th>
+        <th>Total Amount</th>
+        <th>Shipping Address</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Method</th>
+        <th>Order Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {orderPrint}
+    </tbody>
+  </Table>
+</div>
+
     </>
   )
 }

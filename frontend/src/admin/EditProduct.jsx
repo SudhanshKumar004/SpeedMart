@@ -6,6 +6,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import "../css/editproduct.css";
+
+
 const EditProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -83,7 +86,7 @@ const EditProduct = () => {
     if (result.isConfirmed) {
       try {
         const api = `${API_URL}/admin/deleteproduct`;
-        const response = await axios.post(api, { id: id });
+        await axios.post(api, { id: id });
 
         await Swal.fire({
           title: "Deleted!",
@@ -124,6 +127,7 @@ const EditProduct = () => {
 
   return (
     <>
+    <div className="editproduct-form">
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formBasicName">
           <Form.Label>Product Name</Form.Label>
@@ -182,9 +186,9 @@ const EditProduct = () => {
         <Button variant="primary" type="submit">
           Update Product Details
         </Button>
+      <Button onClick={deleteProduct} className="delete-btn">Delete Product</Button>
       </Form>
-      <br />
-      <Button onClick={deleteProduct}>Delete Product</Button>
+      </div>
     </>
   );
 };

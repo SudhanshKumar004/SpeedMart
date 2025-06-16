@@ -16,6 +16,7 @@ function AdminDashboard() {
     });
   };
   return (
+    <div className="main-container">
     <div className="dashboard-container">
       <div className="sidebar">
         <h2 className="sidebar-title">Admin Panel</h2>
@@ -36,7 +37,7 @@ function AdminDashboard() {
       </div>
 
       <div className="main-content">
-        <div className="navbar">
+        <div className="admin-navbar">
           <h1 className="navbar-title">SpeedMart</h1>
           <div className="navbar-user">
             Welcome : {localStorage.getItem("admin")}👨🏻‍💻
@@ -46,6 +47,7 @@ function AdminDashboard() {
 
         <Outlet />
       </div>
+    </div>
     </div>
   );
 }

@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+.main-container{
+  background: linear-gradient(180deg, #0f172ae3 0%, #1e293bdc 100%);
+}
+
 .dashboard-container {
   display: flex;
   height: 100vh;
@@ -72,7 +76,7 @@
   flex-direction: column;
 }
 
-.navbar {
+.admin-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -96,7 +100,7 @@
   margin-right: 20px;
 }
 
-.navbar button {
+.admin-navbar button {
   background: #f8ffdd;
   color: #0f172a;
   border: none;
@@ -111,7 +115,7 @@
   overflow: hidden;
 }
 
-.navbar button::before {
+.admin-navbar button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -123,7 +127,7 @@
   transition: all 0.5s ease;
 }
 
-.navbar button:hover::before {
+.admin-navbar button:hover::before {
   left: 125%;
 }
 

@@ -50,6 +50,16 @@ const AddProduct = () => {
             formData.append("images", image[i]);
         }
 
+        if(!input.name || !input.description || !input.Category || !input.price || !image)
+        {
+            Swal.fire({
+                icon: "warning",
+                title: "All fields are required",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }
+
         try {
          const response = await axios.post(api, formData, {
             headers: {
@@ -81,7 +91,7 @@ const AddProduct = () => {
       <Form>
       <Form.Group className="mb-3" controlId="formBasicName">
         <Form.Label>Product Name</Form.Label>
-        <Form.Control type="text" placeholder="Enter Product Name" name='name' onChange={handleInput}/>
+        <Form.Control type="text" placeholder="Enter Product Name" name='name' onChange={handleInput} required/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicDescription">
@@ -93,7 +103,7 @@ const AddProduct = () => {
       <Form.Group className="mb-3" controlId="formBasicCategory">
         <Form.Label>Category</Form.Label>
         <Form.Select name="Category" onChange={handleInput}>
-            <option>Select Category</option>
+            <option>Select Category🔻</option>
             {
                 categories.map((item)=>
                 {

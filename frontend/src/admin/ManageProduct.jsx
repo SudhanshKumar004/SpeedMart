@@ -50,24 +50,23 @@ const ManageProduct = () => {
 
   return (
     <>
-      <h1>Manage</h1>
-      <div className="manage-card-container">
+      <h1 className="manage-title">Manage Product</h1>
+      <div className="table-wrapper">
 
-      <table className="product-table">
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Edit</th>
-    </tr>
-  </thead>
-  <tbody>
-    {productShow}
-  </tbody>
-</table>
-
+        <table className="product-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {productShow}
+          </tbody>
+        </table>
       </div>
     </>
   )
