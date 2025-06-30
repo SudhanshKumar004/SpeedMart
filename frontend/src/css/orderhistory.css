@@ -45,3 +45,21 @@
     text-transform: capitalize;
   }
   
+
+  @media screen  and (max-width: 768px) {
+    .order-history-card {
+      border-radius: 16px;
+      margin-top:80px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .order-history-container{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-icon{
+      margin-top: 20px;
+    }
+  }

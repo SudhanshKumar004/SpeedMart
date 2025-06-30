@@ -156,3 +156,17 @@
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+  .clear-btn{
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 0.5px solid white;
+    cursor: pointer;
+    margin-bottom: 20px;
+    position: relative;
+    left: 570px;
+    background: rgba(195, 195, 195, 0.281);
+    color: #df111e;
+  }
+}

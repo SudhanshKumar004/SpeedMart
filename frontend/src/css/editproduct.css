@@ -108,3 +108,21 @@
   .delete-btn:active {
     transform: translateY(0);
   }
+
+  @media screen and (max-width: 768px) {
+    .editproduct-form {
+      width: 80%;
+      margin: 5px auto;
+      padding: 25px 30px;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e0e0e0;
+    }
+    .editproduct-form form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+    }
+    
+  }

@@ -61,3 +61,11 @@
 .edit-btn:hover {
   background-color: #0056b3;
 }
+
+
+@media screen and (max-width: 768px) {
+  .table-wrapper {
+    width: 100%;
+  }
+  
+}

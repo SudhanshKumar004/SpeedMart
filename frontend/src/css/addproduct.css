@@ -64,3 +64,21 @@
 .addproduct-form button:active {
   transform: translateY(0);
 }
+
+
+@media screen and (max-width: 768px) {
+  .addproduct-form {
+    width: 80%;
+    margin: 10px auto;
+    padding: 25px 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e0e0e0;
+  }
+  .addproduct-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+}

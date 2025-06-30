@@ -27,7 +27,7 @@ const OrderHistory = () => {
   }, []);
 
   return (
-    <Container className="mt-5 mb-5">
+    <Container className="mt-5 mb-5 order-history-container">
         <div className="history-top">
               <button className="home-icon" onClick={()=>{nav("/home"); window.scrollTo(0, 0);}}><FaHome /></button>  
                 </div> 

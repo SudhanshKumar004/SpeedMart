@@ -10,7 +10,7 @@ const cartSlice = createSlice({
             const cartdata = state.cartItems.filter(key=>key.id == action.payload.id)
             if(cartdata.length >= 1){
                     toast.error("❗ Item Already Exists in your Cart!", {
-                        position: "top-right",
+                        position: "top-center",
                         autoClose: 3000,
                         hideProgressBar: false,
                         closeOnClick: true,
@@ -63,7 +63,7 @@ const cartSlice = createSlice({
             }
         },
 
-        cartClear:(state,action)=>{
+        cartClear:(state)=>{
             state.cartItems = [];
         }
     }
