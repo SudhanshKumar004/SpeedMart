@@ -86,7 +86,7 @@ const Home = () => {
     <header className="hero-modern">
       <div className="hero-content">
         <h1><span className='main-title'>SpeedMart</span></h1>
-        <h2>Delivers at Your Door in <strong>15 Minutes</strong></h2>
+        <h2 className='sub-title'>Delivers at Your Door in <strong>15 Minutes</strong></h2>
         <p>Fast, fresh and affordable – everything you need, delivered lightning fast!</p>
 
 <div className="product-slider">

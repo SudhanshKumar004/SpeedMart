@@ -211,6 +211,17 @@ body {
   color: rgb(75, 28, 44);
 }
 
+.nav-icons .theme-toggle{
+    margin-Left: 20px;
+    padding: 5px 12px;
+    border-Radius: 20px;
+    border: 1px solid teal;
+    background: transparent;
+    color: teal;
+    cursor: pointer;
+    font-Weight: bold;
+}
+
 .cart-area span {
   position: relative;
   right: 19px;
@@ -418,11 +429,8 @@ body {
 
 
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .top-navbar {
-    background: var(--navbar-bg);
-    color: var(--navbar-text);
-    font-weight: bolder;
     padding: 10px 0;
     font-size: 20px;
     text-align: end;
@@ -452,8 +460,6 @@ body {
   }
   
   .search-area button {
-    color: var(--navbar-text);
-    border: 1px solid var(--navbar-text);
     border-radius: 5px;
     padding: 4px 5px;
     font-size: 18px;
@@ -491,8 +497,7 @@ body {
   
 
   .nav-icons{
-width: 100%;
-    
+    width: 100%;
   }
 
   
@@ -500,7 +505,6 @@ width: 100%;
     position: absolute;
     top: 60px;
     right: 20px;
-    background-color: var(--logout-bg);
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
@@ -542,4 +546,78 @@ width: 100%;
   .book-head {
     font-size: 1.5rem;
   }
+}
+
+
+@media screen and (max-width: 426px) {
+  .top-navbar{
+    padding: 10px 0;
+    font-size: 20px;
+    text-align: end;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    height: 50px;
+    width: 60%;
+  }
+  .nav-icons-toggle{
+    display: block;
+    margin-right: 5px;
+  }
+  .nav-icons{
+    display: none;
+  }
+  .nav-icons.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 60px; /* usually below the navbar */
+    right: 20px;
+    width: 180px;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 12px 0;
+    gap: 12px;
+    z-index: 999;
+    animation: slideIn 0.4s ease;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-icons.show a, .nav-icons.show button {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .nav-icons.show a:hover,
+  .nav-icons.show button:hover {
+    background-color: #efefef;
+    color: #ef233c;
+  }
+  
+
+  .main-navbar .navbar-brand {
+    font-size: 35px;
+    margin-left: 55px;
+    font-weight: 800;
+    color: palevioletred;
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  
 }

@@ -260,18 +260,8 @@ const NavBar = () => {
     ☰
   </div>
         <div className={`nav-icons ${showIcons ? "show" : ""}`}>
-          <button
+          <button className="theme-toggle"
             onClick={toggleTheme}
-            style={{
-              marginLeft: "20px",
-              padding: "5px 12px",
-              borderRadius: "20px",
-              border: "1px solid teal",
-              background: "transparent",
-              color: "teal",
-              cursor: "pointer",
-              fontWeight: "bold",
-            }}
           >
             {theme === "light" ? "🌙 Dark" : "☀️ Light"}
           </button>

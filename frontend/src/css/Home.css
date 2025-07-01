@@ -19,7 +19,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* padding: 2rem; */
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
@@ -28,20 +27,14 @@
   z-index: 2;
 }
 
-.hero-content h1 {
-  font-size: 4rem;
-  color: #88293d;
+.sub-title {
+  font-size: clamp(16px, 2.5vw, 34px);
   margin-bottom: 0.5rem;
   margin-top: 0px;
 }
 
-.hero-content h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
 .hero-content p {
-  font-size: 1.1rem;
+  font-size: clamp(12px, 2.5vw, 24px);
   margin-bottom: 2rem;
   color: #272838;
 }
@@ -143,7 +136,7 @@
 .main-title{
   font-weight: 700;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 100px;
+  font-size: clamp(50px, 8vw, 100px);
   font-weight: bold;
   background: url('https://img.freepik.com/photos-premium/fond-ecran-texture-coloree-rouge-bleu-fond-abstrait_611557-567.jpg') no-repeat center/cover; 
   color: transparent;
@@ -155,8 +148,8 @@
 
 .delivery-head{
   text-align: center;
-  font-size: 60px;
-  margin-top: 60px;
+  font-size: clamp(20px, 4vw, 100px);
+  margin-top: clamp(10px, 4vw, 60px);
   font-weight: bold;
   color:#272838;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -164,9 +157,23 @@
 
 .delivery-sub{
   text-align: center;
-  font-size: 38px;
+  font-size: clamp(20px, 4vw, 60px);
   margin-bottom: 60px;
   font-weight: bold;
   color:#272838;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+
+@media screen and (max-width: 426px) {
+  .secondary-page {
+    height: 40vh;
+    width: 100vw;
+    background: url('../media/heroimage.png') no-repeat center/cover;
+    color: black;
+    text-align: center;
+    padding-top: 20px;
+  }
+  
 }

@@ -29,8 +29,14 @@
     background: #0d6efd;
     color: #ffffff;
   }
+
+  .orders-table-container .orders-table th{
+    color: #355bb2;
+    font-weight: 800;
+    background-color: aquamarine;
+  }
   
-  .orders-table th,
+  .orders-table-container .orders-table th,
   .orders-table td {
     padding: 12px 15px;
     border: 1px solid #ddd;
