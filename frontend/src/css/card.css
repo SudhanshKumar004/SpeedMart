@@ -115,5 +115,18 @@
     clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
 
 }
+}
 
+
+@media screen and (max-width: 425px) {
+  .cards .product-cards {
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100vh;
+    width: 90%;
+    z-index: 111;
+  }
+  
 }

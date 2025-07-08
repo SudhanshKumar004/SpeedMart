@@ -560,7 +560,7 @@ body {
     top: 0;
     z-index: 999;
     height: 50px;
-    width: 60%;
+    width: 100%;
   }
   .nav-icons-toggle{
     display: block;

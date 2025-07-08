@@ -62,3 +62,52 @@
     }
   
 }
+
+@media screen and (max-width: 426px) {
+
+  .progress-container {
+    max-width: 100px;
+    align-items: start;
+    display:none;
+  }
+  
+  .circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: skyblue;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+  }
+  
+  .circle.active {
+    background-color: palevioletred; 
+  }
+  
+  .line {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    right: 1%;
+    height: 4px;
+    background-color: skyblue ;
+    z-index: 1;
+  }
+  
+  .line.active {
+    background-color:palevioletred;
+  }
+  
+  .label {
+    margin-top: 8px;
+    font-size: 12px;
+    text-align: center;
+    color: #ffff;
+  }
+  
+  
+}

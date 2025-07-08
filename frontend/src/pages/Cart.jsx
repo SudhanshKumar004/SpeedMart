@@ -55,7 +55,7 @@ const Cart = () => {
 <div className="head">
           <div></div>
           <h1></h1>
-          <button onClick={() => {nav("/home");}}><IoMdArrowRoundBack /></button>
+          <button onClick={() => {nav("/home");}} className='back-btn'><IoMdArrowRoundBack /></button>
         </div>
     {Products.length === 0 ? <h1 className='empty-cart'>Nothing here yet... your cart is feeling lonely! 🛒</h1> : 
     
@@ -64,6 +64,7 @@ const Cart = () => {
      <h1>Your Cart {Products.length === 1 ? `(${Products.length} item)` : `(${Products.length} items)`}</h1> 
      </div>
      <span><button className='clear-btn' onClick={()=>{dispatch(cartClear({id:"all"}))}}>Clear Cart</button></span>
+     <div className="table-wrapper">
      <Table striped bordered hover className='cart-table'>
       <thead>
         <tr>
@@ -80,6 +81,7 @@ const Cart = () => {
         {ans}
       </tbody>
     </Table>
+    </div>
     <div className="checkout-footer">
      <div className="total-amount">Total: ₹{totalAmnt}</div>
      <hr className='checkout-hr' />

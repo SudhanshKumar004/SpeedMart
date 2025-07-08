@@ -127,7 +127,7 @@ import { toast } from "react-toastify";
         <div className="head">
           <div></div>
           <h1>Checkout Page</h1>
-          <button onClick={() => {nav("/cart");}}><IoMdArrowRoundBack /></button>
+          <button onClick={() => {nav("/cart");}} className="back-button"><IoMdArrowRoundBack /></button>
         </div>
 
         <div className="checkout-container">
@@ -216,6 +216,7 @@ import { toast } from "react-toastify";
 
           <div className="cart-item">
             <h2 className="item-head">Your Cart</h2>
+            <div className="table-wrap">
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -228,6 +229,7 @@ import { toast } from "react-toastify";
               </thead>
               <tbody>{productPrint}</tbody>
             </Table>
+            </div>
 
             <div className="coupon">
               <input

@@ -38,7 +38,7 @@ const Login = ({ show1, handleClose1, input, handleInput, userhandleSubmit }) =>
               />
               <button type="submit">Submit</button>
             </form>
-            <h4>Don't have an account? <Link to="/registration" onClick={() => handleClose1()}>Register Here</Link></h4>
+            <h4 className='register'>Don't have an account? <Link to="/registration" onClick={() => handleClose1()}>Register Here</Link></h4>
           </div>
         </div>
       </div>

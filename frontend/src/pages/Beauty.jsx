@@ -23,7 +23,6 @@ const Beauty = () => {
       try {
         const response = await axios.post(api, {id:id}); 
           setProduct(response.data)
-          console.log(response.data)
       } 
       
       catch (error) {
