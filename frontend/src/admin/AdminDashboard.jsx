@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/admindash.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 function AdminDashboard() {
   const nav = useNavigate();
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 425);
+
+  useEffect(()=>{
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 426);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  },[])
+
+
   const logout = () => {
     localStorage.clear();
     nav("/home");
@@ -24,13 +37,13 @@ function AdminDashboard() {
         <nav className="sidebar-nav">
           <ul>
             <Link to="addproduct">
-              <li>➕ Add Product</li>
+              <li><span className="emojis">➕</span>{isMobile ? "Add" : "Add Product"} </li>
             </Link>
             <Link to="manageproduct">
-              <li>🗂️ Manage Product</li>
+              <li><span className="emojis">🗂️</span>{isMobile ? "Manage" : "Manage Product"}</li>
             </Link>
             <Link to="orders">
-              <li>📦 Orders</li>
+              <li><span className="emojis">📦</span> Orders</li>
             </Link>
           </ul>
         </nav>

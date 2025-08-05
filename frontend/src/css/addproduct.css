@@ -82,3 +82,15 @@
     gap: 10px;
   }
 }
+
+@media screen and (max-width: 426px) {
+  .addproduct-form {
+    width: 90%;
+  }
+  .addproduct-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+}

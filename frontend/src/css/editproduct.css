@@ -126,3 +126,14 @@
     }
     
   }
+
+  @media screen and (max-width: 426px) {
+    .editproduct-form {
+      width: 90%;
+    }
+    .editproduct-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }

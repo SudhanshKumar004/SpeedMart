@@ -89,3 +89,23 @@
   }
   
 }
+
+@media screen and (max-width: 426px) {
+  .table-wrapper {
+    width: 100%;
+  }
+  .manage-title{
+    font-size: 25px;
+    margin-top: 15px;
+  }
+  .product-table {
+    font-size: 14px;
+  }
+  .product-table th{
+    padding: 12px;  
+  }
+
+  .product-table td {
+  padding: 5px;
+}
+}
