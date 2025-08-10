@@ -1,3 +1,23 @@
+:root{
+  /* Light Mode */
+  --home-bg:linear-gradient(90deg,#ffffff,#b7dff1);
+  --primary-color:#000000;
+  --secondary-color:#272838;
+  --delivary-head:#272838;
+  --delivary-sub:#272838;
+
+}
+
+[theme-color="dark"] {
+  /* Dark Mode */
+  --home-bg:linear-gradient(90deg,#3f2f2f,#071e2a);
+  --primary-color:#ffffff;
+  --secondary-color:#ffffff;
+  --delivary-head:#ffffff;
+  --delivary-sub:#ffffff;
+}
+
+
 .vcontainer {
   position: relative;
   width: 100%;
@@ -6,15 +26,14 @@
 }
 
 .home-container{
-  background: linear-gradient(90deg,#ffffff,#b7dff1);
+  background: var(--home-bg);
 }
 
 .hero-modern {
   height: 100vh;
   padding-top: 20px;
-  background: linear-gradient(90deg,#ffffff,#b7dff1);
-  background-color: whitesmoke;
-  color: black;
+  background: var(--home-bg);
+  color: var(--primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,7 +55,7 @@
 .hero-content p {
   font-size: clamp(12px, 2.5vw, 24px);
   margin-bottom: 2rem;
-  color: #272838;
+  color: var(--secondary-color);
 }
 
 .cta {
@@ -151,7 +170,7 @@
   font-size: clamp(20px, 4vw, 100px);
   margin-top: clamp(10px, 4vw, 60px);
   font-weight: bold;
-  color:#272838;
+  color:var(--delivary-head);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -160,7 +179,7 @@
   font-size: clamp(20px, 4vw, 60px);
   margin-bottom: 60px;
   font-weight: bold;
-  color:#272838;
+  color:var(--delivary-sub);
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 

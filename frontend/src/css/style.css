@@ -4,6 +4,7 @@
   /* Light mode */
   --background: #ffffff;
   --text-color: #333;
+  --search-btn-color: #2b2d42;
   --navbar-bg: linear-gradient(175deg, rgb(238, 146, 177), #ffffff);
   --navbar-text: #2b2d42;
   --main-navbar-bg: #ffffff;
@@ -17,12 +18,21 @@
   --logout-bg: #fff;
   --logout-text: #2b2d42;
   --logout-hover-bg: rgba(75, 20, 20, 0.17);
+  --border-theme: #09b1ec;
+  --search-bg: #ffffff;
+  --search-btn:  linear-gradient(120deg, transparent, rgba(117, 24, 26, 0.6), transparent);
+  --search-btn-bg: #ffffff;
+  --cart-area-bg : antiquewhite;
+  --cart-area-color: rgb(75, 28, 44);
+  --cart-span-color: #222;
+  --cart-span-bg: antiquewhite;
 }
 
 [theme-color="dark"] {
   --background: #121212;
   --text-color: #e0e0e0;
-  --navbar-bg: linear-gradient(175deg, #333, #121212);
+  --search-btn-color:#ffffff;
+  --navbar-bg: linear-gradient(175deg, rgb(154, 68, 96), #272727);
   --navbar-text: #e0e0e0;
   --main-navbar-bg: #1f1f1f;
   --nav-link-color: #e0e0e0;
@@ -35,6 +45,14 @@
   --logout-bg: #1f1f1f;
   --logout-text: #ddd;
   --logout-hover-bg: rgba(255, 255, 255, 0.1);
+  --border-theme: #ffffff;
+  --search-bg: #4d3a3a;
+  --search-btn: linear-gradient(120deg, transparent, rgba(170, 144, 144, 0.6), transparent);
+  --search-btn-bg: #4d3a3a;
+  --cart-area-bg : #272727;
+  --cart-area-color: #ffffff;
+  --cart-span-color: #fff;
+  --cart-span-bg:  rgb(105, 47, 66);
 }
 
 * {
@@ -70,6 +88,7 @@ body {
 
 .search-area input {
   padding: 5px 35px;
+  background-color: var(--search-bg);
   margin-right: 4px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -82,8 +101,8 @@ body {
 }
 
 .search-area button {
-  color: var(--navbar-text);
-  border: 1px solid var(--navbar-text);
+  color: var(--search-btn-color);
+  border: 1px solid var(--search-btn-color);
   border-radius: 5px;
   padding: 4px 15px;
   font-size: 18px;
@@ -92,6 +111,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  background-color: var(--search-btn-bg);
 }
 
 .search-area button::before {
@@ -101,7 +121,7 @@ body {
   left: -100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(117, 24, 26, 0.6), transparent);
+  background:var(--search-btn);
   transition: all 0.5s ease;
 }
 
@@ -208,14 +228,14 @@ body {
   align-items: center;
   cursor: pointer;
   font-size: 32px;
-  color: rgb(75, 28, 44);
+  color: var(--cart-area-color);
 }
 
 .nav-icons .theme-toggle{
-    margin-Left: 20px;
-    padding: 5px 12px;
+    margin-right: 20px;
+    padding: 3px 10px;
     border-Radius: 20px;
-    border: 1px solid teal;
+    border: 1px solid var(--border-theme);
     background: transparent;
     color: teal;
     cursor: pointer;
@@ -224,14 +244,14 @@ body {
 
 .cart-area span {
   position: relative;
-  right: 19px;
+  right: 20px;
   bottom: 10px;
   padding: 0px;
   font-size: 15px;
   cursor: pointer;
-  color: #222;
+  color: var(--cart-span-color);
   border-radius: 40px;
-  background-color: antiquewhite;
+  background-color: var(--cart-span-bg);
   width: 9px;
 }
 

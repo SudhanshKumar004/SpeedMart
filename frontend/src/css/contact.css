@@ -1,8 +1,23 @@
+:root{
+  --bg-color:#f9f9f9;
+  --head-color:rgb(6, 125, 125);
+  --border-focus:teal;
+  --text-bg:#ffffff;
+  --button-color:teal;
+}
+
+[theme-color="dark"] {
+  --bg-color:#333333;
+  --head-color:#ffffff;
+  --border-focus:#A97142;
+  --text-bg:#333333;
+  --button-color:#A97142;
+}
 .contact-section {
     max-width: 600px;
     margin: 50px auto;
     padding: 30px;
-    background: #f9f9f9;
+    background: var(--bg-color);
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   }
@@ -10,12 +25,11 @@
   .contact-section h2 {
     text-align: center;
     margin-bottom: 10px;
-    color: teal;
+    color: var(--head-color);
   }
   
   .contact-section p {
     text-align: center;
-    color: #555;
     margin-bottom: 30px;
   }
   
@@ -27,6 +41,7 @@
   
   .contact-form input,
   .contact-form textarea {
+    background: var(--text-bg);
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
@@ -36,12 +51,12 @@
   
   .contact-form input:focus,
   .contact-form textarea:focus {
-    border-color: teal;
+    border:1px solid var(--border-focus);
     outline: none;
   }
   
   .contact-form button {
-    background-color: teal;
+    background-color:var(--button-color);
     color: white;
     padding: 12px;
     border: none;

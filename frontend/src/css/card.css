@@ -1,10 +1,45 @@
+:root {
+  --cards-bg: linear-gradient(90deg,#ffffff,#b7dff1);
+  --primary-color: #3498db;
+  --secondary-color: #f2f2f2;
+  --text-color: #333;
+  --background-color: #fff;
+  --card-bg:#ffffff;
+  --card-border:white;
+  --card-hover:linear-gradient(120deg, transparent, rgba(18, 85, 100, 0.427));
+  --card-title:#2c3e50;
+  --card-desc: #7f8c8d;
+  --price-color:#16a085;
+  --card-discount-color:gray;
+  --btn-bg:#3498db;
+  --btn-border-color:#3498db;
+}
+
+[theme-color="dark"] {
+  --cards-bg:linear-gradient(90deg,#3f2f2f,#071e2a);
+  --primary-color: #3498db;
+  --secondary-color: #f2f2f2;
+  --text-color: #333;
+  --background-color: #fff;
+  --card-bg:#312b3b;
+  --card-border: #A97142;
+  --card-hover:linear-gradient(120deg, transparent, rgba(69, 74, 0, 0.305));
+  --card-title:#A97142 ;
+  --card-desc:#ffffff;
+  --price-color:#35eec9;
+  --card-discount-color:rgb(187, 182, 182);
+  --btn-bg:#A97142;
+  --btn-border-color:#A97142;
+}
+
+
 .cards{
     display: grid;
     grid-template-columns: auto auto auto;
     justify-content: space-evenly;
     width: 100%;
     height: 115vh;
-    background: linear-gradient(90deg,#ffffff,#b7dff1);
+    background: var(--cards-bg);
     clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
 
 }
@@ -18,6 +53,8 @@
   width: 400px;
   margin: 120px 20px;
   z-index: 111;
+  background:var(--card-bg);
+  border: 1px solid var(--card-border);
 }
 
 .cards .product-cards::before{
@@ -27,7 +64,7 @@
   right: 100%;
   width: 200%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(18, 85, 100, 0.427));
+  background: var(--card-hover);
   transition: all 0.5s ease;
   z-index: 2;
   pointer-events: none;
@@ -54,7 +91,7 @@
   text-transform: capitalize;
   font-weight: 600;
   text-align: center;
-  color: #2c3e50;
+  color: var(--card-title);
   margin-bottom: 10px;
 }
 
@@ -62,7 +99,7 @@
   font-size: 1rem;
   text-align: center;
   font-weight: 400;
-  color: #7f8c8d;
+  color: var(--card-desc);
   margin-bottom: 10px;
 }
 
@@ -70,14 +107,14 @@
   font-size: 25px;
   text-align: center;
   font-weight: 700;
-  color: #16a085;
+  color: var(--price-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .cards .product-cards .card-text h2 h4{
-  color:gray;
+  color: var(--card-discount-color);
   text-align: center;
   padding-top: 10px;
   padding-left: 5px;
@@ -87,8 +124,8 @@
 
 .cards .product-cards .btn-primary {
   width: 100%;
-  background-color: #3498db;
-  border-color: #3498db;
+  background-color:var(--btn-bg);
+  border-color:var(--btn-border-color);
   font-weight: 500;
   border-radius: 8px;
   padding: 10px 20px;
