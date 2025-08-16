@@ -3,16 +3,20 @@
   --head-color:rgb(6, 125, 125);
   --border-focus:teal;
   --text-bg:#ffffff;
+  --text-color:#333333;
   --button-color:teal;
+
 }
 
 [theme-color="dark"] {
-  --bg-color:#333333;
+  --bg-color:linear-gradient(90deg,#071e2a, #3f2f2f);
   --head-color:#ffffff;
   --border-focus:#A97142;
   --text-bg:#333333;
+  --text-color:#A97142;
   --button-color:#A97142;
 }
+
 .contact-section {
     max-width: 600px;
     margin: 50px auto;
@@ -47,6 +51,7 @@
     border-radius: 6px;
     font-size: 16px;
     transition: border 0.3s ease;
+    color: var(--text-color);
   }
   
   .contact-form input:focus,

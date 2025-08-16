@@ -29,7 +29,7 @@
 }
 
 [theme-color="dark"] {
-  --background: #121212;
+  --background: linear-gradient(90deg,#3f2f2f,#071e2a);
   --text-color: #e0e0e0;
   --search-btn-color:#ffffff;
   --navbar-bg: linear-gradient(175deg, rgb(154, 68, 96), #272727);

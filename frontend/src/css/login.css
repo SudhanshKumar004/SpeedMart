@@ -1,7 +1,14 @@
-.login-container{
+:root{
+    --background-color:#ffff;
+}
+[theme-color="dark"] {
+    --background-color:#2b2d42;
+}
+
+.login-modal .modal-content .login-container{
     width: 70%;
     height: 80vh;
-    background-color:#ffff;
+    background-color:var(--background-color);
     margin-left:auto ;
     margin-right: auto;
     display: flex;

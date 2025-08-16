@@ -2,9 +2,9 @@
   /* Light Mode */
   --home-bg:linear-gradient(90deg,#ffffff,#b7dff1);
   --primary-color:#000000;
-  --secondary-color:#272838;
   --delivary-head:#272838;
   --delivary-sub:#272838;
+  --para-color:#272838;
 
 }
 
@@ -12,9 +12,9 @@
   /* Dark Mode */
   --home-bg:linear-gradient(90deg,#3f2f2f,#071e2a);
   --primary-color:#ffffff;
-  --secondary-color:#ffffff;
   --delivary-head:#ffffff;
   --delivary-sub:#ffffff;
+  --para-color:#ffffff;
 }
 
 
@@ -55,7 +55,7 @@
 .hero-content p {
   font-size: clamp(12px, 2.5vw, 24px);
   margin-bottom: 2rem;
-  color: var(--secondary-color);
+  color: var(--para-color);
 }
 
 .cta {

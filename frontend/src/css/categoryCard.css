@@ -1,3 +1,23 @@
+:root{
+  --title-color:teal;
+  --card-title:#445566;
+  --card-subtitle:#652323;
+  --background-card-color:linear-gradient(135deg, #fefefe, #f8f8f8);
+  --card-border-color:rgba(255, 255, 255, 0.25);
+  --price-color:#222;
+  --button-color:linear-gradient(90deg, #a1c4fd, #c2e9fb);
+}
+
+[theme-color="dark"] {
+  --title-color:#ffffff;
+  --card-title:#A97142;
+  --card-subtitle:#ffffff;
+  --background-card-color:linear-gradient(135deg, #3f2f2f, #071e2a);
+  --card-border-color:#A97142;
+  --price-color:#35eec9;
+  --button-color:linear-gradient(90deg, #A97142, #c2e9fb);
+} 
+
 .category-title{
     margin-top: 70px;
     font-family: "SUSE", sans-serif;
@@ -6,7 +26,7 @@
     width: 100%;
     text-align: center;
     font-size: 50px;
-    color: #333;
+    color: var(--title-color);
 }
 .fruit-container{
     display: grid;
@@ -15,13 +35,13 @@
     justify-content: center;
 }
 
-.category-card {
+.fruit-container .category-card {
     width: 320px;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.3);
     margin: 30px 60px;
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    border: 1px solid var(--card-border-color);
     overflow: hidden;
     transition: all 0.4s ease;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -40,31 +60,32 @@
     object-fit: cover;
     transition: transform 0.4s ease;
     border-radius: 20px 20px 0 0;
+    background-color: #ffffff;
   }
   
   .category-card:hover img {
     transform: scale(1.04);
   }
   
-  .category-card .card-body {
+  .fruit-container .category-card .card-body {
     padding: 18px 20px;
-    background: linear-gradient(135deg, #fefefe, #f8f8f8);
+    background: var(--background-card-color);
     color: #333;
   }
   
-  .category-card .card-title {
+  .category-card .card-body .card-title {
     font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 10px;
     font-family: 'Poppins', sans-serif;
-    color: #445566;
+    color:var(--card-title);
     letter-spacing: 0.5px;
     text-transform: capitalize;
   }
   
-  .category-card .card-text h4 {
+  .fruit-container .category-card .card-text h4 {
     font-size: 1rem;
-    color: #666;
+    color: var(--card-subtitle);
     margin-bottom: 12px;
     font-weight: 400;
   }
@@ -77,17 +98,17 @@
   }
   
   
-  .category-card .card-text h2 {
+  .fruit-container .category-card .card-text h2 {
     display: flex;
     font-size: 1.3rem;
-    color: #222;
+    color: var(--price-color);
     font-weight: 600;
     margin-bottom: 18px;
   }
   
-  .category-card button {
+  .fruit-container .category-card button {
     width: 100%;
-    background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+    background: var(--button-color);
     border: none;
     color: #222;
     font-weight: 600;
