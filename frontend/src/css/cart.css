@@ -100,7 +100,7 @@ body .head{
   padding: 10px 25px;
   font-size: 19px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #ffffff;
   cursor: pointer;
   margin-bottom: 20px;
   background: var(--checkout-button-background);
@@ -109,7 +109,7 @@ body .head{
 }
 
 .checkout-footer .checkout-btn:hover {
-  background: rgba(0, 255, 204, 0.2);
+  background: #ffffff;
   border: 1px solid black;
   color: #000; 
 }
