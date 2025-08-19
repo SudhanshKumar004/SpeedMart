@@ -14,6 +14,7 @@
   --coupan-title-span: rgb(112, 112, 95);
   --table-th:#000000;
   --table-th-background:#ffffff;
+  --details-bottom-color:#ff0000;
 }
 
 [theme-color = "dark"]{
@@ -32,6 +33,7 @@
   --coupan-title-span:#ffffff;
   --table-th:#ffffff;
   --table-th-background:#6f6f6f;
+  --details-bottom-color:#FF6666;
 }
 
 .head {
@@ -139,7 +141,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: red;
+  color: var(--details-bottom-color);
   font-weight: 700;
   font-size: 15px;
 }
@@ -302,7 +304,6 @@ align-items: center;
   
   .head h1 {
     margin-left: 40px;
-    color: #154d57;
   }
   
   .head button {
@@ -337,26 +338,22 @@ align-items: center;
     width: 100%;
     margin-top: 20px;
     font-size: 20px;
-    color: #333;
     display: flex;
     justify-content: space-between;
   }
   
   .coupon .title-span {
       width: 100%;
-      color: rgb(112, 112, 95);
       font-weight: 400;
   }
   
   .coupan-title .title2-span {
       width: 100%;
-      color: #333;
       font-weight: 700;
       font-size: 25px;
   }
   
   .coupon .amnt-span{
-      color: #331;
       width: 10%;
       text-align: right;
       font-weight: 400;
@@ -364,7 +361,6 @@ align-items: center;
   
   .coupan-title .total-span{
       font-weight: bolder;
-      color: #333;
   }
   
   .form-group {
@@ -377,7 +373,6 @@ align-items: center;
   
   .form-label {
     font-weight: 600;
-    color: #333;
     margin-bottom: 5px;
   }
   
@@ -392,7 +387,6 @@ align-items: center;
   
   .coupon {
     margin-top: 30px;
-    background: #fff;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -408,10 +402,8 @@ align-items: center;
   }
   
   .coupon button {
-    background-color: #28a745;
     border: none;
     padding: 10px 15px;
-    color: white;
     border-radius: 5px;
     cursor: pointer;
     font-weight: 500;
@@ -426,14 +418,12 @@ align-items: center;
   .checkout-container .cus-info .form-head {
       font-size: 32px;
       font-weight: 600;
-      color: #254;
       margin-bottom: 15px;
   }
   
   .checkout-container .cart-item .item-head {
       font-size: 32px;
       font-weight: 600;
-      color: #254;
       margin-bottom: 15px;
   }
   
@@ -443,15 +433,12 @@ align-items: center;
       padding: 10px;
       margin-top: 5px;
       font-size: 20px;
-      color: white;
       border: 1px solid #28a745;
       border-radius: 4px;
-      background-color:#28a745;
       transition: all 0.2s ease;
   }
   
   .pay-btn:hover {
-    background-color: #007bff;
     color: #ddd;
     border: 1px solid #28a745;
     transform: translateY(-4px);

@@ -195,8 +195,6 @@ body .head{
     margin-bottom: 20px;
     position: relative;
     left: 570px;
-    background: rgba(195, 195, 195, 0.281);
-    color: #df111e;
   }
 }
 
@@ -211,8 +209,6 @@ body .head{
     margin-bottom: 20px;
     position: relative;
     left: 250px;
-    background: rgba(195, 195, 195, 0.281);
-    color: #df111e;
   }
 
   .back-btn{

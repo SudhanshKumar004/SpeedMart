@@ -148,14 +148,13 @@
     align-self: center;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg,#ffffff,#b7dff1);
     clip-path: polygon(0 0%, 100% 0, 100% 100%, 0 100%);
 
 }
 }
 
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 426px) {
   .cards .product-cards {
     border-radius: 10px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);

@@ -1,16 +1,41 @@
+:root{
+  --bg-color:#f9f9f9;
+  --order-text-color:#333333;
+  --order-title-color:#0d6efd;
+  --order-detail-color:#333;
+  --order-info-section-color:#fff;
+  --shipping-info-color:#fff;
+  --track-button-color:rgb(216, 112, 147);
+  --table-th-bg:#ffffff;
+  --table-th-color:#000000;
+
+}
+
+[theme-color="dark"] {
+  --bg-color:linear-gradient(90deg,#071e2a, #3f2f2f);
+  --order-text-color:#A97142;
+  --order-title-color:#ffffff;
+  --order-detail-color:#ffffff;
+  --order-info-section-color:#444343;
+  --shipping-info-color:#423333;
+  --track-button-color:#A97142;
+  --table-th-bg:#6f6f6f;
+  --table-th-color:#ffffff;
+}
+
 .order-success {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: #fdfdfd; 
+  background: var(--bg-color); 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  color: #333;
+  color: var(--order-text-color);
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
   animation: fadeOut 0.5s ease-in-out 2.5s forwards;
@@ -20,7 +45,7 @@
   font-size: 2.5rem;
   margin-top: 20px;
   animation: popUp 0.6s ease-in-out;
-  color: #2c3e50;
+  color: var(--order-text-color);
 }
 
 @keyframes popUp {
@@ -103,7 +128,7 @@
 .pastel1 {
   --x: 60px;
   --y: -80px;
-  background-color: #ffc1cc; /* pastel pink */
+  background-color: #ffc1cc; 
   top: 40%;
   left: 35%;
   animation-delay: 0.2s;
@@ -112,7 +137,7 @@
 .pastel2 {
   --x: -70px;
   --y: 60px;
-  background-color: #b5ead7; /* pastel green */
+  background-color: #b5ead7; 
   top: 50%;
   left: 65%;
   animation-delay: 0.3s;
@@ -121,29 +146,24 @@
 .pastel3 {
   --x: 90px;
   --y: -70px;
-  background-color: #c9c9ff; /* pastel lavender */
+  background-color: #c9c9ff; 
   top: 60%;
   left: 50%;
   animation-delay: 0.4s;
 }
 
 
-
-
-
-
 .order-container{
-  padding: 40px 20px;
+  padding: 60px 20px;
   max-width: 1200px;
   margin: auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
-  
 }
 
 .page-title {
     text-align: center;
-    color: #0d6efd;
+    color: var(--order-title-color);
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -155,7 +175,7 @@
     margin: 0 auto 60px;
     padding: 0 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    color: var(--order-detail-color);
   }
 
   .order-header{
@@ -164,9 +184,9 @@
   }
 
   .order-header .track-button{
-    background-color: palevioletred;
+    background-color: var(--track-button-color);
     color: white;
-    border: 1px solid palevioletred;
+    border: 1px solid var(--track-button-color);
     border-radius: 16px;
     font-size: 16px;
     cursor: pointer;
@@ -183,16 +203,55 @@
 
   .order-info-section {
     flex: 2;
-    background: #fff;
+    background: var(--order-info-section-color);
     padding: 20px 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
+   .order-info-section Table thead th{
+     background: var(--table-th-bg);
+     color: var(--table-th-color);
+   } 
+
+  .info-sections {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+  
+  .shipping-info,
+  .payment-info {
+    background: var(--shipping-info-color);
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 12px 10px rgb(0, 0, 0, 0.1);
+  }
+  
+  .status {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  .status.shipped {
+    background-color: #0dcaf0;
+  }
+  
+  .status.paid {
+    background-color: #198754;
+  }
+ 
   .button-area {
     display: flex;
     justify-content: center;
   }
+
+
   .continue-shopping {
     position: relative;
     margin-top: 20px;
@@ -229,47 +288,8 @@
     }
   }
   
-  
-
-  .info-sections {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-  }
-  
-  .shipping-info,
-  .payment-info {
-    background: #fff;
-    padding: 20px 25px;
-    border-radius: 10px;
-    box-shadow: 0 12px 10px rgb(0, 0, 0, 0.1);
-  }
-  
-  .status {
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: white;
-    text-transform: uppercase;
-  }
-  
-  .status.shipped {
-    background-color: #0dcaf0;
-  }
-  
-  .status.paid {
-    background-color: #198754;
-  }
-  
-  .btn-contact-support {
-    margin-top: 15px;
-    width: 100%;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
+ 
+ 
   @media screen and (max-width: 768px) {
     .order-detail-container {
       flex-direction: column;

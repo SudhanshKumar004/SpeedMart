@@ -1,8 +1,31 @@
+:root{
+      --payment-background:#ffffff;
+      --payment-head-color:#111827;
+      --option-border-color:#14b8a6;
+      --hover-border-color:#14b8a6;
+      --payment-p-color:#4b5563;
+      --delivery-date-bg-color:#ecfdf5;
+      --delivery-date-border-color:#14b8a6;
+      --delivery-date-p:#065f46;
+}
+
+
+[theme-color = "dark"]{
+    --payment-background:#444343;
+    --payment-head-color:#ffffff;
+    --option-border-color:#ffffff;
+    --hover-border-color:#a97142;
+    --payment-p-color:#ffffff;
+    --delivery-date-bg-color:#6f6f6f;
+    --delivery-date-border-color:#a97142;
+    --delivery-date-p:#35ee35;
+}
+
 .payment-container {
   max-width: 800px;
   margin: 40px auto;
   padding: 40px 30px;
-  background: #ffffff;
+  background:var(--payment-background);
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   font-family: 'Segoe UI', sans-serif;
@@ -38,7 +61,7 @@
 .delivery-date h3 {
   font-size: 38px;
   margin-bottom: 16px;
-  color: #111827;
+  color: var(--payment-head-color);
   text-align: center;
 }
 
@@ -47,7 +70,7 @@
   align-items: center;
   gap: 20px;
   padding: 18px 24px;
-  border: 2px dashed #14b8a6;
+  border: 2px dashed var(--option-border-color);
   border-radius: 12px;
   margin-bottom: 16px;
   cursor: pointer;
@@ -55,8 +78,8 @@
 }
 
 .payment-option:hover {
-  background: #f0fdfa;
-  border-color: #0f766e;
+  background: var(--payment-background);
+  border-color: var(--hover-border-color);
 }
 
 .payment-option input[type="radio"] {
@@ -67,7 +90,7 @@
 
 .payment-option p {
   font-size: 22px;
-  color: #4b5563;
+  color: var(--payment-p-color);
   margin: 0;
   font-weight: 600;
 }
@@ -95,15 +118,15 @@
 }
 
 .delivery-date {
-  background-color: #ecfdf5;
-  border: 1.5px dashed #14b8a6;
+  background-color: var(--delivery-date-bg-color);
+  border: 1.5px dashed var(--delivery-date-border-color);
   padding: 16px 20px;
   border-radius: 10px;
 }
 
 .delivery-date p {
   margin: 0;
-  color: #065f46;
+  color: var(--delivery-date-p);
   font-size: 22px;
   font-weight: 500;
   text-align: center;

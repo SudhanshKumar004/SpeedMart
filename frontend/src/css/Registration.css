@@ -1,7 +1,23 @@
+:root{
+    --registration-background:#f0f0f0;
+    --registration-head-color:#2b2d42;
+    --registration-btn-bg:#2b2d42;
+    --registration-btn:#ffffff;
+    --registration-p:#2b2d42;
+}
+
+[theme-color="dark"]{
+    --registration-background:#6f6f6f;
+    --registration-head-color:#ffffff;
+    --registration-btn-bg:#B794F4;
+    --registration-btn:#2b2d42;
+    --registration-p:#ffffff;
+}
+
 .registration-container{
     width: 70%;
     height: 85vh;
-    background-color:#f0f0f0;
+    background:var(--registration-background);
     margin-left:auto ;
     margin-right: auto;
     display: flex;
@@ -34,13 +50,14 @@
 
 
 .reg1-head {
-    color: #2b2d42;
+    color: var(--registration-head-color);
     font-size: 35px;
+    font-weight: 700;
 }
 
 .reg1-form {
     width: 70%;
-    background-color: #f0f0f0;
+    background: var(--registration-background);
     margin-bottom: 0px;
 }
 
@@ -57,10 +74,11 @@
 }
 
 .reg1-form button {
-    background-color: #2b2d42;
+    background-color: var(--registration-btn-bg);
     border: none;
     font-size: 15px;
-    color: white;
+    font-weight: 700;
+    color:var(--registration-btn);
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
@@ -88,7 +106,7 @@
     font-size: 17px;
     margin-top: 2px;
     font-weight: 600;
-    color: #2b2d42;
+    color: var(--registration-p);
 }
 
 .error {

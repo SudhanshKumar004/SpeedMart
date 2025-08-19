@@ -1,9 +1,16 @@
+:root{
+  --text-color:#333;
+}
+
+[theme-color="dark"]{
+  --text-color:#ffffff;
+}
 .track-wrapper {
     max-width: 850px;
     margin: 40px auto;
     padding: 20px;
     font-family: "Segoe UI", sans-serif;
-    color: #333;
+    color: var(--text-color);
   }
   
   .track-heading {

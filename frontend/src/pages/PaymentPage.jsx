@@ -46,28 +46,9 @@ const PaymentPage = () => {
     if (!paymentMethod) {
       Swal.fire("Please select a payment method.");
 
-    } else {
-
-      let imageUrl = "";
-      if(paymentMethod === "razorpay"){
-        imageUrl = "https://vectorseek.com/wp-content/uploads/2023/09/Razorpay-with-all-cards-UPI-Logo-Vector.svg-.png";
-      }
-      else if(paymentMethod === "cod"){
-        imageUrl = "https://icon-library.com/images/cash-on-delivery-icon/cash-on-delivery-icon-8.jpg";
-      }
-      // Swal.fire({
-      //   title:  `${paymentMethod}`,
-      //   text: "Selected payment method",
-      //   imageUrl: imageUrl,
-      //   imageWidth: 150,
-      //   imageHeight: 100,
-      //   imageAlt: `{paymentMethod} image`,
-      //   showConfirmButton: false,
-      //   timer: 1000
-
-      // });
     }
-    if(paymentMethod === "razorpay"){
+
+    else if(paymentMethod === "razorpay"){
         handleRazorpay();
     }
     else if(paymentMethod === "cod"){
@@ -191,7 +172,7 @@ const PaymentPage = () => {
 
           <label className="payment-option">
             <input type="radio" name="payment" value="cod" onChange={(e) => setPaymentMethod(e.target.value)}/>
-            <img className='payment-image' src="https://icon-library.com/images/cash-on-delivery-icon/cash-on-delivery-icon-8.jpg" alt="" />
+            <img className='payment-image' src="https://static.vecteezy.com/system/resources/previews/006/566/274/non_2x/cash-on-delivery-icon-design-illustration-in-flat-design-free-vector.jpg" alt="" />
             <p>Pay at your doorstap via UPI or Cash</p>
           </label>
 

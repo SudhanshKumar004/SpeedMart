@@ -1,20 +1,29 @@
 :root{
-    --background-color:#ffff;
+    --login-background-color:#f9f9f9;
+    --text-color:#333333;
+    --login-head-color:#2b2d42;
+    --login-form-background-color:#f9f9f9;
+    --login-button-color:#2b2d42;
 }
+
 [theme-color="dark"] {
-    --background-color:#2b2d42;
+    --login-background-color:linear-gradient(90deg,#071e2a, #3f2f2f);
+    --text-color:#ffffff;
+    --login-head-color:#ffffff;
+    --login-form-background-color:transparent;
+    --login-button-color:#a77142;
 }
 
 .login-modal .modal-content .login-container{
     width: 70%;
     height: 80vh;
-    background-color:var(--background-color);
+    background:var(--login-background-color) !important;
     margin-left:auto ;
     margin-right: auto;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    padding: 50px;
+    padding: 10px;
     border-radius: 20px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
@@ -28,13 +37,13 @@
 
   
   .login-modal .modal-content {
-    height: auto !important;
+    height: auto;
     padding: 30px;
   }
 
   .login-modal .modal-dialog {
-  max-width: 80% !important;
-  width: 80% !important;
+  max-width: 80%;
+  width: 80%;
   margin: auto;
 }
 
@@ -65,13 +74,13 @@
 
 
 .login-head {
-    color: #2b2d42;
+    color: var(--login-head-color);
     font-size: 40px;
 }
 
 .login-form {
     width: 70%;
-    background-color: #ffff;
+    background-color:var(--login-form-background-color) ;
     margin-bottom: 0px;
 }
 
@@ -87,12 +96,12 @@
 }
 
 .login-form .form-control:focus {
-    border-color: #2b2d42;
+    border-color: var(--login-button-color);
     box-shadow: 0 0 5px rgba(43, 45, 66, 0.5);
 }
 
 .login-form button {
-    background-color: #2b2d42;
+    background-color:var(--login-button-color);
     border: none;
     font-size: 15px;
     color: white;
@@ -130,13 +139,12 @@
     .login-container{
         width: 100%;
         max-height: fit-content;
-        background-color:#ffff;
         margin-left:auto ;
         margin-right: auto;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        padding: 50px;
+        padding: 10px;
         border-radius: 20px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         margin-top: 20px;
@@ -152,7 +160,6 @@
     .login-container{
         width: 100%;
         max-height: fit-content;
-        background-color:#ffff;
         margin-left:auto ;
         margin-right: auto;
         display: flex;
@@ -169,7 +176,6 @@
     }
 
     .login-head {
-        color: #2b2d42;
         font-size: 30px;
         margin-bottom: 0;
     }
@@ -183,19 +189,16 @@
     }
     
     .login-head {
-        color: #2b2d42;
         font-size: 40px;
     }
     
     .login-form {
         width: 70%;
-        background-color: #ffff;
         margin-bottom: 0px;
     }
     
     .login-form .form-label {
         font-weight: bold;
-        color: #222;
     }
     
     .login-form .form-control {
@@ -205,12 +208,10 @@
     }
     
     .login-form .form-control:focus {
-        border-color: #2b2d42;
         box-shadow: 0 0 5px rgba(43, 45, 66, 0.5);
     }
     
     .login-form button {
-        background-color: #2b2d42;
         border: none;
         font-size: 15px;
         color: white;
@@ -221,19 +222,7 @@
         width: 100%;
         transition: background 0.3s;
     }
-    
-    .login-form button:hover {
-        background-color: #4a4e69;
-    }
-    
-    .login-form .location-btn{
-        background-color: white;
-        color: #000;
-        border: 1px solid white;
-        transition: background 0.3s;
-        padding: 0;
-    }
-    
+
     
     .form-select{
         margin-bottom: 10px;
@@ -243,7 +232,6 @@
         font-size: 17px;
         margin-top: 2px;
         font-weight: 600;
-        color: #2b2d42;
     }
 
     .register{

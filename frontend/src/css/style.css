@@ -26,6 +26,8 @@
   --cart-area-color: rgb(75, 28, 44);
   --cart-span-color: #222;
   --cart-span-bg: antiquewhite;
+  --cart-span-bg-mobile: #fff;
+  --category-toggle:transparent;
 }
 
 [theme-color="dark"] {
@@ -53,6 +55,8 @@
   --cart-area-color: #ffffff;
   --cart-span-color: #fff;
   --cart-span-bg:  rgb(105, 47, 66);
+  --cart-span-bg-mobile: #333;
+  --category-toggle:rgba(255, 255, 255, 0.1);
 }
 
 * {
@@ -328,15 +332,10 @@ body {
 }
 
 .main-navbar .navbar-toggler {
-  border: 2px solid white;
-  background: transparent;
+  background: var(--category-toggle);
   outline: none;
   padding: 5px;
   border-radius: 5px;
-}
-
-.main-navbar .navbar-toggler:focus {
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .floating-cart {
@@ -470,13 +469,11 @@ body {
     padding: 5px 15px;
     margin-right: 4px;
     border-radius: 5px;
-    border: 1px solid #ccc;
     font-size: 16px;
   }
   
   .search-area input:focus {
     outline: none;
-    border: 1px solid slateblue;
   }
   
   .search-area button {
@@ -490,32 +487,7 @@ body {
     overflow: hidden;
   }
   
-  .search-area button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(117, 24, 26, 0.6), transparent);
-    transition: all 0.5s ease;
-  }
-  
-  .search-area button:hover::before {
-    left: 100%;
-  }
-  
-  .search-area button:hover {
-    border-color: rgba(255, 77, 79, 0.8);
-    box-shadow: 0 0 15px rgba(255, 77, 79, 0.6);
-  }
-  
-  .search-area button:active {
-    transform: scale(0.98);
-    box-shadow: 0 0 8px rgba(255, 77, 79, 0.5);
-  }
-  
-
+ 
   .nav-icons{
     width: 100%;
   }
@@ -526,7 +498,6 @@ body {
     top: 60px;
     right: 20px;
     border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     opacity: 0;
     transform: translateY(-10px);
@@ -595,11 +566,11 @@ body {
     align-items: center;
     justify-content: space-evenly;
     position: absolute;
-    top: 60px; /* usually below the navbar */
+    top: 60px;
     right: 20px;
     width: 180px;
     height: auto;
-    background-color: #ffffff;
+    background:var(--background);
     border-radius: 12px;
     border: 1px solid #ddd;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -612,7 +583,6 @@ body {
   
   .nav-icons.show a, .nav-icons.show button {
     text-decoration: none;
-    color: #333;
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 8px;
@@ -623,12 +593,7 @@ body {
     border: none;
   }
   
-  .nav-icons.show a:hover,
-  .nav-icons.show button:hover {
-    background-color: #efefef;
-    color: #ef233c;
-  }
-  
+
 
   .main-navbar .navbar-brand {
     font-size: 35px;
@@ -637,6 +602,10 @@ body {
     color: palevioletred;
     transition: color 0.3s ease-in-out;
     cursor: pointer;
+  }
+
+  .cart-area span{
+    background: var(--cart-span-bg-mobile);
   }
   
   

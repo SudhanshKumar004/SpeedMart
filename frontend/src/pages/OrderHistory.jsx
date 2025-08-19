@@ -37,7 +37,7 @@ const OrderHistory = () => {
             <FaBoxOpen className="me-2" /> Your Order History
           </h3>
         </Card.Header>
-        <Card.Body>
+        <Card.Body className="history-card-body">
           {orders.length === 0 ? (
             <Alert variant="warning" className="text-center">
               No orders found.

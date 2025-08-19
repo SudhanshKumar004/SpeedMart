@@ -356,7 +356,6 @@ const NavBar = () => {
               {categories.map((cat) => (
                 <Nav.Link as={Link} to={`/${cat.route}/${cat._id}`}>
                   {iconMap[cat.route]} {cat.name}{" "}
-                  {/*each icon will place with route location*/}
                 </Nav.Link>
               ))}
             </Nav>
