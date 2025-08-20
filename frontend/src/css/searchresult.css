@@ -31,7 +31,7 @@
     text-align: center;
     margin-top: 60px;
     margin-bottom: 30px;
-    color: #045d56;
+    color: var(--card-title);
     font-size: 2.5rem;
     font-weight: bold;
   }

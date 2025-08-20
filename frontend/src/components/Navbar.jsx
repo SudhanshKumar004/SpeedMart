@@ -187,13 +187,13 @@ const NavBar = () => {
   return (
     <>
       {/* Admin Login Modal */}
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal show={show} onHide={handleClose} className="admin-modal">
+        <Modal.Header closeButton >
           <Modal.Title>Admin Login</Modal.Title>
           <Modal.Title>Authorized Access Only⚠️</Modal.Title>
         </Modal.Header>
 
-        <Modal.Body>
+        <Modal.Body className="admin-modal-body">
           <Form>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Enter Id</Form.Label>

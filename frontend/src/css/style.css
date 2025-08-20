@@ -79,7 +79,7 @@ body {
   font-weight: bolder;
   padding: 10px 0;
   font-size: 20px;
-  text-align: end;
+  text-align: center;
   padding-right: 15px;
   display: flex;
   justify-content: space-between;
@@ -382,6 +382,11 @@ body {
   border-radius: 50%;
 }
 
+.admin-modal .modal-content{
+  background:var(--background);
+  padding: 0;
+}
+
 
 .footer {
   background-color: var(--footer-bg);
@@ -454,13 +459,14 @@ body {
     font-size: 20px;
     text-align: end;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 999;
     height: 50px;
     width: 100%;
   }
+  
   .search-area{
     display: flex;
     align-items: center;
@@ -489,7 +495,7 @@ body {
   
  
   .nav-icons{
-    width: 100%;
+    width: 50%;
   }
 
   

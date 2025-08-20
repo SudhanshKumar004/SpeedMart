@@ -4,6 +4,7 @@
     --registration-btn-bg:#2b2d42;
     --registration-btn:#ffffff;
     --registration-p:#2b2d42;
+    --location-btn:#000;
 }
 
 [theme-color="dark"]{
@@ -12,6 +13,7 @@
     --registration-btn-bg:#B794F4;
     --registration-btn:#2b2d42;
     --registration-p:#ffffff;
+    --location-btn:#ffffff;
 }
 
 .registration-container{
@@ -90,8 +92,8 @@
 }
 
 .reg1-form .location-btn{
-    background-color: white;
-    color: #000;
+    background-color: var(--registration-btn);
+    color: var(--location-btn);
     border: 1px solid white;
     transition: background 0.3s;
     padding: 0;
@@ -115,36 +117,47 @@
 
 @media screen and (max-width: 768px) {
     .registration-container{
-        width: 100%;
+        width: 90%;
         height: 100%;
-        background-color:#f0f0f0;
         margin-left:auto ;
         margin-right: auto;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        padding: 50px;
+        padding: 20px;
         border-radius: 20px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         margin-top: 80px;
+    }
+
+    .form1-image img{
+        width: 280px;
+        height: 280px;
     }
     
 }
 
 @media screen and (max-width: 426px) {
     .registration-container{
-        width: 100%;
+        width: 90%;
         height: 100%;
-        background-color:#f0f0f0;
         margin-left:auto ;
         margin-right: auto;
         display: flex;
-        justify-content: space-evenly;
+        flex-direction: column;
         align-items: center;
-        padding: 50px;
+        padding: 0px;
         border-radius: 20px;
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
         margin-top: 80px;
+    }
+
+    .form1-image img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .reg1-form .location-btn{
+        margin-bottom: 4px;
     }
     
 }
