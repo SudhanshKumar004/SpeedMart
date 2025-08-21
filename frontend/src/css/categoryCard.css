@@ -1,149 +1,130 @@
-:root{
-  --title-color:teal;
-  --card-title:#445566;
-  --card-subtitle:#652323;
-  --background-card-color:linear-gradient(135deg, #fefefe, #f8f8f8);
-  --card-border-color:rgba(255, 255, 255, 0.25);
-  --price-color:#222;
-  --button-color:linear-gradient(90deg, #a1c4fd, #c2e9fb);
-}
+@import "../css//variables.css";
 
-[theme-color="dark"] {
-  --title-color:#ffffff;
-  --card-title:#A97142;
-  --card-subtitle:#ffffff;
-  --background-card-color:linear-gradient(135deg, #3f2f2f, #071e2a);
-  --card-border-color:#A97142;
-  --price-color:#35eec9;
-  --button-color:linear-gradient(90deg, #A97142, #c2e9fb);
-} 
-
-.category-title{
-    margin-top: 70px;
-    font-family: "SUSE", sans-serif;
-    margin-bottom: 10px;
-    font-weight: 700;
-    width: 100%;
-    text-align: center;
-    font-size: 50px;
-    color: var(--title-color);
+.category-title {
+  margin-top: 70px;
+  font-family: "SUSE", sans-serif;
+  margin-bottom: 10px;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  color: var(--title-color);
 }
-.fruit-container{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    align-items: center;
-    justify-content: center;
+.fruit-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+  justify-content: center;
 }
 
 .fruit-container .category-card {
-    width: 320px;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.3);
-    margin: 30px 60px;
-    border-radius: 20px;
-    border: 1px solid var(--card-border-color);
-    overflow: hidden;
-    transition: all 0.4s ease;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-    position: relative;
-    animation: fadeIn 0.8s ease-in-out;
-  }
-  
-  .category-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-  }
-  
-  .category-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-    border-radius: 20px 20px 0 0;
-    background-color: #ffffff;
-  }
-  
-  .category-card:hover img {
-    transform: scale(1.04);
-  }
-  
-  .fruit-container .category-card .card-body {
-    padding: 18px 20px;
-    background: var(--background-card-color);
-    color: #333;
-  }
-  
-  .category-card .card-body .card-title {
-    font-size: 1.6rem;
-    font-weight: 700;
-    margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
-    color:var(--card-title);
-    letter-spacing: 0.5px;
-    text-transform: capitalize;
-  }
-  
-  .fruit-container .category-card .card-text h4 {
-    font-size: 1rem;
-    color: var(--card-subtitle);
-    margin-bottom: 12px;
-    font-weight: 400;
-  }
-  .category-card .card-text h2 h3{
-    color:gray;
-    text-align: center;
-    padding-left: 10px;
-    font-size: 20px;
-    font-family:'Times New Roman', Times, serif;
-  }
-  
-  
-  .fruit-container .category-card .card-text h2 {
-    display: flex;
-    font-size: 1.3rem;
-    color: var(--price-color);
-    font-weight: 600;
-    margin-bottom: 18px;
-  }
-  
-  .fruit-container .category-card button {
-    width: 100%;
-    background: var(--button-color);
-    border: none;
-    color: #222;
-    font-weight: 600;
-    padding: 12px;
-    border-radius: 10px;
-    transition: background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  .category-card button:hover {
-    background: #ffffff;
-    border: 1px solid #000;
-    color: #000;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.95) translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1) translateY(0);
-    }
-  }
-  
-  @media screen and (max-width: 768px) {
-   .category-title{
-   }
-   .fruit-container{
-    grid-template-columns:  auto auto;
-   }
+  width: 320px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.3);
+  margin: 30px 60px;
+  border-radius: 20px;
+  border: 1px solid var(--card-border-color);
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: fadeIn 0.8s ease-in-out;
+}
 
-   .category-card {
+.category-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.category-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  border-radius: 20px 20px 0 0;
+  background-color: #ffffff;
+}
+
+.category-card:hover img {
+  transform: scale(1.04);
+}
+
+.fruit-container .category-card .card-body {
+  padding: 18px 20px;
+  background: var(--background-card-color);
+  color: #333;
+}
+
+.category-card .card-body .card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  color: var(--card-title);
+  letter-spacing: 0.5px;
+  text-transform: capitalize;
+}
+
+.fruit-container .category-card .card-text h4 {
+  font-size: 1rem;
+  color: var(--card-subtitle);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.category-card .card-text h2 h3 {
+  color: gray;
+  text-align: center;
+  padding-left: 10px;
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.fruit-container .category-card .card-text h2 {
+  display: flex;
+  font-size: 1.3rem;
+  color: var(--card-price-color);
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.fruit-container .category-card button {
+  width: 100%;
+  background: var(--button-color);
+  border: none;
+  color: #222;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.category-card button:hover {
+  background: #ffffff;
+  border: 1px solid #000;
+  color: #000;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .category-title {
+  }
+  .fruit-container {
+    grid-template-columns: auto auto;
+  }
+
+  .category-card {
     width: 250px;
     backdrop-filter: blur(10px);
     margin: 30px 60px;
@@ -154,17 +135,16 @@
     position: relative;
     animation: fadeIn 0.8s ease-in-out;
   }
+}
+
+@media screen and (max-width: 426px) {
+  .fruit-container {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content: center;
   }
 
-  @media screen and (max-width:426px) {
-    .fruit-container{
-      display: grid;
-      grid-template-columns:auto;
-      align-items: center;
-      justify-content: center;
-  }
-
-    
   .category-card {
     width: 200px;
     backdrop-filter: blur(10px);
@@ -188,7 +168,7 @@
     font-size: 16px !important;
     font-weight: 700;
     margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     letter-spacing: 0.5px;
     text-transform: capitalize;
   }
@@ -199,31 +179,28 @@
     font-weight: 400;
   }
 
-  .category-card .card-text h2 h3{
+  .category-card .card-text h2 h3 {
     text-align: center;
     padding-left: 5px !important;
     font-size: 15px !important;
-    font-family:'Times New Roman', Times, serif;
+    font-family: "Times New Roman", Times, serif;
   }
-  
-  
+
   .category-card .card-text h2 {
     display: flex;
     font-size: 1rem !important;
     font-weight: 600;
     margin-bottom: 18px;
   }
-  
+
   .category-card button {
     width: 100%;
     background: linear-gradient(90deg, #a1c4fd, #c2e9fb);
     border: none;
     font-weight: 600;
-    padding: 4px !important; 
+    padding: 4px !important;
     border-radius: 10px;
     transition: background 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
-
-    
-  }
+}

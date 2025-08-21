@@ -1,4 +1,3 @@
-
 .progress-container {
   display: flex;
   justify-content: space-between;
@@ -32,7 +31,7 @@
 }
 
 .circle.active {
-  background-color: palevioletred; 
+  background-color: palevioletred;
 }
 
 .line {
@@ -41,12 +40,12 @@
   left: 50%;
   right: -50%;
   height: 4px;
-  background-color: skyblue ;
+  background-color: skyblue;
   z-index: 1;
 }
 
 .line.active {
-  background-color:palevioletred;
+  background-color: palevioletred;
 }
 
 .label {
@@ -59,18 +58,16 @@
 @media (max-width: 768px) {
   .progress-container {
     padding: 0 0px;
-    }
-  
+  }
 }
 
 @media screen and (max-width: 426px) {
-
   .progress-container {
     max-width: 100px;
     align-items: start;
-    display:none;
+    display: none;
   }
-  
+
   .circle {
     height: 30px;
     width: 30px;
@@ -83,31 +80,29 @@
     justify-content: center;
     z-index: 2;
   }
-  
+
   .circle.active {
-    background-color: palevioletred; 
+    background-color: palevioletred;
   }
-  
+
   .line {
     position: absolute;
     top: 15px;
     left: 50%;
     right: 1%;
     height: 4px;
-    background-color: skyblue ;
+    background-color: skyblue;
     z-index: 1;
   }
-  
+
   .line.active {
-    background-color:palevioletred;
+    background-color: palevioletred;
   }
-  
+
   .label {
     margin-top: 8px;
     font-size: 12px;
     text-align: center;
     color: #ffff;
   }
-  
-  
 }

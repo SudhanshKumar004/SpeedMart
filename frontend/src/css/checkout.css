@@ -1,40 +1,4 @@
-:root{
-  --primary-color: #333;
-  --checkout-background-color:#f8f9fa;
-  --checkout-title-color:#333;
-  --border-bottom-color:#ddd;
-  --new-address-button:palevioletred;
-  --new-address-button-border:palevioletred;
-  --secondary-background-color:#fafafa;
-  --label-color:#154d57;
-  --customer-head-color:#254;
-  --customer-detail-color:#3a494d;
-  --item-head:#254;
-  --coupan-background-color:#ffffff;
-  --coupan-title-span: rgb(112, 112, 95);
-  --table-th:#000000;
-  --table-th-background:#ffffff;
-  --details-bottom-color:#ff0000;
-}
-
-[theme-color = "dark"]{
-  --primary-color:#ffffff;
-  --checkout-background-color: linear-gradient(90d0eg,#071e2a, #3f2f2f);
-  --checkout-title-color:#ffffff;
-  --border-bottom-color:#5c4646;
-  --new-address-button:#A97142;
-  --new-address-button-border:#A97142;
-  --secondary-background-color:#444343;
-  --label-color:#fefefe;
-   --customer-head-color:rgb(31, 233, 165);
-  --customer-detail-color:#fefefe;
-  --item-head:#ffffff;
-  --coupan-background-color:rgba(195, 195, 195, 0.281);
-  --coupan-title-span:#ffffff;
-  --table-th:#ffffff;
-  --table-th-background:#6f6f6f;
-  --details-bottom-color:#FF6666;
-}
+@import "../css/variables.css";
 
 .head {
   display: flex;
@@ -73,28 +37,27 @@
 }
 
 .checkout-container .cus-info .form-head {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--customer-head-color);
-    margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--customer-head-color);
+  margin-bottom: 15px;
 }
 
 .checkout-container .cart-item .item-head {
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--item-head);
-    margin-bottom: 15px;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--item-head);
+  margin-bottom: 15px;
 }
 
-
-.button-space{
+.button-space {
   width: 100%;
   display: flex;
   justify-content: end;
 }
 
-.add-new-address{
-  background-color:var(--new-address-button);
+.add-new-address {
+  background-color: var(--new-address-button);
   position: relative;
   right: 0;
   color: white;
@@ -107,16 +70,13 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  
 }
 
-.add-new-address:hover{
-  background-color:white;
+.add-new-address:hover {
+  background-color: white;
   border: 1px solid black;
   color: #000;
-
 }
-
 
 .form-group {
   margin-bottom: 20px;
@@ -136,8 +96,7 @@
   align-self: flex-start;
 }
 
-
-.details-bottom{
+.details-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -146,19 +105,19 @@
   font-size: 15px;
 }
 
-
-.cus-info, .cart-item {
+.cus-info,
+.cart-item {
   flex: 1;
   min-width: 300px;
-  background:var(--secondary-background-color) ;
+  background: var(--secondary-background-color);
   padding: 25px;
   border-radius: 10px;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.05);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
-.cart-item .table-wrap th{
+.cart-item .table-wrap th {
   background: var(--table-th-background);
-  color:var(--table-th);
+  color: var(--table-th);
 }
 .details-head {
   font-size: 32px;
@@ -172,26 +131,25 @@
   align-items: center;
   margin-bottom: 12px;
   font-size: 25px;
-  padding-top:10px ;
+  padding-top: 10px;
 }
 
 .label {
   width: 200px;
   font-size: 25px;
   font-weight: 600;
-  color:var(--label-color) ;
+  color: var(--label-color);
 }
 
 .value {
-  color:var(--customer-detail-color);
+  color: var(--customer-detail-color);
   display: flex;
   font-weight: 500;
-justify-content: end;
-align-items: center;
+  justify-content: end;
+  align-items: center;
 }
 
-
-.coupon .coupan-title{
+.coupon .coupan-title {
   width: 100%;
   margin-top: 20px;
   font-size: 20px;
@@ -201,30 +159,29 @@ align-items: center;
 }
 
 .coupon .title-span {
-    width: 100%;
-    color:var(--coupan-title-span);
-    font-weight: 400;
+  width: 100%;
+  color: var(--coupan-title-span);
+  font-weight: 400;
 }
 
 .coupan-title .title2-span {
-    width: 100%;
-    color: var(--primary-color);
-    font-weight: 700;
-    font-size: 25px;
+  width: 100%;
+  color: var(--primary-color);
+  font-weight: 700;
+  font-size: 25px;
 }
 
-.coupon .amnt-span{
-    color: var(--primary-color);
-    width: 10%;
-    text-align: right;
-    font-weight: 400;
+.coupon .amnt-span {
+  color: var(--primary-color);
+  width: 10%;
+  text-align: right;
+  font-weight: 400;
 }
 
-.coupan-title .total-span{
-    font-weight: bolder;
-    color: var(--primary-color);
+.coupan-title .total-span {
+  font-weight: bolder;
+  color: var(--primary-color);
 }
-
 
 .cart-item table {
   margin-top: 20px;
@@ -262,17 +219,16 @@ align-items: center;
   font-weight: 500;
 }
 
-
-.pay-btn{
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 20px;
-    color: white;
-    border: 1px solid #28a745;
-    border-radius: 4px;
-    background-color:#28a745;
-    transition: all 0.2s ease;
+.pay-btn {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 20px;
+  color: white;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  background-color: #28a745;
+  transition: all 0.2s ease;
 }
 
 .pay-btn:hover {
@@ -292,77 +248,74 @@ align-items: center;
   .checkout-container {
     flex-direction: column;
   }
-  
-  .cus-info, .cart-item {
+
+  .cus-info,
+  .cart-item {
     min-width: 100%;
     margin-bottom: 20px;
   }
-   
 }
 
 @media screen and (max-width: 426px) {
-  
   .head h1 {
     margin-left: 40px;
   }
-  
+
   .head button {
     margin-top: 80px;
   }
-  
-    
-  .add-new-address{
+
+  .add-new-address {
     right: -15px;
   }
-    
+
   .details-head {
     font-weight: 600;
   }
 
-  
   .label {
     font-size: 20px;
   }
-  
+
   .value {
     font-size: 20px;
     width: 100%;
-  justify-content: space-between;
+    justify-content: space-between;
   }
-  
-  .table-wrap{
+
+  .table-wrap {
     width: 100%;
     overflow-x: auto;
-  }  
-  .coupon .coupan-title{
+  }
+  .coupon .coupan-title {
     width: 100%;
     margin-top: 20px;
     font-size: 20px;
     display: flex;
     justify-content: space-between;
   }
-  
+
   .coupon .title-span {
-      width: 100%;
-      font-weight: 400;
+    width: 100%;
+    font-weight: 400;
   }
-  
+
   .coupan-title .title2-span {
-      width: 100%;
-      font-weight: 700;
-      font-size: 25px;
+    width: 100%;
+    font-weight: 700;
+    font-size: 25px;
   }
-  
-  .coupon .amnt-span{
-      width: 10%;
-      text-align: right;
-      font-weight: 400;
+
+  .coupon .amnt-span {
+    width: 10%;
+    text-align: right;
+    font-weight: 400;
   }
-  
-  .coupan-title .total-span{
-      font-weight: bolder;
+
+  .coupan-title .total-span {
+    font-weight: bolder;
   }
-  
+
   .form-group {
     margin-bottom: 20px;
     display: flex;
@@ -370,28 +323,27 @@ align-items: center;
     gap: 10px;
     position: relative;
   }
-  
+
   .form-label {
     font-weight: 600;
     margin-bottom: 5px;
   }
-  
+
   .location-btn {
     align-self: flex-start;
   }
-  
-  
+
   .cart-item table {
     margin-top: 20px;
   }
-  
+
   .coupon {
     margin-top: 30px;
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #ddd;
   }
-  
+
   .coupon input {
     width: 60%;
     padding: 10px;
@@ -400,7 +352,7 @@ align-items: center;
     outline: none;
     transition: 0.3s;
   }
-  
+
   .coupon button {
     border: none;
     padding: 10px 15px;
@@ -408,43 +360,41 @@ align-items: center;
     cursor: pointer;
     font-weight: 500;
   }
-  
+
   .coupon p {
     margin-top: 10px;
     font-weight: 500;
   }
-  
-  
+
   .checkout-container .cus-info .form-head {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
   }
-  
+
   .checkout-container .cart-item .item-head {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 15px;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
   }
-  
-  
-  .pay-btn{
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      font-size: 20px;
-      border: 1px solid #28a745;
-      border-radius: 4px;
-      transition: all 0.2s ease;
+
+  .pay-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 20px;
+    border: 1px solid #28a745;
+    border-radius: 4px;
+    transition: all 0.2s ease;
   }
-  
+
   .pay-btn:hover {
     color: #ddd;
     border: 1px solid #28a745;
     transform: translateY(-4px);
     box-shadow: 0 8px 16px rgba(0, 128, 128, 0.35);
   }
-  
+
   .pay-btn:active {
     transform: scale(0.98);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);

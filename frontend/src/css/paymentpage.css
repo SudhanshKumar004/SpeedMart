@@ -1,34 +1,13 @@
-:root{
-      --payment-background:#ffffff;
-      --payment-head-color:#111827;
-      --option-border-color:#14b8a6;
-      --hover-border-color:#14b8a6;
-      --payment-p-color:#4b5563;
-      --delivery-date-bg-color:#ecfdf5;
-      --delivery-date-border-color:#14b8a6;
-      --delivery-date-p:#065f46;
-}
-
-
-[theme-color = "dark"]{
-    --payment-background:#444343;
-    --payment-head-color:#ffffff;
-    --option-border-color:#ffffff;
-    --hover-border-color:#a97142;
-    --payment-p-color:#ffffff;
-    --delivery-date-bg-color:#6f6f6f;
-    --delivery-date-border-color:#a97142;
-    --delivery-date-p:#35ee35;
-}
+@import "../css/variables.css";
 
 .payment-container {
   max-width: 800px;
   margin: 40px auto;
   padding: 40px 30px;
-  background:var(--payment-background);
+  background: var(--payment-background);
   border-radius: 16px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -39,10 +18,10 @@
   width: 100%;
 }
 
-.btndiv{
-    display: flex;
-    justify-content: end;
-    padding:20px;
+.btndiv {
+  display: flex;
+  justify-content: end;
+  padding: 20px;
 }
 .payment-back-button {
   background-color: #007bff;
@@ -112,7 +91,6 @@
   height: 50px;
 }
 
-
 .payment-option:hover img {
   transform: scale(1.05);
 }
@@ -149,5 +127,3 @@
 .proceed-btn:hover {
   background-color: #0f766e;
 }
-
-

@@ -1,0 +1,297 @@
+:root {
+  /* -------GLOBAL------- */
+  --background: #ffffff;
+  --card-title: #2c3e50;
+  --table-th: #000000;
+  --table-th-background: #ffffff;
+  --bg-color: #f9f9f9;
+  --card-subtitle: #652323;
+  --background-card-color: linear-gradient(135deg, #fefefe, #f8f8f8);
+  --card-border-color: rgba(255, 255, 255, 0.25);
+  --button-color: linear-gradient(90deg, #a1c4fd, #c2e9fb);
+
+  /* -------NAVBAR AND SEARCH------- */
+  --text-color: #333;
+  --search-btn-color: #2b2d42;
+  --navbar-bg: linear-gradient(175deg, rgb(238, 146, 177), #ffffff);
+  --navbar-text: #2b2d42;
+  --main-navbar-bg: #ffffff;
+  --nav-link-color: #333;
+  --nav-link-hover: cornflowerblue;
+  --footer-bg: #2b2d42;
+  --footer-text: white;
+  --cart-bg: #f0f0f0;
+  --cart-hover-bg: #ffffff;
+  --cart-icon: black;
+  --logout-bg: #fff;
+  --logout-text: #2b2d42;
+  --logout-hover-bg: rgba(75, 20, 20, 0.17);
+  --border-theme: #09b1ec;
+  --search-bg: #ffffff;
+  --search-btn: linear-gradient(
+    120deg,
+    transparent,
+    rgba(117, 24, 26, 0.6),
+    transparent
+  );
+  --search-btn-bg: #ffffff;
+  --cart-area-bg: antiquewhite;
+  --cart-area-color: rgb(75, 28, 44);
+  --cart-span-color: #222;
+  --cart-span-bg: antiquewhite;
+  --cart-span-bg-mobile: #fff;
+  --category-toggle: transparent;
+
+  /* -------CARD------- */
+  --cards-bg: linear-gradient(90deg, #ffffff, #b7dff1);
+  --card-bg: #ffffff;
+  --card-border: white;
+  --card-hover: linear-gradient(120deg, transparent, rgba(18, 85, 100, 0.427));
+  --card-desc: #7f8c8d;
+  --price-color: #16a085;
+  --card-discount-color: gray;
+  --btn-bg: #3498db;
+  --btn-border-color: #3498db;
+
+  /* -------CART------- */
+  --head-background: #ffffff;
+  --cart-background: #ffffff;
+  --cart-header: #1e3a4c;
+  --clear-button: #df111e;
+  --amount-color: #01921c;
+  --checkout-button-background: #09b1ec;
+  --box-shadow-color: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  /* -------CATEGORY CARD------- */
+  --title-color: teal;
+  --card-price-color: #222;
+
+  /* -------CHECKOUT------- */
+  --primary-color: #333;
+  --checkout-background-color: #f8f9fa;
+  --checkout-title-color: #333;
+  --border-bottom-color: #ddd;
+  --new-address-button: palevioletred;
+  --new-address-button-border: palevioletred;
+  --secondary-background-color: #fafafa;
+  --label-color: #154d57;
+  --customer-head-color: #254;
+  --customer-detail-color: #3a494d;
+  --item-head: #254;
+  --coupan-background-color: #ffffff;
+  --coupan-title-span: rgb(112, 112, 95);
+  --details-bottom-color: #ff0000;
+
+  /* -------CONTACT------- */
+  --head-color: rgb(6, 125, 125);
+  --border-focus: teal;
+  --text-bg: #ffffff;
+  --contact-text-color: #333333;
+  --contact-button-color: teal;
+
+  /* -------HOME------- */
+  --home-bg: linear-gradient(90deg, #ffffff, #b7dff1);
+  --home-primary-color: #000000;
+  --delivary-head: #272838;
+  --delivary-sub: #272838;
+  --para-color: #272838;
+
+  /* -------LOGIN------- */
+  --login-background-color: #f9f9f9;
+  --login-head-color: #2b2d42;
+  --login-form-background-color: #f9f9f9;
+  --login-button-color: #2b2d42;
+
+  /* -------ORDER DETAIL------- */
+  --order-text-color: #333333;
+  --order-title-color: #0d6efd;
+  --order-detail-color: #333;
+  --order-info-section-color: #fff;
+  --shipping-info-color: #fff;
+  --track-button-color: rgb(216, 112, 147);
+  --table-th-bg: #ffffff;
+  --table-th-color: #000000;
+
+  /* -------ORDER HISTORY------- */
+  --order-history-head-bg: linear-gradient(to right, #00c6ff, #0072ff);
+  --order-th-bg-color: #ffffff;
+  --order-th-color: #333;
+  --history-card-body: #ffffff;
+
+  /* -------PAYMENT------- */
+  --payment-background: #ffffff;
+  --payment-head-color: #111827;
+  --option-border-color: #14b8a6;
+  --hover-border-color: #14b8a6;
+  --payment-p-color: #4b5563;
+  --delivery-date-bg-color: #ecfdf5;
+  --delivery-date-border-color: #14b8a6;
+  --delivery-date-p: #065f46;
+
+  /* -------REGISTRATION------- */
+  --registration-background: #f0f0f0;
+  --registration-head-color: #2b2d42;
+  --registration-btn-bg: #2b2d42;
+  --registration-btn: #ffffff;
+  --registration-p: #2b2d42;
+  --location-btn: #000;
+
+  /* -------SEARCH RESULT------- */
+  --search-title-color: teal;
+  --search-price-color: #222;
+
+  /* -------PROFILE------- */
+  --profile-bg: #f9f9f9;
+  --profile-head-color: #2b2d42;
+  --profile-button-color: #2b2d42;
+  --icon-bg: #8ec2f6;
+}
+
+[theme-color="dark"] {
+  /* -------GLOBAL------- */
+  --background: linear-gradient(90deg, #3f2f2f, #071e2a);
+  --card-title: #a97142;
+  --table-th: #ffffff;
+  --table-th-background: #6f6f6f;
+  --bg-color: linear-gradient(90deg, #071e2a, #3f2f2f);
+  --card-subtitle: #ffffff;
+  --background-card-color: linear-gradient(135deg, #3f2f2f, #071e2a);
+  --card-border-color: #a97142;
+  --button-color: linear-gradient(90deg, #a97142, #c2e9fb);
+
+  /* -------NAVBAR AND SEARCH------- */
+  --text-color: #e0e0e0;
+  --search-btn-color: #ffffff;
+  --navbar-bg: linear-gradient(175deg, rgb(154, 68, 96), #272727);
+  --navbar-text: #e0e0e0;
+  --main-navbar-bg: #1f1f1f;
+  --nav-link-color: #e0e0e0;
+  --nav-link-hover: #66aaff;
+  --footer-bg: #1f1f1f;
+  --footer-text: #ddd;
+  --cart-bg: #333;
+  --cart-hover-bg: #444;
+  --cart-icon: #fff;
+  --logout-bg: #1f1f1f;
+  --logout-text: #ddd;
+  --logout-hover-bg: rgba(255, 255, 255, 0.1);
+  --border-theme: #ffffff;
+  --search-bg: #4d3a3a;
+  --search-btn: linear-gradient(
+    120deg,
+    transparent,
+    rgba(170, 144, 144, 0.6),
+    transparent
+  );
+  --search-btn-bg: #4d3a3a;
+  --cart-area-bg: #272727;
+  --cart-area-color: #ffffff;
+  --cart-span-color: #fff;
+  --cart-span-bg: rgb(105, 47, 66);
+  --cart-span-bg-mobile: #333;
+  --category-toggle: rgba(255, 255, 255, 0.1);
+
+  /* -------CARD------- */
+  --cards-bg: linear-gradient(90deg, #3f2f2f, #071e2a);
+  --card-bg: #312b3b;
+  --card-border: #a97142;
+  --card-hover: linear-gradient(120deg, transparent, rgba(69, 74, 0, 0.305));
+  --card-desc: #ffffff;
+  --price-color: #35eec9;
+  --card-discount-color: rgb(187, 182, 182);
+  --btn-bg: #a97142;
+  --btn-border-color: #a97142;
+
+  /* -------CART------- */
+  --head-background: linear-gradient(90deg, #071e2a, #3f2f2f);
+  --cart-background: #444343;
+  --cart-header: #ffffff;
+  --clear-button: #000000;
+  --amount-color: #35ee35;
+  --checkout-button-background: #a97142;
+  --box-shadow-color: 0 8px 24px rgba(0, 0, 0, 0.634);
+
+  /* -------CATEGORY CARD------- */
+  --title-color: #ffffff;
+  --card-price-color: #35eec9;
+
+  /* -------CHECKOUT------- */
+  --primary-color: #ffffff;
+  --checkout-background-color: linear-gradient(90d0eg, #071e2a, #3f2f2f);
+  --checkout-title-color: #ffffff;
+  --border-bottom-color: #5c4646;
+  --new-address-button: #a97142;
+  --new-address-button-border: #a97142;
+  --secondary-background-color: #444343;
+  --label-color: #fefefe;
+  --customer-head-color: rgb(31, 233, 165);
+  --customer-detail-color: #fefefe;
+  --item-head: #ffffff;
+  --coupan-background-color: rgba(195, 195, 195, 0.281);
+  --coupan-title-span: #ffffff;
+  --details-bottom-color: #ff6666;
+
+  /* -------CONTACT------- */
+  --head-color: #ffffff;
+  --border-focus: #a97142;
+  --text-bg: #333333;
+  --contact-text-color: #a97142;
+  --contact-button-color: #a97142;
+
+  /* -------CONTACT------- */
+  --home-bg: linear-gradient(90deg, #3f2f2f, #071e2a);
+  --home-primary-color: #ffffff;
+  --delivary-head: #ffffff;
+  --delivary-sub: #ffffff;
+  --para-color: #ffffff;
+
+  /* -------LOGIN------- */
+  --login-background-color: linear-gradient(90deg, #071e2a, #3f2f2f);
+  --login-head-color: #ffffff;
+  --login-form-background-color: transparent;
+  --login-button-color: #a77142;
+
+  /* -------ORDER DETAIL------- */
+  --order-text-color: #a97142;
+  --order-title-color: #ffffff;
+  --order-detail-color: #ffffff;
+  --order-info-section-color: #444343;
+  --shipping-info-color: #423333;
+  --track-button-color: #a97142;
+  --table-th-bg: #6f6f6f;
+  --table-th-color: #ffffff;
+
+  /* -------ORDER HISTORY------- */
+  --order-history-head-bg: linear-gradient(90deg, #a77142, #3f2f2f);
+  --order-th-bg-color: #6f6f6f;
+  --order-th-color: #ffffff;
+  --history-card-body: #ffffff;
+
+  /* -------PAYMENT------- */
+  --payment-background: #444343;
+  --payment-head-color: #ffffff;
+  --option-border-color: #ffffff;
+  --hover-border-color: #a97142;
+  --payment-p-color: #ffffff;
+  --delivery-date-bg-color: #6f6f6f;
+  --delivery-date-border-color: #a97142;
+  --delivery-date-p: #35ee35;
+
+  /* -------REGISTRATION------- */
+  --registration-background: #6f6f6f;
+  --registration-head-color: #ffffff;
+  --registration-btn-bg: #b794f4;
+  --registration-btn: #2b2d42;
+  --registration-p: #ffffff;
+  --location-btn: #ffffff;
+
+  /* -------SEARCH RESULT------- */
+  --search-title-color: #ffffff;
+  --search-price-color: #35eec9;
+
+  /* -------PROFILE------- */
+  --profile-bg: #3f2f2f;
+  --profile-head-color: #ffffff;
+  --profile-p-color: #ffffff;
+  --icon-bg: #000000;
+}

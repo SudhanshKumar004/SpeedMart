@@ -1,7 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Gabriela&display=swap");
 
 * {
   margin: 0;
@@ -9,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.main-container{
+.main-container {
   background: linear-gradient(180deg, #0f172ae3 0%, #1e293bdc 100%);
 }
 
@@ -26,7 +23,7 @@
   display: flex;
   flex-direction: column;
   padding: 30px 20px;
-  box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .sidebar-divider {
@@ -42,7 +39,7 @@
   color: #0ea5e9;
   font-family: "Gabriela", serif;
   font-weight: 600;
-  font-style: normal;   
+  font-style: normal;
 }
 
 .sidebar-nav ul {
@@ -81,12 +78,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg,  #355bb2  0%, #0ea5e9   100%);
+  background: linear-gradient(90deg, #355bb2 0%, #0ea5e9 100%);
   padding: 20px 40px !important;
-  box-shadow: 0 2px 8px rgba(0,1,1,0.5);
+  box-shadow: 0 2px 8px rgba(0, 1, 1, 0.5);
   border-left: 1px solid #0ea5e9;
   margin: 7px 10px;
-  border-radius: 12px
+  border-radius: 12px;
 }
 
 .navbar-title {
@@ -137,13 +134,12 @@
   box-shadow: 0 8px 20px rgba(34, 25, 0, 0.4);
 }
 
-
 .outlet {
   width: 100%;
   padding: 40px;
   border-radius: 12px;
   margin: 30px 40px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
   overflow-y: auto;
 }
 
@@ -163,41 +159,40 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background: linear-gradient(90deg,  #355bb2  0%, #0ea5e9   100%);
+    background: linear-gradient(90deg, #355bb2 0%, #0ea5e9 100%);
     padding: 20px 20px !important;
-    box-shadow: 0 2px 8px rgba(0,1,1,0.5);
+    box-shadow: 0 2px 8px rgba(0, 1, 1, 0.5);
     border-left: 1px solid #0ea5e9;
     margin: 7px 10px;
-    border-radius: 12px
+    border-radius: 12px;
   }
-.navbar-title {
-  font-size: 25px;
-  margin-bottom: 0;
-  font-weight: 700;
-  color: #ffffff;
-}
+  .navbar-title {
+    font-size: 25px;
+    margin-bottom: 0;
+    font-weight: 700;
+    color: #ffffff;
+  }
 
-.navbar-user {
-  font-size: 18px;
-  color: #ffffff;
-  margin-right: 20px;
-}
+  .navbar-user {
+    font-size: 18px;
+    color: #ffffff;
+    margin-right: 20px;
+  }
 
-.admin-navbar button {
-  background: #f8ffdd;
-  color: #0f172a;
-  border: none;
-  padding: 8px 15px;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(34, 25, 0, 0.4);
-  position: relative;
-  overflow: hidden;
-}
-
+  .admin-navbar button {
+    background: #f8ffdd;
+    color: #0f172a;
+    border: none;
+    padding: 8px 15px;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(34, 25, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
 
   .outlet {
     margin: 20px;
@@ -205,24 +200,22 @@
   }
 }
 
-
 @media screen and (max-width: 426px) {
-  
-  .dashboard-container{
-    display:flex;
+  .dashboard-container {
+    display: flex;
     flex-direction: column;
   }
 
-  .admin-navbar{
+  .admin-navbar {
     margin: 0;
     position: fixed;
     top: 0;
   }
-  .navbar-title{
+  .navbar-title {
     font-size: 20px;
   }
 
-  .navbar-user{
+  .navbar-user {
     font-size: 15px;
     margin-right: 0;
     padding: 0 14px;
@@ -243,24 +236,23 @@
     margin-top: 80px;
     width: 100%;
     display: flex;
-    flex-direction:row;
+    flex-direction: row;
     padding-top: 20px;
     padding-bottom: 4px;
-    box-shadow: 4px 0 12px rgba(0,0,0,0.1);
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
   }
 
   .sidebar-title {
     font-size: 20px;
     margin-bottom: 0;
-
   }
-  
+
   .sidebar-nav ul {
     display: flex;
     flex-direction: row;
     list-style: none;
   }
-  
+
   .sidebar-nav li {
     margin-bottom: 0px;
     padding: 0px 0px;
@@ -273,22 +265,20 @@
     padding-left: 4px;
     margin-right: 10px;
     border-left: 2px #355bb2 solid;
-
   }
-  
-  
+
   .sidebar-nav li:hover {
     background: rgba(255, 255, 255, 0.1);
     transform: translateX(4px);
   }
-  
+
   .sidebar-nav a {
     text-decoration: none;
     color: #f1f5f9;
     display: block;
   }
 
-  .emojis{
+  .emojis {
     font-size: 15px;
   }
 }

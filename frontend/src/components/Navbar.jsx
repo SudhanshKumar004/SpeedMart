@@ -55,7 +55,6 @@ const NavBar = () => {
   const [showLogoutMenu, setShowLogoutMenu] = useState(false);
   const [showIcons, setShowIcons] = useState(false);
 
-
   const [theme, setTheme] = useState("light");
 
   const nav = useNavigate();
@@ -188,7 +187,7 @@ const NavBar = () => {
     <>
       {/* Admin Login Modal */}
       <Modal show={show} onHide={handleClose} className="admin-modal">
-        <Modal.Header closeButton >
+        <Modal.Header closeButton>
           <Modal.Title>Admin Login</Modal.Title>
           <Modal.Title>Authorized Access Only⚠️</Modal.Title>
         </Modal.Header>
@@ -256,13 +255,14 @@ const NavBar = () => {
           <button onClick={handleSearch}>Search</button>
         </span>
 
-<div className="nav-icons-toggle" onClick={() => setShowIcons(!showIcons)}>
-    ☰
-  </div>
+        <div
+          className="nav-icons-toggle"
+          onClick={() => setShowIcons(!showIcons)}
+        >
+          ☰
+        </div>
         <div className={`nav-icons ${showIcons ? "show" : ""}`}>
-          <button className="theme-toggle"
-            onClick={toggleTheme}
-          >
+          <button className="theme-toggle" onClick={toggleTheme}>
             {theme === "light" ? "🌙 Dark" : "☀️ Light"}
           </button>
           <span onClick={() => nav("/cart")} className="cart-area">
@@ -311,12 +311,12 @@ const NavBar = () => {
               <div className={`logout-menu ${showLogoutMenu ? "active" : ""}`}>
                 <ul className="menu-list">
                   <li
-                      onClick={() => {
-                        nav("/profile");
-                        window.scrollTo(0, 0);
-                      }}
-                    >
-                      Profile
+                    onClick={() => {
+                      nav("/profile");
+                      window.scrollTo(0, 0);
+                    }}
+                  >
+                    Profile
                   </li>
                   <li
                     onClick={() => {

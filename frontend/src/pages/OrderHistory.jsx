@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Container, Card, Table, Alert } from 'react-bootstrap';
-import { FaBoxOpen } from 'react-icons/fa';
-import API_URL from '../config/BaseURL';
-import '../css/orderhistory.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Container, Card, Table, Alert } from "react-bootstrap";
+import { FaBoxOpen } from "react-icons/fa";
+import API_URL from "../config/BaseURL";
+import "../css/orderhistory.css";
+import { useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
-
 
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
@@ -15,7 +14,9 @@ const OrderHistory = () => {
   const fetchOrders = async () => {
     try {
       const cusid = localStorage.getItem("cusid");
-      const response = await axios.get(`${API_URL}/customer/orderhistory/${cusid}`);
+      const response = await axios.get(
+        `${API_URL}/customer/orderhistory/${cusid}`
+      );
       setOrders(response.data);
     } catch (err) {
       console.log("Error fetching orders:", err);
@@ -28,9 +29,17 @@ const OrderHistory = () => {
 
   return (
     <Container className="mt-5 mb-5 order-history-container">
-        <div className="history-top">
-              <button className="home-icon" onClick={()=>{nav("/home"); window.scrollTo(0, 0);}}><FaHome /></button>  
-                </div> 
+      <div className="history-top">
+        <button
+          className="home-icon"
+          onClick={() => {
+            nav("/home");
+            window.scrollTo(0, 0);
+          }}
+        >
+          <FaHome />
+        </button>
+      </div>
       <Card className="shadow-lg border-0 order-history-card">
         <Card.Header className="gradient-header">
           <h3 className="fw-bold mb-0">

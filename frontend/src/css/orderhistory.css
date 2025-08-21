@@ -1,82 +1,66 @@
-:root{
-  --head-background: linear-gradient(to right, #00c6ff, #0072ff);
-  --order-th-bg-color:#ffffff;
-  --oder-th-color:#333;
-  --history-card-body:#ffffff;
-}
-
-[theme-color="dark"] {
-  --head-background:linear-gradient(90deg,#a77142, #3f2f2f);
-  --order-th-bg-color:#6f6f6f;
-  --oder-th-color:#ffffff;
-  --history-card-body:#ffffff;
-}
+@import "../css/variables.css";
 
 .order-history-card {
+  border-radius: 16px;
+  margin-top: 80px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.order-history-card .history-card-body {
+  background: var(--history-card-body);
+  padding: 0;
+}
+
+.order-history-card .gradient-header {
+  background: var(--order-history-head-bg);
+  font-size: 25px;
+  text-align: center;
+  color: #ffff;
+}
+
+.modern-table thead {
+  background-color: #eaf6ff;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.order-history-card .modern-table th {
+  padding: 15px 5px;
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--order-th-color);
+  background: var(--order-th-bg-color);
+}
+
+.order-history-card .modern-table td {
+  padding: 20px 10px;
+  font-weight: 500;
+  font-size: 20px;
+  color: #333;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.45em 0.75em;
+  border-radius: 2rem;
+  text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px) {
+  .order-history-card {
     border-radius: 16px;
     margin-top: 80px;
     overflow: hidden;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
   }
-  
-  .order-history-card .history-card-body{
-      background: var(--history-card-body);
-      padding: 0;
+
+  .order-history-container {
+    display: flex;
+    flex-direction: column;
   }
 
-  
-  .order-history-card .gradient-header {
-    background: var(--head-background);
-    font-size: 25px;
-    text-align: center;
-    color: #ffff;
+  .home-icon {
+    margin-top: 20px;
   }
-  
-  .modern-table thead {
-    background-color: #eaf6ff;
-    font-weight: 600;
-    font-size: 20px;
-  }
-  
-  .order-history-card .modern-table th{
-    padding: 15px 5px; 
-    font-weight: 700;
-    font-size: 25px;
-    color:var(--oder-th-color) ;
-    background:var(--order-th-bg-color) ;
-  }
-  
-  
-  
-  .order-history-card .modern-table td {
-    padding: 20px 10px; 
-    font-weight: 500;
-    font-size: 20px;
-    color: #333;
-  }
-  
-  .badge {
-    font-size: 0.85rem;
-    padding: 0.45em 0.75em;
-    border-radius: 2rem;
-    text-transform: capitalize;
-  }
-  
-
-  @media screen  and (max-width: 768px) {
-    .order-history-card {
-      border-radius: 16px;
-      margin-top:80px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    }
-    
-    .order-history-container{
-      display: flex;
-      flex-direction: column;
-    }
-
-    .home-icon{
-      margin-top: 20px;
-    }
-  }
+}

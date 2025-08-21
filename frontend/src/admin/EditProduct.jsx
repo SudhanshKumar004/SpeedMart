@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import "../css/editproduct.css";
 
-
 const EditProduct = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
@@ -127,67 +126,69 @@ const EditProduct = () => {
 
   return (
     <>
-    <div className="editproduct-form">
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicName">
-          <Form.Label>Product Name</Form.Label>
-          <Form.Control
-            type="text"
-            value={product.name || ""}
-            name="name"
-            onChange={handleInput}
-          />
-        </Form.Group>
+      <div className="editproduct-form">
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicName">
+            <Form.Label>Product Name</Form.Label>
+            <Form.Control
+              type="text"
+              value={product.name || ""}
+              name="name"
+              onChange={handleInput}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicDescription">
-          <Form.Label>Description</Form.Label>
-          <Form.Control
-            type="text"
-            value={product.description || ""}
-            name="description"
-            onChange={handleInput}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicDescription">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              value={product.description || ""}
+              name="description"
+              onChange={handleInput}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicCategory">
-          <Form.Label>Category</Form.Label>
-          <Form.Select
-            value={product.Category || ""}
-            name="Category"
-            onChange={handleInput}
-          >
-            <option>Select Category</option>
-            {categories.map((item) => {
-              return <option value={item._id}>{item.name}</option>;
-            })}
-          </Form.Select>
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCategory">
+            <Form.Label>Category</Form.Label>
+            <Form.Select
+              value={product.Category || ""}
+              name="Category"
+              onChange={handleInput}
+            >
+              <option>Select Category</option>
+              {categories.map((item) => {
+                return <option value={item._id}>{item.name}</option>;
+              })}
+            </Form.Select>
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPrice">
-          <Form.Label>Product Price</Form.Label>
-          <Form.Control
-            type="number"
-            value={product.price || ""}
-            name="price"
-            onChange={handleInput}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPrice">
+            <Form.Label>Product Price</Form.Label>
+            <Form.Control
+              type="number"
+              value={product.price || ""}
+              name="price"
+              onChange={handleInput}
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicImage">
-          <Form.Label>Product Image</Form.Label>
-          <Form.Control
-            type="file"
-            placeholder="Enter Product Image"
-            multiple
-            onChange={handleImage}
-          />
-        </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicImage">
+            <Form.Label>Product Image</Form.Label>
+            <Form.Control
+              type="file"
+              placeholder="Enter Product Image"
+              multiple
+              onChange={handleImage}
+            />
+          </Form.Group>
 
-        <Button variant="primary" type="submit">
-          Update Product Details
-        </Button>
-      <Button onClick={deleteProduct} className="delete-btn">Delete Product</Button>
-      </Form>
+          <Button variant="primary" type="submit">
+            Update Product Details
+          </Button>
+          <Button onClick={deleteProduct} className="delete-btn">
+            Delete Product
+          </Button>
+        </Form>
       </div>
     </>
   );

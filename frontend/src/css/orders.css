@@ -1,79 +1,76 @@
-.orders-title{
-    font-family: "SUSE", sans-serif;
-    font-weight: 700;
-    width: 100%;
-    text-align: center;
-    font-size: 45px;
-    color: #ffffff;
-    margin: 5px auto;
+.orders-title {
+  font-family: "SUSE", sans-serif;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+  font-size: 45px;
+  color: #ffffff;
+  margin: 5px auto;
 }
 
-
 .orders-table-container {
-    width: 95%;
-    overflow-x: auto;
-    max-height: 500px;  
-    margin: 30px auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    background: #ffffff;
-    border: 1px solid #ddd;
+  width: 95%;
+  overflow-x: auto;
+  max-height: 500px;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border: 1px solid #ddd;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table thead {
+  background: #0d6efd;
+  color: #ffffff;
+}
+
+.orders-table-container .orders-table th {
+  color: #355bb2;
+  font-weight: 800;
+  background-color: aquamarine;
+}
+
+.orders-table-container .orders-table th,
+.orders-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.orders-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.orders-table tbody tr:hover {
+  background: #f1f1f1;
+  transition: background 0.3s;
+}
+
+.orders-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .orders-title {
+    font-size: 28px;
+    padding: 10px;
   }
-  
+
+  .orders-table-container {
+    width: 90%;
+    max-height: 300px;
+    margin: 20px;
+    overflow: auto;
+  }
+
   .orders-table {
-    width: 100%;
-    border-collapse: collapse;
+    min-width: 800px;
   }
-  
-  .orders-table thead {
-    background: #0d6efd;
-    color: #ffffff;
-  }
-
-  .orders-table-container .orders-table th{
-    color: #355bb2;
-    font-weight: 800;
-    background-color: aquamarine;
-  }
-  
-  .orders-table-container .orders-table th,
-  .orders-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .orders-table tbody tr:nth-child(even) {
-    background: #f9f9f9;
-  }
-  
-  .orders-table tbody tr:hover {
-    background: #f1f1f1;
-    transition: background 0.3s;
-  }
-  
-  .orders-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 1;
-  }
-  
-
-  @media screen and (max-width: 768px) {
-    .orders-title {
-      font-size: 28px;
-      padding: 10px;
-    }
-  
-    .orders-table-container {
-      width: 90%;
-      max-height: 300px;
-      margin: 20px;
-      overflow: auto;
-    }
-   
-    .orders-table{
-      min-width: 800px;
-    }
-  }
-  
+}

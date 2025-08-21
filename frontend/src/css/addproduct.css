@@ -22,8 +22,6 @@
   font-size: 20px;
 }
 
-
-
 .addproduct-form .form-control,
 .addproduct-form .form-select {
   width: 100%;
@@ -42,11 +40,10 @@
   background: #fff;
 }
 
-
 .addproduct-form button {
   grid-column: span 2;
   padding: 16px;
-  background: linear-gradient(90deg,  #355bb2 0%, #0ea5e9 100%);
+  background: linear-gradient(90deg, #355bb2 0%, #0ea5e9 100%);
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -64,7 +61,6 @@
 .addproduct-form button:active {
   transform: translateY(0);
 }
-
 
 @media screen and (max-width: 768px) {
   .addproduct-form {
@@ -92,5 +88,4 @@
     flex-direction: column;
     gap: 10px;
   }
-  
 }

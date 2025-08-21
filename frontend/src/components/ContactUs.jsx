@@ -1,23 +1,19 @@
-import React, { useState } from 'react';
-import '../css/contact.css';
-import API_URL from '../config/BaseURL';
-import axios from 'axios';
-import { toast } from 'react-toastify';
-
-
+import React, { useState } from "react";
+import "../css/contact.css";
+import API_URL from "../config/BaseURL";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ContactUs = () => {
-
-
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -25,21 +21,21 @@ const ContactUs = () => {
     let api = `${API_URL}/customer/contactus`;
     try {
       let response = await axios.post(api, formData);
-      toast.success(response.data.msg , {
-                position: "top-center",
-                autoClose: 2000,
-                theme: "colored",
-                closeOnClick: true,
-                pauseOnHover: false
-              });
+      toast.success(response.data.msg, {
+        position: "top-center",
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: false,
+      });
     } catch (error) {
       toast.error(error.response.data.msg, {
-                position: "top-center",
-                autoClose: 2000,
-                theme: "colored",
-                closeOnClick: true,
-                pauseOnHover: false
-              });
+        position: "top-center",
+        autoClose: 2000,
+        theme: "colored",
+        closeOnClick: true,
+        pauseOnHover: false,
+      });
     }
   };
 

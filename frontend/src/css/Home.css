@@ -1,22 +1,4 @@
-:root{
-  /* Light Mode */
-  --home-bg:linear-gradient(90deg,#ffffff,#b7dff1);
-  --primary-color:#000000;
-  --delivary-head:#272838;
-  --delivary-sub:#272838;
-  --para-color:#272838;
-
-}
-
-[theme-color="dark"] {
-  /* Dark Mode */
-  --home-bg:linear-gradient(90deg,#3f2f2f,#071e2a);
-  --primary-color:#ffffff;
-  --delivary-head:#ffffff;
-  --delivary-sub:#ffffff;
-  --para-color:#ffffff;
-}
-
+@import "../css/variables.css";
 
 .vcontainer {
   position: relative;
@@ -25,7 +7,7 @@
   overflow: hidden;
 }
 
-.home-container{
+.home-container {
   background: var(--home-bg);
 }
 
@@ -33,7 +15,7 @@
   height: 100vh;
   padding-top: 20px;
   background: var(--home-bg);
-  color: var(--primary-color);
+  color: var(--home-primary-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -73,13 +55,16 @@
   background-color: #00ddb3;
 }
 
-
-
 .product-slider {
   overflow: hidden;
   width: 100%;
-  mask-image: linear-gradient(to right, transparent, palevioletred 2%, skyblue 98%, transparent);
-
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    palevioletred 2%,
+    skyblue 98%,
+    transparent
+  );
 }
 
 .product-track {
@@ -88,7 +73,6 @@
   height: 300px;
   animation: scroll 60s linear infinite;
 }
-
 
 .product-card {
   width: 22rem;
@@ -106,7 +90,6 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
 
-
 .product-card img {
   height: 300px;
   width: 100%;
@@ -119,7 +102,6 @@
   transform: scale(1);
 }
 
-
 /* Animation */
 @keyframes scroll {
   0% {
@@ -127,23 +109,20 @@
   }
   50% {
     transform: translateX(-50%);
-  } 
+  }
   100% {
     transform: translateX(-100%);
   }
-
 }
 
-
-
-.buttons{
+.buttons {
   display: flex;
   flex-wrap: nowrap;
 }
 
 .secondary-page {
   height: 100vh;
-  background: url('../media/heroimage.png');
+  background: url("../media/heroimage.png");
   color: black;
   display: flex;
   align-items: center;
@@ -152,47 +131,46 @@
   /* padding: 2rem; */
   clip-path: polygon(0 15%, 100% 0, 100% 85%, 0 100%);
 }
-.main-title{
+.main-title {
   font-weight: 700;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: clamp(50px, 8vw, 100px);
   font-weight: bold;
-  background: url('https://img.freepik.com/photos-premium/fond-ecran-texture-coloree-rouge-bleu-fond-abstrait_611557-567.jpg') no-repeat center/cover; 
+  background: url("https://img.freepik.com/photos-premium/fond-ecran-texture-coloree-rouge-bleu-fond-abstrait_611557-567.jpg")
+    no-repeat center/cover;
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
 }
 
-.delivery-head{
+.delivery-head {
   text-align: center;
   font-size: clamp(20px, 4vw, 100px);
   margin-top: clamp(10px, 4vw, 60px);
   font-weight: bold;
-  color:var(--delivary-head);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: var(--delivary-head);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
-.delivery-sub{
+.delivery-sub {
   text-align: center;
   font-size: clamp(20px, 4vw, 60px);
   margin-bottom: 60px;
   font-weight: bold;
-  color:var(--delivary-sub);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: var(--delivary-sub);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
-
-
 
 @media screen and (max-width: 426px) {
   .secondary-page {
     height: 40vh;
     width: 100vw;
-    background: url('../media/heroimage.png') no-repeat center/cover;
+    background: url("../media/heroimage.png") no-repeat center/cover;
     color: black;
     text-align: center;
     padding-top: 20px;
   }
-  
 }
