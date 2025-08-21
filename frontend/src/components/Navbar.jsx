@@ -311,6 +311,14 @@ const NavBar = () => {
               <div className={`logout-menu ${showLogoutMenu ? "active" : ""}`}>
                 <ul className="menu-list">
                   <li
+                      onClick={() => {
+                        nav("/profile");
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      Profile
+                  </li>
+                  <li
                     onClick={() => {
                       nav("/trackorder");
                       window.scrollTo(0, 0);

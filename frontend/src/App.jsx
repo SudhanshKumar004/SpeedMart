@@ -23,6 +23,7 @@ import OrderDetail from './pages/OrderDetail';
 import TrackOrder from './pages/TrackOrder';
 import FAQ from './pages/Faq';
 import OrderHistory from './pages/OrderHistory';
+import Profile from './pages/Profile';
 
 const App = () => {
   return (
@@ -45,6 +46,7 @@ const App = () => {
           <Route path='orderdetail' element={<OrderDetail />} />
           <Route path='trackorder' element={<TrackOrder />} />
           <Route path='orderhistory' element={<OrderHistory />} />
+          <Route path='profile' element={<Profile/>}/>
           <Route path='faq' element={<FAQ />} />
         </Route>
 

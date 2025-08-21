@@ -26,7 +26,6 @@ const Home = () => {
     if(token){
     let api = `${API_URL}/customer/authenticate`;
     const response = await axios.get(api ,{headers : {Authorization: `Bearer ${token}`}});
-    console.log(response.data);
     localStorage.setItem("cusname", response.data.name);
     localStorage.setItem("cusemail", response.data.email);
     localStorage.setItem("cusid", response.data._id);
@@ -43,7 +42,6 @@ const Home = () => {
     
       const response = await axios.get(api);
         setmydata(response.data);  
-        console.log(response.data);
         
     } 
     

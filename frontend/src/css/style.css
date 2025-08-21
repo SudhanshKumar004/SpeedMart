@@ -613,6 +613,13 @@ body {
   .cart-area span{
     background: var(--cart-span-bg-mobile);
   }
-  
-  
+
+  .logout-menu.active{
+    position: relative;
+    top: 10px;
+    right: 20px;
+  }
+  .menu-list li{
+    margin: 5px 0;
+  }
 }

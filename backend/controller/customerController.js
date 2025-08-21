@@ -208,6 +208,58 @@ const orderHistory = async(req, res) => {
     }
 }
 
+const profileUpdate = async(req, res) =>{
+    const {cusid} = req.body;
+    try {
+       const Customer = await customerModel.findById(cusid).select("-password -cpassword");
+        res.status(200).send(Customer); 
+    } catch (error) {
+      res.status(400).send("Cannot Fetch Customer Details");
+    }
+}
+
+
+const profileUpdateData = async(req,res) =>{
+    const {cusid, name, email, number, address, city, state} = req.body;
+    const profilePicture = req.files[0].path;
+
+    try {
+        const updateCustomer = await customerModel.findOneAndUpdate({_id:cusid},{$set:{name:name,
+                                                                                  email:email,
+                                                                                  number:number,
+                                                                                  address:address,
+                                                                                  city:city,
+                                                                                  state:state,
+                                                                                  customerImage:profilePicture}});
+            if(!updateCustomer) {
+                return res.status(404).send({ msg: "Invalid Customer Id!" });
+            }
+
+            res.status(200).send("Profile Updated Successfully");
+            }
+            
+            catch (error) {
+                console.log(error);
+    }
+
+}
+
+
+const deleteImage = async(req,res) => {
+    const {cusid} = req.body;
+    try {
+        const updateCustomer = await customerModel.findOneAndUpdate({_id:cusid},{$set:{customerImage:""}});
+        if(!updateCustomer) {
+            return res.status(404).send({ msg: "Invalid Customer Id!" });
+        }
+        res.status(200).send("Image Deleted Successfully");
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
 module.exports = {
     customerRegistration,
     customerLogin,
@@ -219,5 +271,8 @@ module.exports = {
     customerCODorders,
     orderDetail,
     customerDetails,
-    orderHistory
+    orderHistory,
+    profileUpdate,
+    profileUpdateData,
+    deleteImage
 }
