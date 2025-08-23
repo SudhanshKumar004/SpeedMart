@@ -43,7 +43,7 @@
   background: var(--icon-bg);
   border: none;
   padding: 6px;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -59,9 +59,10 @@
   top: 10px;
   right: 10px;
   background: var(--icon-bg);
+  color: var(--delete-icon-color);
   border: none;
-  padding: 6px;
-  font-size: 16px;
+  padding: 6px 8px;
+  font-size: 18px;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);

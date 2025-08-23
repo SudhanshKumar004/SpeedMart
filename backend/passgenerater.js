@@ -1,18 +1,16 @@
+const strings =
+  "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$&*";
 
-const strings = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!@#$&*"
+const passGenerate = () => {
+  let myPass = "";
 
-const passGenerate=()=>{
- let myPass = "";
+  for (let i = 0; i < 6; i++) {
+    myPass += strings.charAt(Math.random() * strings.length);
+  }
 
- for(let i = 0; i < 6 ;i++)
- {
-        myPass += strings.charAt(Math.random() * strings.length);
- }
+  return myPass;
+};
 
- return myPass;
-}
-
-
- module.exports = {
-    passGenerate
- }
+module.exports = {
+  passGenerate,
+};

@@ -1,4 +1,6 @@
-@import "../css//variables.css" * {
+@import "../css//variables.css"
+ 
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -160,8 +162,15 @@ body {
 
 .login-area span {
   padding: 0px;
-  font-size: 20px;
+  font-size: 15px;
   cursor: pointer;
+}
+
+.login-area .user-image{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .cart-area {

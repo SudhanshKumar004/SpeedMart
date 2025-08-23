@@ -50,7 +50,7 @@ const Login = ({
             </form>
             <h4 className="register">
               Don't have an account?{" "}
-              <Link to="/registration" onClick={() => handleClose1()}>
+              <Link to="/registration" onClick={() => {handleClose1(); window.scrollTo(0, 0); }}>
                 Register Here
               </Link>
             </h4>

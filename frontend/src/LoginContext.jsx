@@ -8,6 +8,7 @@ const LoginContext = ({ children }) => {
   const [userEmail, setUserEmail] = useState("");
   const [searchdata, setSearchdata] = useState("");
   const [searchproduct, setSearchproduct] = useState([]);
+  const [customerImage, setCustomerImage] = useState(false);
 
   return (
     <>
@@ -23,6 +24,8 @@ const LoginContext = ({ children }) => {
           setSearchdata,
           searchproduct,
           setSearchproduct,
+          customerImage,
+          setCustomerImage,
         }}
       >
         {children}

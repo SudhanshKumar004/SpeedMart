@@ -21,7 +21,7 @@ const orderSchema = new mongoose.Schema({
     required: true,
   },
 
-   amount: {
+  amount: {
     type: Number,
     required: true,
   },
@@ -29,7 +29,7 @@ const orderSchema = new mongoose.Schema({
   gst: {
     type: Number,
     required: true,
-  },  
+  },
 
   shippingcharge: {
     type: Number,
@@ -40,13 +40,13 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-   
+
   cusname: {
     type: String,
     required: true,
   },
 
-   address: {
+  address: {
     type: String,
     required: true,
   },
@@ -55,7 +55,7 @@ const orderSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  
+
   email: {
     type: String,
     required: true,
@@ -70,7 +70,7 @@ const orderSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  
+
   orderAt: {
     type: Date,
     default: Date.now,
@@ -80,7 +80,7 @@ const orderSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "customer",
     required: true,
-  }
+  },
 });
 
 module.exports = mongoose.model("Order", orderSchema);

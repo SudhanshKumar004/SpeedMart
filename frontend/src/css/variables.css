@@ -145,7 +145,11 @@
   --profile-head-color: #2b2d42;
   --profile-button-color: #2b2d42;
   --icon-bg: #8ec2f6;
+  --delete-icon-color:red;  
 }
+
+
+
 
 [theme-color="dark"] {
   /* -------GLOBAL------- */
@@ -294,4 +298,5 @@
   --profile-head-color: #ffffff;
   --profile-p-color: #ffffff;
   --icon-bg: #000000;
+  --delete-icon-color:#ffffff;
 }

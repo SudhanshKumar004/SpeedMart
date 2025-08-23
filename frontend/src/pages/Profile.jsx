@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../css/profile.css";
 import API_URL from "../config/BaseURL";
 import axios from "axios";
@@ -6,10 +6,13 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { MyContext } from "../LoginContext";
 
 const Profile = () => {
   const [customerData, setCustomerData] = useState({});
   const [image, setImage] = useState("");
+  const { setCustomerImage } = useContext(MyContext);
 
   const loadData = async () => {
     let api = `${API_URL}/customer/profileupdate`;
@@ -39,9 +42,12 @@ const Profile = () => {
     for (let key in customerData) {
       formData.append(key, customerData[key]);
     }
+    
 
-    for (let i = 0; i < image.length; i++) {
+      if(image && image.length > 0){
+        for (let i = 0; i < image.length; i++) {
       formData.append("images", image[i]);
+      }
     }
 
     const api = `${API_URL}/customer/profileupdatedata`;
@@ -59,6 +65,7 @@ const Profile = () => {
         closeOnClick: true,
         pauseOnHover: false,
       });
+      setCustomerImage((prev) => !prev);
     } catch (error) {
       console.log(error);
       alert("Failed to update profile. Please try again.");
@@ -67,7 +74,7 @@ const Profile = () => {
     window.scrollTo(0, 0);
   };
 
-  const ImageDelete = async (id) => {
+  const ImageDelete = async () => {
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "Do you want to remove your profile picture!",
@@ -90,7 +97,7 @@ const Profile = () => {
           timer: 2000,
           showConfirmButton: false,
         });
-
+        setCustomerImage((prev) => !prev);
         loadData();
       } catch (error) {
         console.log(error);
@@ -164,7 +171,7 @@ const Profile = () => {
             ✏️{" "}
           </button>
           <button type="button" className="delete-icon" onClick={ImageDelete}>
-            ❌
+            <RiDeleteBin6Line />
           </button>
         </div>
 

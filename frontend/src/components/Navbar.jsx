@@ -12,7 +12,7 @@ import API_URL from "../config/BaseURL";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import "../css/model.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MyContext } from "../LoginContext";
 import { FaRegUserCircle } from "react-icons/fa";
 import Login from "../pages/Login";
@@ -24,7 +24,7 @@ import { ShoppingCart } from "lucide-react";
 import { PiShoppingCartLight } from "react-icons/pi";
 import { CiLogout } from "react-icons/ci";
 import { toast } from "react-toastify";
-
+import { cartClear } from "../CartSlice";
 const NavBar = () => {
   const [input, setInput] = useState({
     email: "",
@@ -42,6 +42,8 @@ const NavBar = () => {
   const [adminid, setAdminid] = useState("");
   const [password, setPassword] = useState("");
 
+  const [customer, setCustomer] = useState("");
+  const dispatch = useDispatch();
   const {
     logedIn,
     setLogedIn,
@@ -49,6 +51,8 @@ const NavBar = () => {
     searchdata,
     setSearchdata,
     setSearchproduct,
+    customerImage,
+    setCustomerImage
   } = useContext(MyContext);
 
   const [categories, setCategories] = useState([]);
@@ -130,7 +134,10 @@ const NavBar = () => {
       });
 
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("cusid", response.data.Customer._id);
       setLogedIn(true);
+      setCustomer(response.data.Customer);
+      setCustomerImage(response.data.Customer.customerImage);
       setShow1(false);
       setInput((values) => ({ ...values, email: "", password: "" }));
     } catch (error) {
@@ -154,6 +161,8 @@ const NavBar = () => {
       closeOnClick: true,
       pauseOnHover: false,
     });
+    setCustomerImage((prev) => !prev);
+    dispatch(cartClear({id:"all"}));
   };
 
   const handleSearchInput = (e) => {
@@ -174,10 +183,23 @@ const NavBar = () => {
       nav("/searchresult");
     }
   };
+
+  const loadCustomer = async () => {
+    let api = `${API_URL}/customer/customerdetails`;
+    try {
+      let response = await axios.post(api, {
+        cusid: localStorage.getItem("cusid"),
+      });
+      setCustomer(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     fetchCategories();
     document.documentElement.setAttribute("theme-color", theme);
-  }, [theme]);
+    loadCustomer();
+  }, [theme, customerImage]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -288,24 +310,23 @@ const NavBar = () => {
             }}
             className="login-area"
           >
-            <FaRegUserCircle
-              style={{ color: "palevioletred", marginTop: "5px" }}
-            />
-            <span>
-              {logedIn ? (
-                <span
-                  style={{
-                    color: "teal",
-                    fontWeight: "bold",
-                    fontSize: "15px",
-                  }}
-                >
-                  {userName}
-                </span>
-              ) : (
-                "Login"
-              )}
-            </span>
+            {logedIn ? (
+              <img
+                src={
+  
+      customer.customerImage
+                    ? `${API_URL}/${customer.customerImage}`
+                    : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
+                }
+                alt=""
+                className="user-image"
+              />
+            ) : (
+              <FaRegUserCircle
+                style={{ color: "palevioletred", marginTop: "5px" }}
+              />
+            )}
+            <span>{logedIn ? <span>{userName}</span> : "Login"}</span>
 
             {logedIn && showLogoutMenu && (
               <div className={`logout-menu ${showLogoutMenu ? "active" : ""}`}>
