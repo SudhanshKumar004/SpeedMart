@@ -42,11 +42,10 @@ const Profile = () => {
     for (let key in customerData) {
       formData.append(key, customerData[key]);
     }
-    
 
-      if(image && image.length > 0){
-        for (let i = 0; i < image.length; i++) {
-      formData.append("images", image[i]);
+    if (image && image.length > 0) {
+      for (let i = 0; i < image.length; i++) {
+        formData.append("images", image[i]);
       }
     }
 
@@ -150,8 +149,10 @@ const Profile = () => {
         <div className="customerImage">
           <img
             src={
-              customerData.customerImage
-                ? `${API_URL}/${customerData.customerImage}`
+              customerData?.customerImage
+                ? customerData.customerImage.startsWith("http")
+                  ? customerData.customerImage
+                  : `${API_URL}/${customerData.customerImage}`
                 : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
             }
             alt="Customer"

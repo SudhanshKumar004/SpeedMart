@@ -52,7 +52,7 @@ const NavBar = () => {
     setSearchdata,
     setSearchproduct,
     customerImage,
-    setCustomerImage
+    setCustomerImage,
   } = useContext(MyContext);
 
   const [categories, setCategories] = useState([]);
@@ -162,7 +162,7 @@ const NavBar = () => {
       pauseOnHover: false,
     });
     setCustomerImage((prev) => !prev);
-    dispatch(cartClear({id:"all"}));
+    dispatch(cartClear({ id: "all" }));
   };
 
   const handleSearchInput = (e) => {
@@ -313,9 +313,10 @@ const NavBar = () => {
             {logedIn ? (
               <img
                 src={
-  
-      customer.customerImage
-                    ? `${API_URL}/${customer.customerImage}`
+                  customer?.customerImage
+                    ? customer.customerImage.startsWith("http")
+                      ? customer.customerImage
+                      : `${API_URL}/${customer.customerImage}`
                     : "https://cdn-icons-png.flaticon.com/512/149/149071.png"
                 }
                 alt=""
