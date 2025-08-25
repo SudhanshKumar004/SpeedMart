@@ -25,6 +25,9 @@ mongoose.connect(process.env.DBCONN).then(() => {
 app.use("/admin", adminRoute);
 app.use("/customer", customerRoute);
 app.use("/api/payment", paymentRoute);
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+})
 
 app.listen(PORT, () => {
   console.log(`Server Running on Port ${PORT}`);
