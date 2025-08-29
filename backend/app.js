@@ -20,6 +20,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 mongoose.connect(process.env.DBCONN).then(() => {
   console.log("DB Connected!");
+  console.log("Database name:", mongoose.connection.name);
 });
 
 app.use("/admin", adminRoute);
@@ -27,7 +28,7 @@ app.use("/customer", customerRoute);
 app.use("/api/payment", paymentRoute);
 app.get("/", (req, res) => {
   res.send("Hello World!");
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server Running on Port ${PORT}`);
