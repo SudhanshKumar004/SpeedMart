@@ -41,8 +41,8 @@ const OrderHistory = () => {
         </button>
       </div>
       <Card className="shadow-lg border-0 order-history-card">
-        <Card.Header className="gradient-header">
-          <h3 className="fw-bold mb-0">
+        <Card.Header className="gradient-header order-history-head">
+          <h3 className="fw-bold mb-0 order-history-title">
             <FaBoxOpen className="me-2" /> Your Order History
           </h3>
         </Card.Header>

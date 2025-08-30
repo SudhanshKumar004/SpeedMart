@@ -173,7 +173,7 @@ body .head {
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 430px) {
   .clear-btn {
     padding: 12px 30px;
     font-size: 16px;
@@ -182,7 +182,7 @@ body .head {
     cursor: pointer;
     margin-bottom: 20px;
     position: relative;
-    left: 250px;
+    left: 0px;
   }
 
   .back-btn {

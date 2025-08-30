@@ -11,7 +11,7 @@
 .track-heading {
   text-align: center;
   font-size: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   color: teal;
 }
 
@@ -24,6 +24,7 @@
 .home-icon {
   position: absolute;
   right: 10px;
+  top: 150px;
   background-color: #007bff;
   color: white;
   border: none;
