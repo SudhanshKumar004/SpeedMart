@@ -57,7 +57,7 @@ const Cart = () => {
           <td>{key.qnty * key.price}</td>
           <td>
             <MdOutlineDeleteOutline
-              className="delete-icon"
+              className="item-delete-icon"
               fontSize={25}
               cursor={"pointer"}
               onClick={() => {

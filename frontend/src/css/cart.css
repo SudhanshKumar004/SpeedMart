@@ -141,13 +141,13 @@ body .head {
   transform: scale(1.2);
 }
 
-.delete-icon {
+.item-delete-icon {
   color: #ff6b6b;
   cursor: pointer;
   transition: transform 0.2s;
 }
 
-.delete-icon:hover {
+.item-delete-icon:hover {
   transform: rotate(15deg) scale(1.2);
 }
 

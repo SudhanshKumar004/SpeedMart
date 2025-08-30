@@ -220,6 +220,16 @@ const customerDetails = async (req, res) => {
     const Customer = await customerModel.findById(cusid);
     res.status(200).send(Customer);
   } catch (error) {
+    res.status(400).send({message:error.message});
+  }
+};
+
+const customerShippingDetails = async (req, res) => {
+  const { cusid } = req.body;
+  try {
+    const Customer = await shippingModel.findOne({ cusid: cusid });
+    res.status(200).send(Customer);
+  } catch (error) {
     res.status(400).send("Something went wrong");
   }
 };
@@ -302,6 +312,7 @@ module.exports = {
   customerCODorders,
   orderDetail,
   customerDetails,
+  customerShippingDetails,
   orderHistory,
   profileUpdate,
   profileUpdateData,

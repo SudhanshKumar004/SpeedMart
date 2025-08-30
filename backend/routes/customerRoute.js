@@ -13,6 +13,7 @@ route.post("/contactus", customerController.contactUs);
 route.post("/customercodorders", customerController.customerCODorders);
 route.post("/orderdetail", customerController.orderDetail);
 route.post("/customerdetails", customerController.customerDetails);
+route.post("/customershippingdetails", customerController.customerShippingDetails);
 route.get("/orderhistory/:cusid", customerController.orderHistory);
 route.post("/profileupdate", customerController.profileUpdate);
 route.post(

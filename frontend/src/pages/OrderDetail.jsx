@@ -17,7 +17,7 @@ const OrderDetail = () => {
 
   const loadData = async () => {
     let api = `${API_URL}/customer/orderdetail`;
-    let api1 = `${API_URL}/customer/customerdetails`;
+    let api1 = `${API_URL}/customer/customershippingdetails`;
     try {
       let response = await axios.post(api, {
         cusid: localStorage.getItem("cusid"),
