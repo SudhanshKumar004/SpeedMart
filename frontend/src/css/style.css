@@ -485,7 +485,7 @@ body {
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 430px) {
   .top-navbar {
     padding: 10px 0;
     font-size: 20px;
@@ -559,5 +559,9 @@ body {
   }
   .menu-list li {
     margin: 5px 0;
+  }
+
+  .search-area input{
+    padding: 5px 0px;
   }
 }

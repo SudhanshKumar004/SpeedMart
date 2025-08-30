@@ -27,7 +27,7 @@ const Checkout = () => {
   const Products = useSelector((state) => state.myCart.cartItems);
 
   const productPrint = Products.map((key) => {
-    totalAmnt += key.price * key.qnty;
+    totalAmnt += Math.round(key.price * key.qnty);
     gst = Math.round(totalAmnt * 0.12);
 
     return (

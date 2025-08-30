@@ -19,9 +19,11 @@ const Cart = () => {
   const dispatch = useDispatch();
   const nav = useNavigate();
   let totalAmnt = 0;
+  let itemTotal = 0;
 
   const ans = Products.map((key) => {
-    totalAmnt += key.price * key.qnty;
+    totalAmnt += Math.round(key.price * key.qnty);
+    itemTotal += Math.round(key.qnty * key.price);
     return (
       <>
         <tr>
@@ -54,7 +56,7 @@ const Cart = () => {
               />
             </div>
           </td>
-          <td>{key.qnty * key.price}</td>
+          <td>{itemTotal}</td>
           <td>
             <MdOutlineDeleteOutline
               className="item-delete-icon"

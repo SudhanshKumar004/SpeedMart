@@ -127,3 +127,21 @@
 .proceed-btn:hover {
   background-color: #0f766e;
 }
+
+
+
+@media screen and (max-width: 430px) {
+  .payment-option{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .payment-container{
+    padding: 0px 30px;
+  }
+
+  .payment-back-button{
+    margin-top: 50px;
+  }
+}

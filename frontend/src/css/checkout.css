@@ -256,7 +256,7 @@
   }
 }
 
-@media screen and (max-width: 426px) {
+@media screen and (max-width: 430px) {
   .head h1 {
     margin-left: 40px;
   }
@@ -292,12 +292,13 @@
     margin-top: 20px;
     font-size: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   .coupon .title-span {
-    width: 100%;
+    width: 70%;
     font-weight: 400;
+    font-size: 17px;
   }
 
   .coupan-title .title2-span {
@@ -310,6 +311,7 @@
     width: 10%;
     text-align: right;
     font-weight: 400;
+    font-size: 17px;
   }
 
   .coupan-title .total-span {
