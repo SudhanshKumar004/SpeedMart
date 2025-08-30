@@ -227,7 +227,7 @@ const customerDetails = async (req, res) => {
 const customerShippingDetails = async (req, res) => {
   const { cusid } = req.body;
   try {
-    const Customer = await shippingModel.findOne({ cusid: cusid });
+    const Customer = await shippingModel.findOne({ cusid: cusid }).sort({ createdAt: -1 });
     res.status(200).send(Customer);
   } catch (error) {
     res.status(400).send("Something went wrong");
